@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <rect width="760" height="420" fill="white"/>
+
+  <!-- Title -->
+  <text x="380" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">PS 카드 프로모션 이벤트 매출/PU (1월 ~ 2월)</text>
+
+  <!-- Chart area -->
+  <g transform="translate(80, 50)">
+    <!-- Grid lines -->
+    <line x1="0" y1="0" x2="580" y2="0" stroke="#eee" stroke-width="1"/>
+    <line x1="0" y1="52" x2="580" y2="52" stroke="#eee" stroke-width="1"/>
+    <line x1="0" y1="104" x2="580" y2="104" stroke="#eee" stroke-width="1"/>
+    <line x1="0" y1="156" x2="580" y2="156" stroke="#eee" stroke-width="1"/>
+    <line x1="0" y1="208" x2="580" y2="208" stroke="#eee" stroke-width="1"/>
+    <line x1="0" y1="260" x2="580" y2="260" stroke="#999" stroke-width="1"/>
+
+    <!-- Left Y-axis labels (Revenue) -->
+    <text x="-8" y="5" text-anchor="end" font-size="10" fill="#888">20,000</text>
+    <text x="-8" y="57" text-anchor="end" font-size="10" fill="#888">16,000</text>
+    <text x="-8" y="109" text-anchor="end" font-size="10" fill="#888">12,000</text>
+    <text x="-8" y="161" text-anchor="end" font-size="10" fill="#888">8,000</text>
+    <text x="-8" y="213" text-anchor="end" font-size="10" fill="#888">4,000</text>
+    <text x="-8" y="265" text-anchor="end" font-size="10" fill="#888">0</text>
+    <text x="-45" y="130" text-anchor="middle" font-size="11" fill="#666" transform="rotate(-90,-45,130)">매출</text>
+
+    <!-- Right Y-axis labels (PU) -->
+    <text x="588" y="5" text-anchor="start" font-size="10" fill="#888">500</text>
+    <text x="588" y="57" text-anchor="start" font-size="10" fill="#888">400</text>
+    <text x="588" y="109" text-anchor="start" font-size="10" fill="#888">300</text>
+    <text x="588" y="161" text-anchor="start" font-size="10" fill="#888">200</text>
+    <text x="588" y="213" text-anchor="start" font-size="10" fill="#888">100</text>
+    <text x="588" y="265" text-anchor="start" font-size="10" fill="#888">0</text>
+    <text x="625" y="130" text-anchor="middle" font-size="11" fill="#666" transform="rotate(90,625,130)">PU</text>
+
+    <!-- Bar groups - 5 stages -->
+    <!-- 1단계: Jan=11362 (max 20000 → h=147), Feb=17176 (h=223) -->
+    <g transform="translate(38,0)">
+      <rect x="0" y="112.6" width="36" height="147.4" fill="#4472C4" rx="2"/>
+      <rect x="40" y="37.1" width="36" height="222.9" fill="#ED7D31" rx="2"/>
+      <text x="38" y="278" text-anchor="middle" font-size="11" fill="#555">1단계</text>
+    </g>
+
+    <!-- 2단계: Jan=5913 (h=76.8), Feb=8937 (h=116.2) -->
+    <g transform="translate(154,0)">
+      <rect x="0" y="183.2" width="36" height="76.8" fill="#4472C4" rx="2"/>
+      <rect x="40" y="143.8" width="36" height="116.2" fill="#ED7D31" rx="2"/>
+      <text x="38" y="278" text-anchor="middle" font-size="11" fill="#555">2단계</text>
+    </g>
+
+    <!-- 3단계: Jan=11125 (h=144.6), Feb=17889 (h=232.6) -->
+    <g transform="translate(270,0)">
+      <rect x="0" y="115.4" width="36" height="144.6" fill="#4472C4" rx="2"/>
+      <rect x="40" y="27.4" width="36" height="232.6" fill="#ED7D31" rx="2"/>
+      <text x="38" y="278" text-anchor="middle" font-size="11" fill="#555">3단계</text>
+    </g>
+
+    <!-- 4단계: Jan=9900 (h=128.7), Feb=19404 (h=252.3) -->
+    <g transform="translate(386,0)">
+      <rect x="0" y="131.3" width="36" height="128.7" fill="#4472C4" rx="2"/>
+      <rect x="40" y="7.7" width="36" height="252.3" fill="#ED7D31" rx="2"/>
+      <text x="38" y="278" text-anchor="middle" font-size="11" fill="#555">4단계</text>
+    </g>
+
+    <!-- 5단계: Jan=11400 (h=148.2), Feb=20000 (h=260) -->
+    <g transform="translate(502,0)">
+      <rect x="0" y="111.8" width="36" height="148.2" fill="#4472C4" rx="2"/>
+      <rect x="40" y="0" width="36" height="260" fill="#ED7D31" rx="2"/>
+      <text x="38" y="278" text-anchor="middle" font-size="11" fill="#555">5단계</text>
+    </g>
+
+    <!-- PU Lines -->
+    <!-- Jan PU: 299,219,125,75,57 → scaled to 260px (max 500) -->
+    <!-- y = 260 - (val/500)*260 -->
+    <polyline points="56,104.4 172,146.1 288,195 404,221 520,230.4"
+            fill="none" stroke="#A5A5A5" stroke-width="2.5"/>
+    <circle cx="56" cy="104.4" r="4" fill="#A5A5A5"/>
+    <circle cx="172" cy="146.1" r="4" fill="#A5A5A5"/>
+    <circle cx="288" cy="195" r="4" fill="#A5A5A5"/>
+    <circle cx="404" cy="221" r="4" fill="#A5A5A5"/>
+    <circle cx="520" cy="230.4" r="4" fill="#A5A5A5"/>
+    <text x="56" y="97" text-anchor="middle" font-size="10" fill="#777">299</text>
+    <text x="172" y="139" text-anchor="middle" font-size="10" fill="#777">219</text>
+    <text x="288" y="188" text-anchor="middle" font-size="10" fill="#777">125</text>
+    <text x="404" y="214" text-anchor="middle" font-size="10" fill="#777">75</text>
+    <text x="520" y="223" text-anchor="middle" font-size="10" fill="#777">57</text>
+
+    <!-- Feb PU: 452,331,201,147,100 -->
+    <polyline points="96,24.9 212,87.8 328,155.5 444,183.6 560,208"
+            fill="none" stroke="#FFC000" stroke-width="2.5"/>
+    <rect x="92" y="20.9" width="8" height="8" fill="#FFC000"/>
+    <rect x="208" y="83.8" width="8" height="8" fill="#FFC000"/>
+    <rect x="324" y="151.5" width="8" height="8" fill="#FFC000"/>
+    <rect x="440" y="179.6" width="8" height="8" fill="#FFC000"/>
+    <rect x="556" y="204" width="8" height="8" fill="#FFC000"/>
+    <text x="96" y="16" text-anchor="middle" font-size="10" fill="#CC9900" font-weight="bold">452</text>
+    <text x="212" y="78" text-anchor="middle" font-size="10" fill="#CC9900" font-weight="bold">331</text>
+    <text x="328" y="145" text-anchor="middle" font-size="10" fill="#CC9900" font-weight="bold">201</text>
+    <text x="444" y="173" text-anchor="middle" font-size="10" fill="#CC9900" font-weight="bold">147</text>
+    <text x="560" y="198" text-anchor="middle" font-size="10" fill="#CC9900" font-weight="bold">100</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(180, 380)">
+    <rect x="0" y="0" width="14" height="14" fill="#4472C4" rx="2"/>
+    <text x="18" y="12" font-size="11" fill="#555">1월-매출</text>
+    <rect x="90" y="0" width="14" height="14" fill="#ED7D31" rx="2"/>
+    <text x="108" y="12" font-size="11" fill="#555">2월-매출</text>
+    <rect x="180" y="0" width="14" height="14" fill="#A5A5A5" rx="2"/>
+    <text x="198" y="12" font-size="11" fill="#555">1월-PU</text>
+    <rect x="270" y="0" width="14" height="14" fill="#FFC000" rx="2"/>
+    <text x="288" y="12" font-size="11" fill="#555">2월-PU</text>
+  </g>
+</svg>

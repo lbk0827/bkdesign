@@ -71,3 +71,10 @@ function renderCareerDurations() {
 // 최초 실행 + 1분마다 갱신
 renderCareerDurations();
 setInterval(renderCareerDurations, 60 * 1000);
+
+// ===== 이미지 드래그 방지 =====
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
