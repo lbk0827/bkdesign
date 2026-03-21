@@ -332,11 +332,19 @@ ul li {
 .timeline-projects li {
     background: none !important;
     border-radius: 0 !important;
-    padding: 7px 0 !important;
+    padding: 7px 0 7px 16px !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid #1e1e2a !important;
     color: #bbb;
     font-size: 14px;
+    position: relative;
+}
+
+.timeline-projects li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: #666;
 }
 
 .timeline-projects li:last-child {
@@ -515,6 +523,22 @@ ul li {
     object-fit: cover;
 }
 
+.proj-thumb-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.proj-thumbnail-split {
+    display: flex;
+}
+
+.proj-thumb-half {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .proj-info {
     padding: 16px;
 }
@@ -536,9 +560,24 @@ ul li {
     font-size: 11px;
     padding: 2px 9px;
     border-radius: 20px;
+}
+
+.tag-genre {
     color: #00d4ff;
     background-color: rgba(0, 212, 255, 0.08);
     border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+.tag-platform {
+    color: #b48aff;
+    background-color: rgba(180, 138, 255, 0.08);
+    border: 1px solid rgba(180, 138, 255, 0.25);
+}
+
+.tag-engine {
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
 .proj-period {
