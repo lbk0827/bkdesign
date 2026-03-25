@@ -804,3 +804,231 @@ footer {
     color: #666;
     margin-top: auto;
 }
+
+/* ===== 반응형 ===== */
+@media (max-width: 900px) {
+    header {
+        padding: 48px 16px;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 14px;
+        padding: 12px;
+    }
+
+    .nav-link {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    .page {
+        padding: 56px 16px;
+    }
+
+    .page h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .about-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .about-info-left {
+        align-self: center;
+    }
+
+    .about-profile-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .tool-category {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tool-cat-label {
+        min-width: 0;
+        padding-top: 0;
+    }
+
+    .timeline {
+        padding-left: 14px;
+    }
+
+    .timeline-item {
+        padding: 18px;
+    }
+
+    .timeline-item::before {
+        left: -21px;
+    }
+
+    .timeline-layout {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .timeline-logo-wrap {
+        width: 108px;
+        height: 54px;
+    }
+
+    .timeline-meta {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+    }
+
+    .edu-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .proj-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hl-company-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .hl-card {
+        padding: 20px;
+    }
+
+    .hl-card-images {
+        flex-direction: column;
+    }
+
+    .hl-card-img {
+        max-height: 240px;
+    }
+
+    .hl-section {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hl-label {
+        min-width: 72px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        padding: 40px 14px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    nav {
+        gap: 8px 10px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .page {
+        padding: 44px 14px;
+    }
+
+    .page h2 {
+        font-size: 24px;
+    }
+
+    .section-sub-title {
+        font-size: 18px;
+    }
+
+    .info-item {
+        gap: 10px;
+    }
+
+    .info-label {
+        min-width: 58px;
+        font-size: 13px;
+    }
+
+    .info-value {
+        font-size: 14px;
+    }
+
+    .timeline-company {
+        font-size: 16px;
+    }
+
+    .timeline-projects li {
+        font-size: 13px;
+        padding-left: 12px !important;
+    }
+
+    .proj-thumbnail {
+        height: 160px;
+    }
+
+    .proj-info {
+        padding: 14px;
+    }
+
+    .hl-card {
+        padding: 16px;
+    }
+
+    .hl-card-title {
+        font-size: 16px;
+    }
+
+    .hl-card-img {
+        max-height: 200px;
+    }
+
+    .hl-content p {
+        font-size: 13px;
+    }
+
+    .hl-metrics {
+        gap: 8px;
+    }
+
+    .hl-metric {
+        min-width: 100%;
+    }
+
+    footer {
+        padding: 28px 14px;
+    }
+}
