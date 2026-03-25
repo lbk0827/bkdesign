@@ -580,6 +580,13 @@ ul li {
     border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
+.tag-ai {
+    color: #D97757;
+    background-color: rgba(217, 119, 87, 0.12);
+    border: 1px solid rgba(217, 119, 87, 0.35);
+    font-weight: bold;
+}
+
 .proj-period {
     color: #888;
     font-size: 12px;
