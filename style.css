@@ -692,6 +692,29 @@ ul li {
     border-bottom: 1px solid #2a2a3a;
 }
 
+.hl-doc-link {
+    margin: -10px 0 16px 0;
+}
+
+.hl-doc-link a {
+    display: inline-block;
+    color: #60a5fa;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 6px;
+    background: rgba(96, 165, 250, 0.08);
+    transition: all 0.2s ease;
+}
+
+.hl-doc-link a:hover {
+    background: rgba(96, 165, 250, 0.18);
+    border-color: rgba(96, 165, 250, 0.5);
+    color: #93c5fd;
+}
+
 .hl-card-images {
     display: flex;
     gap: 10px;
