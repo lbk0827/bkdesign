@@ -1,7 +1,7 @@
 # 작업 히스토리
 
-> 최종 업데이트: 2026-03-18
-> 작업 도구: Claude Cowork (Claude Opus 4.6)
+> 최종 업데이트: 2026-03-28
+> 작업 도구: Claude Cowork (Claude Opus 4.6 → Claude Sonnet 4.6)
 
 ---
 
@@ -104,19 +104,122 @@ SVG로 변환했던 성과 1 트래픽 차트를 원본 matplotlib PNG로 복원
 
 ---
 
+## 세션 4: 문서화 및 GNB 한글화
+
+### 커밋: `ea83d6e` — feat: GNB 및 페이지 제목 한글화, 프로젝트 문서 추가
+
+**작업 내용:**
+- GNB 메뉴 영문 → 한글 전환: 프로필 / 참여 프로젝트 / 업무 성과 / 기획 문서 / 연락처
+- 각 섹션 h2 제목도 동일하게 한글 변경
+- Docs/WORK_HISTORY.md 신규 작성 (세션 1~3 작업 이력)
+- Docs/ARCHITECTURE.md 신규 작성 (프로젝트 구조 및 설계 문서)
+
+---
+
+## 세션 5: 참여 프로젝트 페이지 구현
+
+### 커밋: `d8bdd0f` — feat(projects): 참여 프로젝트 페이지 구현 및 프로필 업데이트
+
+**작업 내용:**
+- 참여 프로젝트 카드(요약형) 6개 신규 추가
+  - 더블유게임즈 5개: Dart Away / Color Slide Jam+Wood Rush Puzzle / Bingo Haven / A.I Wars / Spining In Space
+  - 조이시티 1개: 3on3 FreeStyle (썸네일 이미지 + 업무 기여 내용 포함)
+- 프로젝트 카드 CSS 스타일링: 2열 그리드, 호버 효과, 태그 디자인
+- 조이시티 프로필 업무 태그 확장
+
+### 커밋: `c3207df` — feat(projects): 프로젝트 카드 개선 및 프로필 업데이트
+
+**작업 내용:**
+- 전 프로젝트 카드에 썸네일 이미지 적용 (IMG_Projects/ 7종 추가)
+- Color Slide Jam / Wood Rush Puzzle 카드에 좌우 반반 썸네일 레이아웃 적용
+- 장르/플랫폼/엔진 태그 색상 분리 (시안/보라/초록)
+- 전 프로젝트에 엔진 태그(Unity/Unreal Engine 4) 추가
+- 조이시티 프로필 업무 태그 정리
+
+---
+
+## 세션 6: 프로젝트 카드 상세화 및 더블유게임즈 성과 섹션 추가
+
+### 커밋: `a177754` — feat(projects/highlights): 프로젝트 카드 상세화 및 더블유게임즈 성과 섹션 추가
+
+**작업 내용:**
+- 참여 프로젝트 카드에 주요 업무 / 업무 성과 리스트 추가 (전 프로젝트)
+- Dart Away 카드에 A.I. 프로젝트 태그 및 전용 스타일 추가
+- 더블유게임즈 HIGHLIGHTS 섹션 신규 작성 (성과 2건)
+  - 성과: A.I. Wars 메타 콘텐츠 기획·개발을 통한 타 본부 출시 지원
+  - 성과: 데이터 테이블 트래킹 시스템 구축으로 업무 효율 향상
+- 관련 이미지 3종 추가 (hl5_data_table_mgmt.png, hl6_ai_wars_boss.png, hl6_ai_wars_classic.png)
+
+---
+
+## 세션 7: 반응형 모바일 레이아웃 적용
+
+### 커밋: `5e4d320` — feat(responsive): add mobile breakpoints for portfolio layout
+
+**작업 내용:**
+- style.css에 모바일 미디어 쿼리 추가 (breakpoint: 768px)
+- 헤더, 네비게이션, 프로젝트 그리드, HIGHLIGHTS 카드, 타임라인 등 전 영역 반응형 처리
+
+### 커밋: `f05eb42` — fix(responsive): strengthen iPhone mobile layout visibility
+
+**작업 내용:**
+- iPhone 실기기에서 레이아웃 깨짐 이슈 보완
+- 추가 모바일 스타일 강화 (43개 선언 추가)
+
+---
+
+## 세션 8: ColorSlideJam 성과 3건 추가 및 콘텐츠 교정
+
+### 커밋: `f49e4b2` — feat(highlights): ColorSlideJam 성과 3건 추가 및 시각 자료 생성
+
+**작업 내용:**
+- 더블유게임즈 성과 카드 3건 신규 작성 (더블유게임즈 섹션 최상단 배치)
+  - 성과: 기믹 32종 기획·적용을 통한 콘텐츠 확대 및 매출 기여
+  - 성과: 스테이지 약 300종 제작·검증을 통한 리텐션 성장 견인
+  - 성과: 기믹 상호작용 통합 가이드 구축으로 협업 효율 향상
+- 시각 자료 3종 생성 및 추가
+  - hl_gimmick_blocks.png: 기믹 블록 1~14종 합성 일람
+  - hl_retention_chart.png: 월별 D1/D7/D28 리텐션 추이 차트
+  - hl_sales_chart.png: 상품 판매량·매출 Top 10 차트
+- 기믹 상호작용 통합 가이드 Google Sheets 하이퍼링크 추가
+
+### 커밋: `336f459` — refactor(projects/highlights): 제목 축약, 내용 교정 및 프로젝트 메타 정보 보강
+
+**작업 내용:**
+- 성과 카드 제목 4건 축약 (가독성 개선)
+- 기믹 성과 What 문장에 연간 32종·하반기 12종 맥락 명시
+- 통합 가이드 What 문장 맥락 보강
+- Color Slide Jam / Wood Rush Puzzle 장르(캐주얼), 엔진(Unity) 반영
+- 더블유게임즈 전 프로젝트 엔진 Unity, 플랫폼 iOS/Android로 통일
+
+---
+
+## 세션 9: 푸터 연도 자동 갱신
+
+### 커밋: 진행 중 — chore(footer): 푸터 연도 자동 갱신 (현재 연도 동적 반영)
+
+**작업 내용:**
+- index.html 푸터의 고정 연도(`© 2025`) → `<span id="year">` 동적 태그로 교체
+- script.js에 `document.getElementById('year').textContent = new Date().getFullYear()` 추가
+- 이후 매년 자동으로 현재 연도가 표시됨
+
+---
+
 ## 미완료 / 향후 작업
 
 ### 높은 우선순위
-- **더블유게임즈 HIGHLIGHTS 섹션**: 아직 미작성. 조이시티와 동일한 카드 구조로 추가 필요
+- **CONTACT 페이지**: 현재 더미 이메일/GitHub. 실제 정보로 교체 필요
 - **차트 이미지 숫자 블러 처리**: 사용자가 직접 편집 도구로 작업하기로 결정
-- **성과 1 트래픽 차트 제목 한글화**: 현재 영문 ("2020 vs 2021 Daily Active Users") → 한글 변경 필요. 이미지 편집 도구로 직접 수정 권장
+- **성과 1 트래픽 차트 제목 한글화**: 현재 영문 ("2020 vs 2021 Daily Active Users") → 이미지 편집 도구로 직접 수정 권장
 
 ### 보통 우선순위
-- **PROJECTS 페이지**: 현재 더미 데이터 상태. 실제 프로젝트 정보로 교체 필요
 - **DOCUMENTS 페이지**: 현재 더미 데이터 상태. 실제 기획서 PDF 등 링크 필요
-- **CONTACT 페이지**: 현재 더미 이메일/GitHub. 실제 정보로 교체 필요
-- **반응형 디자인**: 모바일 대응 미적용 상태
 - **미사용 이미지 정리**: hl2_table.png, hl3_card_chart.png, hl1_traffic_chart.svg 등 HTML에서 참조하지 않는 파일 존재
+
+### 완료된 이전 미완료 항목
+- ~~더블유게임즈 HIGHLIGHTS 섹션~~ → 세션 6·8에서 완성 (5건 작성)
+- ~~PROJECTS 페이지~~ → 세션 5·6에서 완성 (6개 카드)
+- ~~반응형 디자인~~ → 세션 7에서 완성
 
 ### 참고 사항
 - Git push는 이 환경에서 네트워크 제한으로 불가. 사용자가 로컬 터미널에서 직접 push 필요
