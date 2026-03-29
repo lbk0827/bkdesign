@@ -218,6 +218,7 @@
         <!-- Projects 페이지 -->
         <section id="projects" class="page">
             <h2>참여 프로젝트</h2>
+            <p class="proj-detail-hint">카드를 클릭하면 프로젝트 상세 오버레이를 확인할 수 있습니다.</p>
 
             <!-- 더블유게임즈 -->
             <div class="proj-company-header">
@@ -226,7 +227,7 @@
             </div>
 
             <div class="proj-grid">
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="dart-away" role="button" tabindex="0" aria-label="Dart Away 상세 보기">
                     <div class="proj-thumbnail">
                         <img src="IMG_Projects/DartAway.jpg" alt="Dart Away" class="proj-thumb-img">
                     </div>
@@ -252,7 +253,7 @@
                     </div>
                 </div>
 
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="color-slide-jam" role="button" tabindex="0" aria-label="Color Slide Jam / Wood Rush Puzzle 상세 보기">
                     <div class="proj-thumbnail proj-thumbnail-split">
                         <img src="IMG_Projects/ColorSlideJam.jpg" alt="Color Slide Jam" class="proj-thumb-half">
                         <img src="IMG_Projects/WoodRushPuzzle.jpg" alt="Wood Rush Puzzle" class="proj-thumb-half">
@@ -286,7 +287,7 @@
                     </div>
                 </div>
 
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="bingo-haven" role="button" tabindex="0" aria-label="Bingo Haven 상세 보기">
                     <div class="proj-thumbnail">
                         <img src="IMG_Projects/BingoHaven.jpg" alt="Bingo Haven" class="proj-thumb-img">
                     </div>
@@ -311,7 +312,7 @@
                     </div>
                 </div>
 
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="ai-wars" role="button" tabindex="0" aria-label="A.I Wars 상세 보기">
                     <div class="proj-thumbnail">
                         <img src="IMG_Projects/AIWars.webp" alt="A.I Wars" class="proj-thumb-img">
                     </div>
@@ -340,7 +341,7 @@
                     </div>
                 </div>
 
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="spinning-in-space" role="button" tabindex="0" aria-label="Spining In Space 상세 보기">
                     <div class="proj-thumbnail">
                         <img src="IMG_Projects/SpinningInSpace.jpg" alt="Spining In Space" class="proj-thumb-img">
                     </div>
@@ -377,7 +378,7 @@
             </div>
 
             <div class="proj-grid">
-                <div class="proj-card">
+                <div class="proj-card" data-project-id="3on3-freestyle" role="button" tabindex="0" aria-label="3on3 FreeStyle 상세 보기">
                     <div class="proj-thumbnail">
                         <img src="IMG_Projects/3on3FreeStyle.jpeg" alt="3on3 FreeStyle" class="proj-thumb-img">
                     </div>
@@ -813,6 +814,48 @@
     <footer>
         <p>© <span id="year"></span> BK. All rights reserved.</p>
     </footer>
+
+    <div class="proj-overlay" id="projectOverlay" aria-hidden="true">
+        <div class="proj-overlay-backdrop" data-close-overlay></div>
+        <div class="proj-overlay-panel" role="dialog" aria-modal="true" aria-labelledby="overlayProjectTitle">
+            <button type="button" class="proj-overlay-close" id="overlayCloseBtn" aria-label="상세 오버레이 닫기">×</button>
+
+            <div class="proj-overlay-header">
+                <h3 id="overlayProjectTitle" class="proj-overlay-title"></h3>
+                <p id="overlayProjectSummary" class="proj-overlay-summary"></p>
+                <p id="overlayProjectMeta" class="proj-overlay-meta"></p>
+                <div id="overlayProjectLinks" class="proj-overlay-links"></div>
+            </div>
+
+            <section class="proj-overlay-section">
+                <h4 class="proj-overlay-section-title">스크린샷</h4>
+                <div class="proj-overlay-gallery">
+                    <img id="overlayMainImage" class="proj-overlay-main-image" src="" alt="">
+                    <div id="overlayThumbs" class="proj-overlay-thumbs"></div>
+                </div>
+            </section>
+
+            <section class="proj-overlay-section">
+                <h4 class="proj-overlay-section-title">담당 업무</h4>
+                <ul id="overlayResponsibilities" class="proj-overlay-list"></ul>
+            </section>
+
+            <section class="proj-overlay-section">
+                <h4 class="proj-overlay-section-title">업무 성과</h4>
+                <ul id="overlayAchievements" class="proj-overlay-list"></ul>
+            </section>
+
+            <section class="proj-overlay-section">
+                <h4 class="proj-overlay-section-title">핵심 기능</h4>
+                <div id="overlayCoreFeatures" class="proj-overlay-feature-grid"></div>
+            </section>
+
+            <section class="proj-overlay-section">
+                <h4 class="proj-overlay-section-title">회고</h4>
+                <p id="overlayRetrospective" class="proj-overlay-retrospective"></p>
+            </section>
+        </div>
+    </div>
 
     <!-- JavaScript 파일 연결 -->
     <script src="script.js"></script>

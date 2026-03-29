@@ -489,17 +489,29 @@ ul li {
     margin-bottom: 30px;
 }
 
+.proj-detail-hint {
+    color: #9aa8bb;
+    font-size: 14px;
+    margin: -8px 0 20px;
+}
+
 .proj-card {
     background-color: #16161f;
     border: 1px solid #2a2a3a;
     border-radius: 10px;
     overflow: hidden;
     transition: border-color 0.3s, transform 0.2s;
+    cursor: pointer;
 }
 
 .proj-card:hover {
     border-color: #00d4ff;
     transform: translateY(-2px);
+}
+
+.proj-card:focus-visible {
+    outline: 2px solid rgba(0, 212, 255, 0.65);
+    outline-offset: 2px;
 }
 
 .proj-thumbnail {
@@ -641,6 +653,206 @@ ul li {
     position: absolute;
     left: 0;
     color: #666;
+}
+
+/* ===== PROJECTS: 상세 오버레이 ===== */
+.proj-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.proj-overlay.is-open {
+    display: block;
+}
+
+.proj-overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 8, 15, 0.76);
+    backdrop-filter: blur(2px);
+}
+
+.proj-overlay-panel {
+    position: relative;
+    z-index: 1;
+    width: min(980px, calc(100vw - 30px));
+    max-height: calc(100vh - 32px);
+    margin: 16px auto;
+    background: #101521;
+    border: 1px solid #28415f;
+    border-radius: 14px;
+    padding: 24px;
+    overflow-y: auto;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+}
+
+.proj-overlay-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #35516f;
+    border-radius: 8px;
+    background: #132033;
+    color: #e7f1ff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.proj-overlay-header {
+    clear: both;
+    margin-bottom: 22px;
+}
+
+.proj-overlay-title {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.proj-overlay-summary {
+    color: #d6e1f0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.proj-overlay-meta {
+    color: #9fb4cb;
+    font-size: 13px;
+}
+
+.proj-overlay-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.proj-overlay-link {
+    display: inline-block;
+    color: #8adfff;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgba(138, 223, 255, 0.35);
+    border-radius: 7px;
+    background: rgba(35, 92, 117, 0.2);
+}
+
+.proj-overlay-link:hover {
+    background: rgba(35, 92, 117, 0.36);
+}
+
+.proj-overlay-section {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid #1f2d40;
+}
+
+.proj-overlay-section-title {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 14px;
+}
+
+.proj-overlay-gallery {
+    display: grid;
+    gap: 12px;
+}
+
+.proj-overlay-main-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    background: #0d141f;
+    border: 1px solid #28415f;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.proj-overlay-thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.proj-overlay-thumb {
+    width: 110px;
+    height: 74px;
+    object-fit: cover;
+    border: 1px solid #2a3b51;
+    border-radius: 7px;
+    cursor: pointer;
+    opacity: 0.72;
+    background: #0c111c;
+}
+
+.proj-overlay-thumb.is-active {
+    border-color: #00d4ff;
+    opacity: 1;
+}
+
+.proj-overlay-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.proj-overlay-list li {
+    color: #c6d3e5;
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 6px;
+    padding: 0 0 0 14px;
+    border: none;
+    background: transparent;
+    position: relative;
+}
+
+.proj-overlay-list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #7ea0c8;
+}
+
+.proj-overlay-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.proj-overlay-feature {
+    border: 1px solid #2a3b51;
+    border-radius: 8px;
+    padding: 12px;
+    background: #121b2a;
+}
+
+.proj-overlay-feature-title {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.proj-overlay-feature-desc {
+    color: #c6d3e5;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.proj-overlay-retrospective {
+    color: #d1ddee;
+    font-size: 14px;
+    line-height: 1.65;
 }
 
 /* ===== HIGHLIGHTS: 회사 헤더 ===== */
@@ -985,6 +1197,25 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .proj-overlay-panel {
+        width: calc(100vw - 24px);
+        margin: 12px auto;
+        padding: 18px;
+        max-height: calc(100vh - 24px);
+    }
+
+    .proj-overlay-title {
+        font-size: 23px;
+    }
+
+    .proj-overlay-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proj-overlay-main-image {
+        max-height: 300px;
+    }
+
     .hl-company-header {
         align-items: flex-start;
         gap: 10px;
@@ -1103,6 +1334,39 @@ footer {
 
     .proj-info {
         padding: 14px;
+    }
+
+    .proj-detail-hint {
+        font-size: 13px;
+        margin: -8px 0 16px;
+    }
+
+    .proj-overlay-panel {
+        width: calc(100vw - 16px);
+        margin: 8px auto;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .proj-overlay-title {
+        font-size: 20px;
+    }
+
+    .proj-overlay-summary {
+        font-size: 14px;
+    }
+
+    .proj-overlay-meta {
+        font-size: 12px;
+    }
+
+    .proj-overlay-thumb {
+        width: 92px;
+        height: 62px;
+    }
+
+    .proj-overlay-list li {
+        font-size: 13px;
     }
 
     .hl-card {
