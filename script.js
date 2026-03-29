@@ -266,6 +266,7 @@ const PROJECT_DETAILS = {
 };
 
 const projectOverlay = document.getElementById('projectOverlay');
+const projectOverlayPanel = document.querySelector('.proj-overlay-panel');
 const overlayCloseBtn = document.getElementById('overlayCloseBtn');
 const overlayTitle = document.getElementById('overlayProjectTitle');
 const overlaySummary = document.getElementById('overlayProjectSummary');
@@ -374,6 +375,10 @@ function openProjectOverlay(projectId, cardEl) {
     renderOverlayList(overlayResponsibilities, detail.responsibilities);
     renderOverlayList(overlayAchievements, detail.achievements);
     renderCoreFeatures(detail.coreFeatures);
+
+    if (projectOverlayPanel) {
+        projectOverlayPanel.scrollTop = 0;
+    }
 
     projectOverlay.classList.add('is-open');
     projectOverlay.setAttribute('aria-hidden', 'false');
