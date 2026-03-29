@@ -19,7 +19,7 @@ body {
 /* ===== 헤더 ===== */
 header {
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px 20px 30px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
@@ -791,6 +791,16 @@ ul li {
     color: #bbb;
     font-size: 14px;
     line-height: 1.7;
+    position: relative;
+    padding-left: 12px;
+}
+
+.hl-content p::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #7ea0c8;
 }
 
 .hl-content p strong {
@@ -818,6 +828,17 @@ ul li {
     font-size: 13px;
     font-weight: normal;
     line-height: 1.5;
+    display: block;
+    position: relative;
+    padding-left: 12px;
+}
+
+.hl-metric-value::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #6bbde0;
 }
 
 /* ===== 푸터 ===== */
