@@ -23,6 +23,9 @@ navLinks.forEach(link => {
 
         // 선택한 페이지만 보여주기
         document.getElementById(targetPage).classList.add('active');
+
+        // 페이지 전환 시 항상 최상단에서 시작
+        window.scrollTo(0, 0);
     });
 });
 

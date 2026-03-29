@@ -686,6 +686,27 @@ ul li {
     padding: 24px;
     overflow-y: auto;
     box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+    scrollbar-width: thin;
+    scrollbar-color: #35597b #101521;
+}
+
+.proj-overlay-panel::-webkit-scrollbar {
+    width: 10px;
+}
+
+.proj-overlay-panel::-webkit-scrollbar-track {
+    background: #101521;
+    border-radius: 999px;
+}
+
+.proj-overlay-panel::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #486c90, #2f4e6f);
+    border-radius: 999px;
+    border: 2px solid #101521;
+}
+
+.proj-overlay-panel::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #5d88b4, #40668f);
 }
 
 .proj-overlay-close {
