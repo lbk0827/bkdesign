@@ -19,7 +19,7 @@ body {
 /* ===== 헤더 ===== */
 header {
     text-align: center;
-    padding: 60px 20px 30px;
+    padding: 60px 20px 18px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
@@ -83,7 +83,7 @@ main {
 /* ===== 페이지 (섹션) ===== */
 .page {
     display: none;
-    padding: 80px 20px;
+    padding: 56px 20px 80px;
     max-width: 900px;
     margin: 0 auto;
     animation: fadeIn 0.3s ease-in-out;
@@ -839,6 +839,17 @@ ul li {
     left: 0;
     top: 0;
     color: #6bbde0;
+}
+
+/* Result 섹션은 대시 접두사 제외 */
+.hl-label-result + .hl-content p,
+.hl-label-result + .hl-content .hl-metric-value {
+    padding-left: 0;
+}
+
+.hl-label-result + .hl-content p::before,
+.hl-label-result + .hl-content .hl-metric-value::before {
+    content: none;
 }
 
 /* ===== 푸터 ===== */
