@@ -229,6 +229,15 @@ const overlayRetrospective = document.getElementById('overlayRetrospective');
 
 let lastFocusedCard = null;
 
+function resetOverlayScroll() {
+    if (projectOverlayPanel) {
+        projectOverlayPanel.scrollTop = 0;
+    }
+    if (projectOverlay) {
+        projectOverlay.scrollTop = 0;
+    }
+}
+
 function renderOverlayList(targetEl, items) {
     targetEl.innerHTML = '';
     items.forEach(item => {
@@ -324,20 +333,22 @@ function openProjectOverlay(projectId, cardEl) {
     renderOverlayList(overlayAchievements, detail.achievements);
     renderCoreFeatures(detail.coreFeatures);
 
-    if (projectOverlayPanel) {
-        projectOverlayPanel.scrollTop = 0;
-    }
+    resetOverlayScroll();
 
     projectOverlay.classList.add('is-open');
     projectOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     overlayCloseBtn.focus();
+
+    // display 전환 직후에도 스크롤 위치를 한 번 더 초기화해 브라우저별 잔존 스크롤을 방지
+    requestAnimationFrame(resetOverlayScroll);
 }
 
 function closeProjectOverlay() {
     projectOverlay.classList.remove('is-open');
     projectOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    resetOverlayScroll();
     if (lastFocusedCard) {
         lastFocusedCard.focus();
     }
