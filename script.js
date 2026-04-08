@@ -133,6 +133,7 @@ const PROJECT_DETAILS = {
         team: '기획/운영 협업',
         role: '시스템 기획, 인게임 기획, 콘텐츠 기획, BM/상품 기획, 지표 분석',
         period: '2023. 03. ~ 2024. 08.',
+        galleryLayout: 'grid',
         links: [],
         gallery: [
             { src: 'IMG_Projects/BingoHaven.jpg', alt: 'Bingo Haven 프로젝트 대표 화면' },
@@ -182,12 +183,14 @@ const PROJECT_DETAILS = {
         team: '기획/개발 협업',
         role: '데이터 테이블 기획/관리, 튜토리얼 기획, 콘텐츠 기획',
         period: '2022. 04. ~ 2022. 12.',
+        galleryLayout: 'row',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/SpinningInSpace.jpg', alt: 'Spining In Space 프로젝트 대표 화면' },
-            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_01.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 1' },
-            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_02.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 2' },
-            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_03.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 3' }
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_00.jpg', alt: 'Spining In Space 추가 스크린샷 0' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_01.jpg', alt: 'Spining In Space 추가 스크린샷 1' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_02.jpg', alt: 'Spining In Space 추가 스크린샷 2' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_03.jpg', alt: 'Spining In Space 추가 스크린샷 3' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_04.jpg', alt: 'Spining In Space 추가 스크린샷 4' }
         ],
         responsibilities: [
             '작성 예정'
@@ -230,8 +233,7 @@ const overlayTitle = document.getElementById('overlayProjectTitle');
 const overlaySummary = document.getElementById('overlayProjectSummary');
 const overlayMeta = document.getElementById('overlayProjectMeta');
 const overlayLinks = document.getElementById('overlayProjectLinks');
-const overlayMainImage = document.getElementById('overlayMainImage');
-const overlayThumbs = document.getElementById('overlayThumbs');
+const overlayGalleryImages = document.getElementById('overlayGalleryImages');
 const overlayResponsibilities = document.getElementById('overlayResponsibilities');
 const overlayAchievements = document.getElementById('overlayAchievements');
 const overlayCoreFeatures = document.getElementById('overlayCoreFeatures');
@@ -275,35 +277,25 @@ function renderOverlayLinks(links) {
     });
 }
 
-function setGalleryMainImage(image) {
-    overlayMainImage.src = image.src;
-    overlayMainImage.alt = image.alt;
-}
-
-function renderOverlayGallery(gallery) {
-    overlayThumbs.innerHTML = '';
+function renderOverlayGallery(gallery, layout = 'grid') {
+    overlayGalleryImages.innerHTML = '';
+    overlayGalleryImages.classList.toggle('is-row', layout === 'row');
+    if (layout === 'row') {
+        overlayGalleryImages.style.setProperty('--gallery-cols', String(gallery?.length || 1));
+    } else {
+        overlayGalleryImages.style.removeProperty('--gallery-cols');
+    }
 
     if (!gallery || gallery.length === 0) {
-        overlayMainImage.src = '';
-        overlayMainImage.alt = '';
         return;
     }
 
-    setGalleryMainImage(gallery[0]);
-
-    gallery.forEach((image, idx) => {
-        const thumb = document.createElement('img');
-        thumb.src = image.src;
-        thumb.alt = image.alt;
-        thumb.className = `proj-overlay-thumb${idx === 0 ? ' is-active' : ''}`;
-        thumb.addEventListener('click', () => {
-            setGalleryMainImage(image);
-            overlayThumbs.querySelectorAll('.proj-overlay-thumb').forEach(node => {
-                node.classList.remove('is-active');
-            });
-            thumb.classList.add('is-active');
-        });
-        overlayThumbs.appendChild(thumb);
+    gallery.forEach((image) => {
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        img.className = 'proj-overlay-gallery-image';
+        overlayGalleryImages.appendChild(img);
     });
 }
 
@@ -338,7 +330,7 @@ function openProjectOverlay(projectId, cardEl) {
     overlayRetrospective.textContent = detail.retrospective;
 
     renderOverlayLinks(detail.links);
-    renderOverlayGallery(detail.gallery);
+    renderOverlayGallery(detail.gallery, detail.galleryLayout || 'grid');
     renderOverlayList(overlayResponsibilities, detail.responsibilities);
     renderOverlayList(overlayAchievements, detail.achievements);
     renderCoreFeatures(detail.coreFeatures);
