@@ -135,7 +135,10 @@ const PROJECT_DETAILS = {
         period: '2023. 03. ~ 2024. 08.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/BingoHaven.jpg', alt: 'Bingo Haven 게임 화면' }
+            { src: 'IMG_Projects/BingoHaven.jpg', alt: 'Bingo Haven 프로젝트 대표 화면' },
+            { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_02.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 2' },
+            { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_03.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 3' },
+            { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_04.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 4' }
         ],
         responsibilities: [
             '작성 예정'
@@ -156,7 +159,11 @@ const PROJECT_DETAILS = {
         period: '2023. 05. ~ 2023. 08.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/AIWars.webp', alt: 'A.I Wars 프로젝트 대표 화면' }
+            { src: 'IMG_Projects/AIWars.webp', alt: 'A.I Wars 프로젝트 대표 화면' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 1' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 2' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 3' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_04.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 4' }
         ],
         responsibilities: [
             '작성 예정'
@@ -177,7 +184,10 @@ const PROJECT_DETAILS = {
         period: '2022. 04. ~ 2022. 12.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/SpinningInSpace.jpg', alt: 'Spining In Space 게임 화면' }
+            { src: 'IMG_Projects/SpinningInSpace.jpg', alt: 'Spining In Space 프로젝트 대표 화면' },
+            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_01.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 1' },
+            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_02.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 2' },
+            { src: 'IMG_Projects/SpinningInSpace_Slides/SpinningInSpace_Slide_03.jpg', alt: 'Spining In Space 슬라이드 8 스크린샷 3' }
         ],
         responsibilities: [
             '작성 예정'
