@@ -161,6 +161,11 @@ const PROJECT_DETAILS = {
         links: [],
         gallery: [
             { src: 'IMG_Projects/AIWars.webp', alt: 'A.I Wars 프로젝트 대표 화면' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_1.png', alt: 'A.I Wars 스크린샷 1' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_2.png', alt: 'A.I Wars 스크린샷 2' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_3.png', alt: 'A.I Wars 스크린샷 3' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_4.png', alt: 'A.I Wars 스크린샷 4' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_5.png', alt: 'A.I Wars 스크린샷 5' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 1' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 2' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 3' },
@@ -211,16 +216,19 @@ const PROJECT_DETAILS = {
         period: '2020. 10. ~ 2022. 04.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/3on3FreeStyle.jpeg', alt: '3on3 FreeStyle 게임 화면' }
+            { src: 'IMG_Projects/3on3FreeStyle.jpeg', alt: '3on3 FreeStyle 게임 화면' },
+            { src: 'IMG_Projects/FS_1.jpg', alt: '3on3 FreeStyle 스크린샷 1' },
+            { src: 'IMG_Projects/FS_2.jpg', alt: '3on3 FreeStyle 스크린샷 2' },
+            { src: 'IMG_Projects/FS_3.jpg', alt: '3on3 FreeStyle 스크린샷 3' },
+            { src: 'IMG_Projects/FS_4.jpg', alt: '3on3 FreeStyle 스크린샷 4' }
         ],
         responsibilities: [
-            '작성 예정'
-        ],
-        achievements: [
-            '작성 예정'
-        ],
-        coreFeatures: [
-            { title: '작성 예정', description: '작성 예정' }
+            { tag: '지표 분석 및 KPI 관리', desc: 'DAU, 매출, PU(과금 유저) 등 핵심 지표를 일 단위로 모니터링하고, 주간·월간 KPI 리포트를 작성하여 의사결정 근거를 제공. 지표 이상 징후 발생 시 원인을 분석하고 대응 방안을 도출' },
+            { tag: '상품 / BM 기획', desc: '지표 분석을 기반으로 DLC·인게임 상품의 가격 정책과 판매 전략을 수립. 유저 과금 데이터 분석을 통해 가격대를 재설정하고, 시즌별 프로모션 및 할인 구조를 설계' },
+            { tag: '콘텐츠 기획', desc: '시즌 이벤트, 챌린지 캠프 DLC, 운영 이벤트 등 라이브 서비스 콘텐츠를 기획하고 일정을 관리' },
+            { tag: '마케팅', desc: 'SONY 글로벌 프로모션 팀과 직접 협업하여 PS 스토어 메인 페이지 노출 및 PS+ 유료 구독자 대상 마케팅을 기획·실행. YouTube 라이브 방송을 활용한 유저 컴페티션 이벤트를 기획·운영하여 커뮤니티 활성화 및 신규 유입을 유도' },
+            { tag: '업데이트 스펙 관리', desc: '월 목표 매출 달성을 위해 과거 BM 상품 판매 실적 및 이벤트 효과를 분석하고, 이를 기반으로 월 단위 업데이트·패치 스케줄을 수립·관리' },
+            { tag: '커뮤니케이션', desc: '기획팀, 클라이언트팀, 서버팀 등 유관 부서와의 협업 창구를 담당하며, 업데이트 요건 정의부터 QA·배포까지 부서 간 일정 조율 및 이슈 커뮤니케이션을 주도' }
         ],
         retrospective: '작성 예정'
     }
@@ -235,8 +243,6 @@ const overlayMeta = document.getElementById('overlayProjectMeta');
 const overlayLinks = document.getElementById('overlayProjectLinks');
 const overlayGalleryImages = document.getElementById('overlayGalleryImages');
 const overlayResponsibilities = document.getElementById('overlayResponsibilities');
-const overlayAchievements = document.getElementById('overlayAchievements');
-const overlayCoreFeatures = document.getElementById('overlayCoreFeatures');
 const overlayRetrospective = document.getElementById('overlayRetrospective');
 
 let lastFocusedCard = null;
@@ -256,6 +262,30 @@ function renderOverlayList(targetEl, items) {
         const li = document.createElement('li');
         li.textContent = item;
         targetEl.appendChild(li);
+    });
+}
+
+function renderResponsibilities(items) {
+    overlayResponsibilities.innerHTML = '';
+    items.forEach(item => {
+        if (typeof item === 'string') {
+            const li = document.createElement('div');
+            li.className = 'resp-item-simple';
+            li.textContent = item;
+            overlayResponsibilities.appendChild(li);
+        } else {
+            const block = document.createElement('div');
+            block.className = 'resp-item';
+            const tag = document.createElement('span');
+            tag.className = 'resp-tag';
+            tag.textContent = item.tag;
+            const desc = document.createElement('span');
+            desc.className = 'resp-desc';
+            desc.textContent = item.desc;
+            block.appendChild(tag);
+            block.appendChild(desc);
+            overlayResponsibilities.appendChild(block);
+        }
     });
 }
 
@@ -299,22 +329,6 @@ function renderOverlayGallery(gallery, layout = 'grid') {
     });
 }
 
-function renderCoreFeatures(features) {
-    overlayCoreFeatures.innerHTML = '';
-    features.forEach(feature => {
-        const card = document.createElement('div');
-        card.className = 'proj-overlay-feature';
-        const title = document.createElement('h5');
-        title.className = 'proj-overlay-feature-title';
-        title.textContent = feature.title;
-        const desc = document.createElement('p');
-        desc.className = 'proj-overlay-feature-desc';
-        desc.textContent = feature.description;
-        card.appendChild(title);
-        card.appendChild(desc);
-        overlayCoreFeatures.appendChild(card);
-    });
-}
 
 function openProjectOverlay(projectId, cardEl) {
     const detail = PROJECT_DETAILS[projectId];
@@ -331,9 +345,7 @@ function openProjectOverlay(projectId, cardEl) {
 
     renderOverlayLinks(detail.links);
     renderOverlayGallery(detail.gallery, detail.galleryLayout || 'grid');
-    renderOverlayList(overlayResponsibilities, detail.responsibilities);
-    renderOverlayList(overlayAchievements, detail.achievements);
-    renderCoreFeatures(detail.coreFeatures);
+    renderResponsibilities(detail.responsibilities);
 
     resetOverlayScroll();
 
