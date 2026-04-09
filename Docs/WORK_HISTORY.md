@@ -1,7 +1,7 @@
 # 작업 히스토리
 
-> 최종 업데이트: 2026-03-28
-> 작업 도구: Claude Cowork (Claude Opus 4.6 → Claude Sonnet 4.6)
+> 최종 업데이트: 2026-04-10
+> 작업 도구: Claude Cowork, Codex (GPT-5)
 
 ---
 
@@ -202,6 +202,95 @@ SVG로 변환했던 성과 1 트래픽 차트를 원본 matplotlib PNG로 복원
 - index.html 푸터의 고정 연도(`© 2025`) → `<span id="year">` 동적 태그로 교체
 - script.js에 `document.getElementById('year').textContent = new Date().getFullYear()` 추가
 - 이후 매년 자동으로 현재 연도가 표시됨
+
+---
+
+## 세션 10: 참여 프로젝트 상세 오버레이 구현 및 UX 보완
+
+### 커밋: `0a71426` — feat(projects): 참여 프로젝트 상세 오버레이 추가
+
+**작업 내용:**
+- 프로젝트 카드 클릭 시 상세 오버레이를 열 수 있도록 구현
+- 오버레이 섹션 구성: 한 줄 요약 / 스크린샷 / 담당 업무 / 업무 성과 / 핵심 기능 / 회고
+- 프로젝트별 데이터 객체 기반 렌더링 방식 적용
+- 닫기 UX 지원: 닫기 버튼 / 배경 클릭 / ESC
+- 접근성 보완: 카드 키보드 포커스 및 Enter/Space 오픈
+
+### 커밋: `53e747c` — fix(ui): 오버레이 스크롤바 톤 및 페이지 전환 스크롤 초기화
+
+**작업 내용:**
+- 오버레이 스크롤바 색상을 오버레이 테마에 맞게 조정
+- 탭(페이지) 전환 시 항상 최상단에서 시작하도록 스크롤 초기화 적용
+
+### 커밋: `8cd111d` — fix(overlay): 상세 오버레이 열림 시 스크롤 위치 초기화
+
+**작업 내용:**
+- 오버레이를 다시 열 때 이전 스크롤 위치가 남지 않도록 내부 스크롤 초기화
+
+---
+
+## 세션 11: 정보 구조 정리 및 내비게이션 확장
+
+### 커밋: `817ec1c` — chore(overlay): 상세 내용 플레이스홀더 및 이미지 구성 정리
+
+**작업 내용:**
+- 오버레이 텍스트 영역을 `작성 예정`으로 통일
+- 프로젝트 상세의 성과용 보조 이미지 제거, 메인 스크린샷 중심으로 단순화
+
+### 커밋: `a9bf593` — feat(nav): 개인 프로젝트 탭 추가 및 기믹 이미지 반영
+
+**작업 내용:**
+- GNB에 `개인 프로젝트` 카테고리 추가 (`기획 문서` 우측)
+- `개인 프로젝트` 페이지 섹션 신규 생성
+- `IMG_Gimmicks/` 이미지 에셋 저장소 반영
+
+---
+
+## 세션 12: 프로젝트 스크린샷 확장 (PPT 기반 추출)
+
+### 커밋: `1ad1dbe` — feat(overlay): 프로젝트 스크린샷 갤러리 확장 반영
+
+**작업 내용:**
+- PPT 원본에서 프로젝트 스크린샷 추출 후 프로젝트별 폴더로 정리
+- A.I Wars: 메인 + Noise Crasher 모드 스크린샷 추가
+- Spining In Space: 슬라이드 스크린샷 추가
+- Bingo Haven: 슬라이드 스크린샷 추가 및 불필요 이미지 제외
+
+**추가된 폴더:**
+- `IMG_Projects/AIWars_Modes/`
+- `IMG_Projects/SpinningInSpace_Slides/`
+- `IMG_Projects/BingoHaven_Slides/`
+
+---
+
+## 세션 13: 프로젝트 장르 태그 정리
+
+### 커밋: `0a10f0d` — chore(projects): 프로젝트 장르 태그 문구 정리
+
+**작업 내용:**
+- Dart Away: `캐주얼 / 퍼즐`
+- Color Slide Jam / Wood Rush Puzzle: `캐주얼 / 퍼즐`
+- A.I Wars: `캐주얼 / RPG`
+- Spining In Space: `캐주얼 / 어드벤처 / 소셜 카지노`
+- 3on3 FreeStyle: `캐주얼 / 스포츠 / 경쟁`
+- Bingo Haven: `캐주얼 / 소셜 빙고 / 하우징`
+
+---
+
+## 세션 14: 스크린샷 레이아웃 정책 분리 (세로형/가로형)
+
+### 커밋: `18bddc2` — feat(overlay): 스크린샷 레이아웃 개선 및 Spining In Space 이미지 갱신
+
+**작업 내용:**
+- 오버레이 스크린샷 표시 방식을 단일 선택형(대표 1장)에서 다중 노출형으로 변경
+- 프로젝트별 갤러리 레이아웃 옵션 도입
+  - `row`: 세로로 긴 이미지(Spining In Space) 좌→우 1행 배치
+  - `grid`: 가로 이미지(Bingo Haven 등) 바둑판 배치
+- Spining In Space 이미지를 `/Downloads/screen-0~4.jpg` 기준으로 교체
+- row 레이아웃에서 이미지 수 기반 자동 컬럼 계산으로 오버레이 너비 내 표시(스크롤 제거)
+
+**추가된 폴더:**
+- `IMG_Projects/SpinningInSpace_Downloads/`
 
 ---
 
