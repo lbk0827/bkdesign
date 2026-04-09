@@ -593,6 +593,12 @@ ul li {
     border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
+.tag-global {
+    color: #fbbf24;
+    background-color: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
 .tag-ai {
     color: #D97757;
     background-color: rgba(217, 119, 87, 0.12);
