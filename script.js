@@ -198,7 +198,9 @@ const PROJECT_DETAILS = {
             { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_04.jpg', alt: 'Spining In Space 추가 스크린샷 4' }
         ],
         responsibilities: [
-            '작성 예정'
+            { tag: '데이터 테이블 설계', desc: '캐릭터 커스터마이징 시스템에 사용되는 의상·액세서리 데이터 테이블을 설계하고, 콘텐츠 업데이트에 맞춰 지속적으로 관리' },
+            { tag: '튜토리얼 기획', desc: '신규 유저 온보딩을 위한 강제·동적 튜토리얼을 기획하고, 튜토리얼 흐름을 유연하게 제어할 수 있도록 전용 데이터 테이블을 설계' },
+            { tag: '콘텐츠 / 시스템 기획', desc: '공지사항 팝업, 우편함, 카드 트레이딩 시스템, 데일리 보너스(출석부) 등 라이브 서비스 핵심 시스템을 기획하고 관련 데이터 테이블을 설계' }
         ],
         achievements: [
             '작성 예정'
