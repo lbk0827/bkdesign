@@ -238,6 +238,7 @@ const projectOverlay = document.getElementById('projectOverlay');
 const projectOverlayPanel = document.querySelector('.proj-overlay-panel');
 const overlayCloseBtn = document.getElementById('overlayCloseBtn');
 const overlayTitle = document.getElementById('overlayProjectTitle');
+const overlayPeriod = document.getElementById('overlayProjectPeriod');
 const overlaySummary = document.getElementById('overlayProjectSummary');
 const overlayMeta = document.getElementById('overlayProjectMeta');
 const overlayLinks = document.getElementById('overlayProjectLinks');
@@ -339,8 +340,9 @@ function openProjectOverlay(projectId, cardEl) {
     lastFocusedCard = cardEl || null;
 
     overlayTitle.textContent = detail.title;
+    overlayPeriod.textContent = detail.period;
     overlaySummary.textContent = detail.summary;
-    overlayMeta.textContent = `${detail.period} | 팀 ${detail.team} | 역할 ${detail.role}`;
+    overlayMeta.textContent = `팀 ${detail.team} | 역할 ${detail.role}`;
     overlayRetrospective.textContent = detail.retrospective;
 
     renderOverlayLinks(detail.links);
