@@ -342,7 +342,7 @@ function openProjectOverlay(projectId, cardEl) {
     overlayTitle.textContent = detail.title;
     overlayPeriod.textContent = detail.period;
     overlaySummary.textContent = detail.summary;
-    overlayMeta.textContent = `팀 ${detail.team} | 역할 ${detail.role}`;
+    overlayMeta.textContent = detail.role;
     overlayRetrospective.textContent = detail.retrospective;
 
     renderOverlayLinks(detail.links);
