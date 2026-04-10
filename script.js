@@ -244,7 +244,7 @@ const overlayMeta = document.getElementById('overlayProjectMeta');
 const overlayLinks = document.getElementById('overlayProjectLinks');
 const overlayGalleryImages = document.getElementById('overlayGalleryImages');
 const overlayResponsibilities = document.getElementById('overlayResponsibilities');
-const overlayRetrospective = document.getElementById('overlayRetrospective');
+
 
 let lastFocusedCard = null;
 
@@ -343,8 +343,6 @@ function openProjectOverlay(projectId, cardEl) {
     overlayPeriod.textContent = detail.period;
     overlaySummary.textContent = detail.summary;
     overlayMeta.textContent = detail.role;
-    overlayRetrospective.textContent = detail.retrospective;
-
     renderOverlayLinks(detail.links);
     renderOverlayGallery(detail.gallery, detail.galleryLayout || 'grid');
     renderResponsibilities(detail.responsibilities);
