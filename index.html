@@ -314,11 +314,16 @@
                         <div class="proj-contrib">
                             <span class="proj-contrib-title">주요 업무</span>
                             <ul class="proj-contrib-list">
-                                <li>시스템 기획 <span class="proj-detail">▸ 캐릭터 스킬, 하우징, 퀘스트, 미니 게임</span></li>
-                                <li>인게임 기획 <span class="proj-detail">▸ 비동기식 스킬, 재화 자동 생산, 가디언 14종 스킬</span></li>
-                                <li>콘텐츠 기획 <span class="proj-detail">▸ 신규 가디언, 튜토리얼, 가이드 미션, 온보딩</span></li>
-                                <li>BM/상품 기획 <span class="proj-detail">▸ 상점, 멤버십, 프로모션, 데이터 테이블 기반 운영</span></li>
-                                <li>지표 분석 <span class="proj-detail">▸ 리텐션, 매출 지표 분석 및 개선</span></li>
+                                <li>인게임 기획 <span class="proj-detail">▸ 가디언 스킬</span></li>
+                                <li>시스템 기획 <span class="proj-detail">▸ 상점, 재화 자동 생산, 하우징, 퀘스트, 출석부</span></li>
+                                <li>콘텐츠 기획 <span class="proj-detail">▸ 신규 가디언, 가디언 스킬 14종, 튜토리얼, 가이드 미션, 미니 게임</span></li>
+                                <li>BM/상품 기획 <span class="proj-detail">▸ 첫 결제 상품, 멤버십</span></li>
+                            </ul>
+                        </div>
+                        <div class="proj-contrib">
+                            <span class="proj-contrib-title">업무 성과</span>
+                            <ul class="proj-contrib-list">
+                                <li>비동기식 스킬 시스템 설계 <span class="proj-achievement-detail">▸ 실시간 대전 스킬 딜레이 이슈 해결</span></li>
                             </ul>
                         </div>
                     </div>
@@ -573,6 +578,41 @@
                             </div>
                             <div class="hl-metric">
                                 <span class="hl-metric-value">QA 부서의 테스트 케이스(TC) 설계 및 실제 테스트 수행의 기준 지표로 활용되어, 검증 시나리오 작성 리소스 절감 및 테스트 정확도 향상에 기여</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 성과: 비동기식 스킬 시스템 설계를 통한 실시간 대전 딜레이 해결 -->
+            <div class="hl-card">
+                <h3 class="hl-card-title">비동기식 스킬 시스템 설계를 통한 실시간 대전 스킬 딜레이 이슈 해결</h3>
+
+                <div class="hl-section">
+                    <span class="hl-label hl-label-what">What</span>
+                    <div class="hl-content">
+                        <p>실시간 경쟁 빙고 게임에서 네트워크 동기화 방식의 스킬 시스템이 유발하는 딜레이 문제를 해결하기 위해, 비동기식 스킬 등장 시스템을 설계</p>
+                    </div>
+                </div>
+
+                <div class="hl-section">
+                    <span class="hl-label hl-label-how">How</span>
+                    <div class="hl-content">
+                        <p>기존에는 실시간 대전 중 스킬이 동기화 상태에서 랜덤으로 결정되는 방식이었으나, 스킬 게이지 충전 속도와 스킬 등장 시점에 체감 가능한 딜레이가 발생.</p>
+                        <p>이를 해결하기 위해 게임 입장 시 서버에서 스킬 등장 확률에 따라 등장할 스킬의 순서를 미리 계산하여 클라이언트로 전달하는 비동기식 구조로 전환 설계.</p>
+                        <p>동기화에 의존하지 않으므로 네트워크 지연과 무관하게 스킬이 즉시 등장하며, 서버-클라이언트 간 확률 검증도 유지되는 구조를 확보.</p>
+                    </div>
+                </div>
+
+                <div class="hl-section">
+                    <span class="hl-label hl-label-result">Result</span>
+                    <div class="hl-content">
+                        <div class="hl-metrics">
+                            <div class="hl-metric">
+                                <span class="hl-metric-value">실시간 대전 중 스킬 등장 딜레이 제거로 유저 체감 반응성 개선</span>
+                            </div>
+                            <div class="hl-metric">
+                                <span class="hl-metric-value">서버 사전 계산 방식으로 확률 무결성을 유지하면서도 클라이언트 즉시 반영 구조 확보</span>
                             </div>
                         </div>
                     </div>
