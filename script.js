@@ -219,7 +219,6 @@ const PROJECT_DETAILS = {
         period: '2020. 10. ~ 2022. 04.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/3on3FreeStyle.jpeg', alt: '3on3 FreeStyle 게임 화면' },
             { src: 'IMG_Projects/FS_1.jpg', alt: '3on3 FreeStyle 스크린샷 1' },
             { src: 'IMG_Projects/FS_2.jpg', alt: '3on3 FreeStyle 스크린샷 2' },
             { src: 'IMG_Projects/FS_3.jpg', alt: '3on3 FreeStyle 스크린샷 3' },
