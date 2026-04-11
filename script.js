@@ -136,7 +136,7 @@ const PROJECT_DETAILS = {
         galleryLayout: 'grid',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/BingoHaven.jpg', alt: 'Bingo Haven 프로젝트 대표 화면' },
+            { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_05.jpg', alt: 'Bingo Haven 스크린샷 5' },
             { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_02.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 2' },
             { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_03.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 3' },
             { src: 'IMG_Projects/BingoHaven_Slides/BingoHaven_Slide_04.jpg', alt: 'Bingo Haven 슬라이드 3 스크린샷 4' }
