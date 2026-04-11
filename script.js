@@ -160,16 +160,16 @@ const PROJECT_DETAILS = {
         period: '2023. 05. ~ 2023. 08.',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/AIWars.webp', alt: 'A.I Wars 프로젝트 대표 화면' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_1.png', alt: 'A.I Wars 스크린샷 1' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_2.png', alt: 'A.I Wars 스크린샷 2' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_3.png', alt: 'A.I Wars 스크린샷 3' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_4.png', alt: 'A.I Wars 스크린샷 4' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_5.png', alt: 'A.I Wars 스크린샷 5' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 1' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 2' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 3' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_04.png', alt: 'A.I Wars Noise Crasher 모드 스크린샷 4' }
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_4.png', alt: 'A.I Wars 스크린샷 4' }
+        ],
+        subGallery: [
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars 모드 스크린샷 1' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars 모드 스크린샷 2' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars 모드 스크린샷 3' },
+            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_04.png', alt: 'A.I Wars 모드 스크린샷 4' }
         ],
         responsibilities: [
             { tag: '인게임 기획', desc: '조작 방식(방향·속도·각도), 패링 시스템, 아이템 시스템 등 미니 게임의 공통 인게임 규칙을 설계. 클래식 벽돌 깨기에 타격감과 다양한 아이템 활용의 재미를 더하는 방향으로 기획' },
@@ -316,6 +316,27 @@ function renderResponsibilities(items) {
     }
 }
 
+function renderSubGallery(items) {
+    const section = document.getElementById('overlaySubGallerySection');
+    const container = document.getElementById('overlaySubGalleryImages');
+    if (!section || !container) return;
+
+    container.innerHTML = '';
+    if (!items || items.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+
+    items.forEach(item => {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt;
+        img.className = 'proj-overlay-sub-gallery-img';
+        container.appendChild(img);
+    });
+    section.style.display = '';
+}
+
 function renderOverlayLinks(links) {
     overlayLinks.innerHTML = '';
 
@@ -374,6 +395,7 @@ function openProjectOverlay(projectId, cardEl) {
     renderOverlayLinks(detail.links);
     renderOverlayGallery(detail.gallery, detail.galleryLayout || 'grid');
     renderResponsibilities(detail.responsibilities);
+    renderSubGallery(detail.subGallery);
 
     resetOverlayScroll();
 

@@ -983,6 +983,20 @@ ul li {
     color: #7ea0c8;
 }
 
+/* 담당 업무 아래 서브 갤러리 */
+.proj-overlay-sub-gallery {
+    display: flex;
+    gap: 8px;
+}
+
+.proj-overlay-sub-gallery-img {
+    flex: 1;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #1f2d40;
+}
+
 .proj-overlay-retrospective {
     color: #d1ddee;
     font-size: 14px;
