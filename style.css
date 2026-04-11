@@ -44,6 +44,7 @@ header p {
     object-fit: cover;
     margin: 0 0 6px 0;
     border: 3px solid #00d4ff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
 }
 
 /* ===== 네비게이션 ===== */
@@ -161,8 +162,9 @@ ul li {
     height: 210px;
     border-radius: 10px;
     object-fit: cover;
-    border: 3px solid #00d4ff;
     display: block;
+    border: 1px solid rgba(138, 160, 186, 0.42);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
 }
 
 .about-info-right {
@@ -171,8 +173,8 @@ ul li {
 
 .info-item {
     display: flex;
-    gap: 20px;
-    padding: 12px 0;
+    gap: 12px;
+    padding: 8px 0;
     border-bottom: 1px solid #1e1e2a;
     align-items: flex-start;
 }
@@ -184,7 +186,7 @@ ul li {
 .info-label {
     color: #00d4ff;
     font-weight: bold;
-    min-width: 70px;
+    min-width: 62px;
     font-size: 14px;
     padding-top: 2px;
 }
