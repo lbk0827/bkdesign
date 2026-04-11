@@ -983,7 +983,17 @@ ul li {
     color: #7ea0c8;
 }
 
-/* 담당 업무 아래 서브 갤러리 */
+/* 담당 업무 타이틀 아래 서브 갤러리 */
+.proj-overlay-sub-gallery-wrap {
+    margin-bottom: 16px;
+}
+
+.proj-overlay-sub-gallery-caption {
+    color: #7ea0c8;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
 .proj-overlay-sub-gallery {
     display: flex;
     gap: 8px;

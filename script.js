@@ -165,12 +165,15 @@ const PROJECT_DETAILS = {
             { src: 'IMG_Projects/AIWars_Modes/AIWars_3.png', alt: 'A.I Wars 스크린샷 3' },
             { src: 'IMG_Projects/AIWars_Modes/AIWars_4.png', alt: 'A.I Wars 스크린샷 4' }
         ],
-        subGallery: [
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars 모드 스크린샷 1' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars 모드 스크린샷 2' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars 모드 스크린샷 3' },
-            { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_04.png', alt: 'A.I Wars 모드 스크린샷 4' }
-        ],
+        subGallery: {
+            caption: '기획·개발한 미니 게임의 4종 플레이 모드 (클래식, 보스, 산성비, 하이 스코어)',
+            images: [
+                { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_01.png', alt: 'A.I Wars 클래식 모드' },
+                { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_02.png', alt: 'A.I Wars 보스 모드' },
+                { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_03.png', alt: 'A.I Wars 산성비 모드' },
+                { src: 'IMG_Projects/AIWars_Modes/AIWars_Mode_04.png', alt: 'A.I Wars 하이 스코어 모드' }
+            ]
+        },
         responsibilities: [
             { tag: '인게임 기획', desc: '조작 방식(방향·속도·각도), 패링 시스템, 아이템 시스템 등 미니 게임의 공통 인게임 규칙을 설계. 클래식 벽돌 깨기에 타격감과 다양한 아이템 활용의 재미를 더하는 방향으로 기획' },
             { tag: '전투(보스) 시스템 기획', desc: '단조로운 벽돌 파괴에 긴장감을 더하기 위해 보스전 시스템을 설계. 전투 로직, 몬스터 콘셉트·투사체·히트박스 기획 및 플레이어-보스 간 밸런스 조정' },
@@ -316,18 +319,25 @@ function renderResponsibilities(items) {
     }
 }
 
-function renderSubGallery(items) {
+function renderSubGallery(data) {
     const section = document.getElementById('overlaySubGallerySection');
     const container = document.getElementById('overlaySubGalleryImages');
+    const caption = document.getElementById('overlaySubGalleryCaption');
     if (!section || !container) return;
 
     container.innerHTML = '';
-    if (!items || items.length === 0) {
+    if (caption) caption.textContent = '';
+
+    if (!data || !data.images || data.images.length === 0) {
         section.style.display = 'none';
         return;
     }
 
-    items.forEach(item => {
+    if (caption && data.caption) {
+        caption.textContent = data.caption;
+    }
+
+    data.images.forEach(item => {
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt;
