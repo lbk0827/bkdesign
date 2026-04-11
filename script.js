@@ -459,5 +459,58 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ===== 이미지 라이트박스 =====
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImage');
+const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+
+function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+}
+
+function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImg.src = '';
+}
+
+// 업무 성과 페이지 이미지 클릭
+document.querySelectorAll('.hl-card-img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+// 오버레이 갤러리 이미지 클릭 (동적 생성이므로 이벤트 위임)
+document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.proj-overlay-gallery-images') && target.tagName === 'IMG') {
+        openLightbox(target.src, target.alt);
+    }
+    if (target.classList.contains('proj-overlay-sub-gallery-img')) {
+        openLightbox(target.src, target.alt);
+    }
+});
+
+// 라이트박스 닫기
+if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+}
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        if (e.target.matches('[data-close-lightbox]')) {
+            closeLightbox();
+        }
+    });
+}
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+    }
+});
+
 // ===== 푸터 연도 자동 갱신 =====
 document.getElementById('year').textContent = new Date().getFullYear();
