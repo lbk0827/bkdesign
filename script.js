@@ -270,26 +270,43 @@ function renderOverlayList(targetEl, items) {
 
 function renderResponsibilities(items) {
     overlayResponsibilities.innerHTML = '';
-    items.forEach(item => {
-        if (typeof item === 'string') {
+    const hasTaggedItems = items.some(item => typeof item !== 'string');
+
+    if (hasTaggedItems) {
+        const table = document.createElement('table');
+        table.className = 'resp-table';
+        const thead = document.createElement('thead');
+        thead.innerHTML = '<tr><th class="resp-th-tag">업무</th><th class="resp-th-desc">세부 내용</th></tr>';
+        table.appendChild(thead);
+        const tbody = document.createElement('tbody');
+        items.forEach(item => {
+            if (typeof item === 'string') {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td colspan="2" class="resp-td-simple">${item}</td>`;
+                tbody.appendChild(tr);
+            } else {
+                const tr = document.createElement('tr');
+                const tdTag = document.createElement('td');
+                tdTag.className = 'resp-td-tag';
+                tdTag.textContent = item.tag;
+                const tdDesc = document.createElement('td');
+                tdDesc.className = 'resp-td-desc';
+                tdDesc.textContent = item.desc;
+                tr.appendChild(tdTag);
+                tr.appendChild(tdDesc);
+                tbody.appendChild(tr);
+            }
+        });
+        table.appendChild(tbody);
+        overlayResponsibilities.appendChild(table);
+    } else {
+        items.forEach(item => {
             const li = document.createElement('div');
             li.className = 'resp-item-simple';
             li.textContent = item;
             overlayResponsibilities.appendChild(li);
-        } else {
-            const block = document.createElement('div');
-            block.className = 'resp-item';
-            const tag = document.createElement('span');
-            tag.className = 'resp-tag';
-            tag.textContent = item.tag;
-            const desc = document.createElement('span');
-            desc.className = 'resp-desc';
-            desc.textContent = item.desc;
-            block.appendChild(tag);
-            block.appendChild(desc);
-            overlayResponsibilities.appendChild(block);
-        }
-    });
+        });
+    }
 }
 
 function renderOverlayLinks(links) {

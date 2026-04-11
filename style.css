@@ -877,6 +877,62 @@ ul li {
     gap: 14px;
 }
 
+/* 테이블 레이아웃 */
+.resp-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #1f2d40;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.resp-table thead {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.resp-th-tag,
+.resp-th-desc {
+    color: #7ea0c8;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 14px;
+    border-bottom: 1px solid #1f2d40;
+}
+
+.resp-th-tag {
+    width: 160px;
+    white-space: nowrap;
+}
+
+.resp-td-tag {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(31, 45, 64, 0.5);
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.resp-td-desc {
+    color: #c6d3e5;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(31, 45, 64, 0.5);
+}
+
+.resp-table tbody tr:last-child .resp-td-tag,
+.resp-table tbody tr:last-child .resp-td-desc {
+    border-bottom: none;
+}
+
+.resp-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* 기존 bullet 스타일 (string 타입 fallback) */
 .resp-item {
     line-height: 1.65;
 }
