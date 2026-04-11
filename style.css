@@ -283,6 +283,11 @@ ul li {
     font-weight: bold;
 }
 
+.timeline-dept {
+    color: #8899aa;
+    font-size: 13px;
+}
+
 .timeline-role {
     color: #00d4ff;
     font-size: 13px;
