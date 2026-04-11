@@ -186,7 +186,7 @@ const PROJECT_DETAILS = {
         title: 'Spining In Space',
         summary: '미국 지사 Double Down Interactive(DDI)와 공동 개발한 어드벤처 기반 소셜 카지노 게임으로, 기획자로서 첫 걸음을 뗀 프로젝트입니다. 데이터 테이블 설계부터 튜토리얼, 시스템 기획까지 폭넓은 실무를 경험했으며, 해외 팀과 소통하며 글로벌 환경에서 협업하는 값진 경험을 쌓았습니다.',
         team: '기획/개발 협업',
-        role: '데이터 테이블 기획/관리, 튜토리얼 기획, 콘텐츠 기획',
+        role: '데이터 테이블 기획/관리, 튜토리얼 기획, 콘텐츠 / 시스템 기획, 해외 팀 커뮤니케이션',
         period: '2022. 04. ~ 2022. 12.',
         galleryLayout: 'row',
         links: [],
@@ -215,7 +215,7 @@ const PROJECT_DETAILS = {
         title: '3on3 FreeStyle',
         summary: 'PS·Xbox·Steam에서 글로벌 서비스 중인 3v3 스트리트 농구 게임으로, PM 직무로 게임 업계에 입문한 프로젝트입니다. 상품/BM 기획부터 콘텐츠·이벤트 설계, 지표 분석까지 라이브 서비스 운영의 전 과정을 경험했으며, SONY 글로벌 팀과의 직접 협업과 매출 구조 개편 등을 주도하며 데이터 기반 의사결정의 기초를 다졌습니다.',
         team: '사업/기획/운영 협업',
-        role: '상품/BM 기획, 콘텐츠 기획, 지표 분석',
+        role: '상품 / BM 기획, 콘텐츠 / 이벤트 기획, 지표 분석, 외부 협업, 커뮤니케이션',
         period: '2020. 10. ~ 2022. 04.',
         links: [],
         gallery: [
@@ -344,7 +344,9 @@ function openProjectOverlay(projectId, cardEl) {
     overlayTitle.textContent = detail.title;
     overlayPeriod.textContent = detail.period;
     overlaySummary.textContent = detail.summary;
-    overlayMeta.textContent = detail.role;
+    overlayMeta.innerHTML = detail.role.split(',').map(r =>
+        `<span class="overlay-role-badge">${r.trim()}</span>`
+    ).join('');
     renderOverlayLinks(detail.links);
     renderOverlayGallery(detail.gallery, detail.galleryLayout || 'grid');
     renderResponsibilities(detail.responsibilities);

@@ -760,8 +760,21 @@ ul li {
 }
 
 .proj-overlay-meta {
-    color: #9fb4cb;
-    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.overlay-role-badge {
+    display: inline-block;
+    color: #c6d3e5;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 2px 8px;
 }
 
 .proj-overlay-links {
