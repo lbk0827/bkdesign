@@ -287,7 +287,8 @@ ul li {
 
 .timeline-dept {
     color: #8899aa;
-    font-size: 13px;
+    font-size: 12.5px;
+    width: 100%;
 }
 
 .timeline-role {
