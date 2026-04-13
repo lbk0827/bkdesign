@@ -19,24 +19,19 @@ body {
 /* ===== 헤더 ===== */
 header {
     text-align: center;
-    padding: 60px 20px 18px;
+    padding: 14px 20px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
 header h1 {
-    font-size: 48px;
+    font-size: 18px;
+    font-weight: 600;
     color: #ffffff;
-    margin-bottom: 0;
+    letter-spacing: 0.5px;
     line-height: 1;
 }
 
-header p {
-    font-size: 20px;
-    color: #00d4ff;
-    line-height: 1;
-}
-
-/* ===== 프로필 이미지 ===== */
+/* ===== 프로필 이미지 (이력서용) ===== */
 .profile-img {
     width: 150px;
     height: 150px;
@@ -1692,37 +1687,34 @@ footer {
     max-width: 520px;
 }
 
-/* CTA 버튼 */
-.intro-cta {
+/* 연락처 버튼 */
+.intro-contact {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     justify-content: center;
     margin-top: 28px;
 }
 
-.intro-cta-btn {
-    padding: 12px 32px;
+.intro-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
     border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    color: #8899aa;
     text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.2s;
-    background: #00d4ff;
-    color: #0a0a0f;
 }
 
-.intro-cta-btn:hover {
-    background: #00b8e6;
-}
-
-.intro-cta-btn-outline {
-    background: transparent;
+.intro-contact-btn:hover {
     color: #00d4ff;
-    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
-.intro-cta-btn-outline:hover {
-    background: rgba(0, 212, 255, 0.1);
+.intro-contact-icon {
+    font-size: 14px;
 }
 
 /* 자기소개 모바일 대응 */
@@ -1737,13 +1729,13 @@ footer {
         height: 160px;
     }
 
-    .intro-cta {
+    .intro-contact {
         flex-direction: column;
         align-items: center;
     }
 
-    .intro-cta-btn {
+    .intro-contact-btn {
         width: 100%;
-        text-align: center;
+        justify-content: center;
     }
 }

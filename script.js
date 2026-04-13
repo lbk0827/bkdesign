@@ -75,21 +75,6 @@ function renderCareerDurations() {
 renderCareerDurations();
 setInterval(renderCareerDurations, 60 * 1000);
 
-// ===== 자기소개 CTA 버튼 네비게이션 =====
-document.querySelectorAll('.intro-cta-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetPage = this.getAttribute('data-page');
-        if (!targetPage) return;
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        const matchingNav = document.querySelector(`.nav-link[data-page="${targetPage}"]`);
-        if (matchingNav) matchingNav.classList.add('active');
-        pages.forEach(page => page.classList.remove('active'));
-        document.getElementById(targetPage).classList.add('active');
-        window.scrollTo(0, 0);
-    });
-});
-
 // ===== 이미지 드래그 방지 =====
 document.addEventListener('dragstart', function(e) {
     if (e.target.tagName === 'IMG') {
