@@ -79,9 +79,17 @@ setInterval(renderCareerDurations, 60 * 1000);
 const DOC_DATA = {
     'new-user-mission': {
         title: '신규 사용자 미션',
-        folder: 'GameDesignDocs/신규사용자미션',
+        folder: 'GameDesignDocs/CSJ-NewUserMission',
         prefix: 'mission_',
-        count: 35
+        count: 35,
+        defaultZoom: 100
+    },
+    'daily-challenge': {
+        title: '데일리 챌린지',
+        folder: 'GameDesignDocs/CSJ-DailyChallenge',
+        prefix: 'daily_',
+        count: 50,
+        defaultZoom: 80
     }
 };
 
@@ -89,6 +97,35 @@ const docOverlay = document.getElementById('doc-overlay');
 const docOverlayTitle = document.getElementById('doc-overlay-title');
 const docOverlayBody = document.getElementById('doc-overlay-body');
 const docOverlayClose = document.getElementById('doc-overlay-close');
+const docZoomOutBtn = document.getElementById('doc-zoom-out');
+const docZoomInBtn = document.getElementById('doc-zoom-in');
+const docZoomLevel = document.getElementById('doc-zoom-level');
+
+const DOC_ZOOM_MIN = 60;
+const DOC_ZOOM_MAX = 160;
+const DOC_ZOOM_STEP = 10;
+const DOC_ZOOM_DEFAULT = 100;
+let docZoom = DOC_ZOOM_DEFAULT;
+let isDocPanning = false;
+let docPanStartX = 0;
+let docPanStartY = 0;
+let docPanScrollLeft = 0;
+let docPanScrollTop = 0;
+
+function applyDocZoom(nextZoom = DOC_ZOOM_DEFAULT) {
+    docZoom = Math.min(DOC_ZOOM_MAX, Math.max(DOC_ZOOM_MIN, nextZoom));
+    docOverlay.style.setProperty('--doc-zoom', String(docZoom / 100));
+    docOverlay.classList.toggle('is-zoomed', docZoom > DOC_ZOOM_DEFAULT);
+    if (docZoomLevel) {
+        docZoomLevel.textContent = `${docZoom}%`;
+    }
+    if (docZoomOutBtn) {
+        docZoomOutBtn.disabled = docZoom <= DOC_ZOOM_MIN;
+    }
+    if (docZoomInBtn) {
+        docZoomInBtn.disabled = docZoom >= DOC_ZOOM_MAX;
+    }
+}
 
 document.querySelectorAll('.doc-item').forEach(item => {
     item.addEventListener('click', function() {
@@ -107,18 +144,79 @@ document.querySelectorAll('.doc-item').forEach(item => {
             docOverlayBody.appendChild(img);
         }
 
+        applyDocZoom(doc.defaultZoom || DOC_ZOOM_DEFAULT);
         docOverlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     });
 });
 
+if (docZoomOutBtn) {
+    docZoomOutBtn.addEventListener('click', function() {
+        applyDocZoom(docZoom - DOC_ZOOM_STEP);
+    });
+}
+
+if (docZoomInBtn) {
+    docZoomInBtn.addEventListener('click', function() {
+        applyDocZoom(docZoom + DOC_ZOOM_STEP);
+    });
+}
+
+function stopDocPanning(pointerId) {
+    isDocPanning = false;
+    docOverlay.classList.remove('is-panning');
+    if (pointerId !== undefined) {
+        try {
+            docOverlayBody.releasePointerCapture(pointerId);
+        } catch (_) {
+            // no-op
+        }
+    }
+}
+
+if (docOverlayBody) {
+    docOverlayBody.addEventListener('pointerdown', function(e) {
+        if (docZoom <= DOC_ZOOM_DEFAULT || docOverlay.style.display !== 'flex') return;
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+        isDocPanning = true;
+        docPanStartX = e.clientX;
+        docPanStartY = e.clientY;
+        docPanScrollLeft = docOverlayBody.scrollLeft;
+        docPanScrollTop = docOverlayBody.scrollTop;
+        docOverlay.classList.add('is-panning');
+        docOverlayBody.setPointerCapture(e.pointerId);
+        e.preventDefault();
+    });
+
+    docOverlayBody.addEventListener('pointermove', function(e) {
+        if (!isDocPanning) return;
+        const dx = e.clientX - docPanStartX;
+        const dy = e.clientY - docPanStartY;
+        docOverlayBody.scrollLeft = docPanScrollLeft - dx;
+        docOverlayBody.scrollTop = docPanScrollTop - dy;
+    });
+
+    docOverlayBody.addEventListener('pointerup', function(e) {
+        if (!isDocPanning) return;
+        stopDocPanning(e.pointerId);
+    });
+
+    docOverlayBody.addEventListener('pointercancel', function(e) {
+        if (!isDocPanning) return;
+        stopDocPanning(e.pointerId);
+    });
+}
+
 docOverlayClose.addEventListener('click', function() {
+    stopDocPanning();
     docOverlay.style.display = 'none';
     document.body.style.overflow = '';
 });
 
 docOverlay.addEventListener('click', function(e) {
     if (e.target === docOverlay) {
+        stopDocPanning();
         docOverlay.style.display = 'none';
         document.body.style.overflow = '';
     }
@@ -126,6 +224,7 @@ docOverlay.addEventListener('click', function(e) {
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && docOverlay.style.display === 'flex') {
+        stopDocPanning();
         docOverlay.style.display = 'none';
         document.body.style.overflow = '';
     }

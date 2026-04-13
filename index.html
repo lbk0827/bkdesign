@@ -467,10 +467,18 @@
             <!-- 콘텐츠 / 시스템 기획서 -->
             <h3 class="doc-section-title">콘텐츠 / 시스템 기획서</h3>
             <div class="doc-list">
+                <div class="doc-item" data-doc-id="daily-challenge" role="button" tabindex="0">
+                    <span class="doc-icon">📕</span>
+                    <div class="doc-info">
+                        <span class="doc-name">Color Slide Jam - 데일리 챌린지</span>
+                        <span class="doc-meta">콘텐츠 기획</span>
+                    </div>
+                    <span class="doc-arrow">›</span>
+                </div>
                 <div class="doc-item" data-doc-id="new-user-mission" role="button" tabindex="0">
                     <span class="doc-icon">📕</span>
                     <div class="doc-info">
-                        <span class="doc-name">신규 사용자 미션</span>
+                        <span class="doc-name">Color Slide Jam - 신규 사용자 미션</span>
                         <span class="doc-meta">콘텐츠 기획</span>
                     </div>
                     <span class="doc-arrow">›</span>
@@ -482,7 +490,12 @@
         <div id="doc-overlay" class="doc-overlay" style="display:none;">
             <div class="doc-overlay-header">
                 <span id="doc-overlay-title" class="doc-overlay-title"></span>
-                <button id="doc-overlay-close" class="doc-overlay-close">✕</button>
+                <div class="doc-overlay-controls">
+                    <button id="doc-zoom-out" class="doc-zoom-btn" type="button" aria-label="축소">−</button>
+                    <span id="doc-zoom-level" class="doc-zoom-level">100%</span>
+                    <button id="doc-zoom-in" class="doc-zoom-btn" type="button" aria-label="확대">+</button>
+                    <button id="doc-overlay-close" class="doc-overlay-close" type="button" aria-label="닫기">✕</button>
+                </div>
             </div>
             <div id="doc-overlay-body" class="doc-overlay-body"></div>
         </div>

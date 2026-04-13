@@ -1854,25 +1854,80 @@ footer {
     color: #ffffff;
 }
 
-.doc-overlay-close {
-    background: none;
-    border: none;
-    color: #888;
-    font-size: 22px;
+.doc-overlay-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doc-zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #c8f2ff;
+    font-size: 18px;
+    line-height: 1;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: all 0.2s;
+    transition: all 0.18s ease;
+}
+
+.doc-zoom-btn:hover {
+    border-color: rgba(0, 212, 255, 0.6);
+    background: rgba(0, 212, 255, 0.12);
+    color: #ffffff;
+}
+
+.doc-zoom-btn:focus-visible {
+    outline: 2px solid rgba(0, 212, 255, 0.85);
+    outline-offset: 2px;
+}
+
+.doc-zoom-level {
+    min-width: 48px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #9fddee;
+}
+
+.doc-overlay-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.45);
+    color: #d7f7ff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.08) inset;
+    transition: all 0.18s ease;
 }
 
 .doc-overlay-close:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    background: rgba(0, 212, 255, 0.22);
+    border-color: rgba(0, 212, 255, 0.8);
+}
+
+.doc-overlay-close:focus-visible {
+    outline: 2px solid rgba(0, 212, 255, 0.9);
+    outline-offset: 2px;
 }
 
 .doc-overlay-body {
     flex: 1;
-    overflow-y: auto;
+    overflow: auto;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -1880,8 +1935,8 @@ footer {
 }
 
 .doc-overlay-body img {
-    width: 100%;
-    max-width: 1600px;
+    width: calc(100% * var(--doc-zoom, 1));
+    max-width: calc(1600px * var(--doc-zoom, 1));
     display: block;
     border: none;
     margin: 0;
@@ -1889,8 +1944,37 @@ footer {
     vertical-align: bottom;
 }
 
+.doc-overlay.is-zoomed .doc-overlay-body,
+.doc-overlay.is-zoomed .doc-overlay-body img {
+    cursor: grab;
+}
+
+.doc-overlay.is-panning .doc-overlay-body,
+.doc-overlay.is-panning .doc-overlay-body img {
+    cursor: grabbing;
+}
+
+.doc-overlay.is-panning .doc-overlay-body {
+    user-select: none;
+}
+
 /* 기획 문서 모바일 */
 @media (max-width: 768px) {
+    .doc-overlay-controls {
+        gap: 6px;
+    }
+
+    .doc-zoom-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .doc-zoom-level {
+        min-width: 42px;
+        font-size: 12px;
+    }
+
     .doc-overlay-body {
         padding: 8px;
     }
