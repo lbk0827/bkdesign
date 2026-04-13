@@ -1860,6 +1860,35 @@ footer {
     gap: 8px;
 }
 
+.doc-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    border-radius: 7px;
+    background: rgba(0, 212, 255, 0.1);
+    color: #d7f7ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.doc-download-btn:hover {
+    border-color: rgba(0, 212, 255, 0.75);
+    background: rgba(0, 212, 255, 0.2);
+    color: #ffffff;
+}
+
+.doc-download-btn:focus-visible {
+    outline: 2px solid rgba(0, 212, 255, 0.85);
+    outline-offset: 2px;
+}
+
 .doc-zoom-btn {
     display: inline-flex;
     align-items: center;
@@ -1962,6 +1991,13 @@ footer {
 @media (max-width: 768px) {
     .doc-overlay-controls {
         gap: 6px;
+    }
+
+    .doc-download-btn {
+        min-width: 42px;
+        height: 28px;
+        padding: 0 8px;
+        font-size: 11px;
     }
 
     .doc-zoom-btn {

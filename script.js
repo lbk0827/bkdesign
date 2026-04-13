@@ -97,6 +97,7 @@ const docOverlay = document.getElementById('doc-overlay');
 const docOverlayTitle = document.getElementById('doc-overlay-title');
 const docOverlayBody = document.getElementById('doc-overlay-body');
 const docOverlayClose = document.getElementById('doc-overlay-close');
+const docDownloadPdfBtn = document.getElementById('doc-download-pdf');
 const docZoomOutBtn = document.getElementById('doc-zoom-out');
 const docZoomInBtn = document.getElementById('doc-zoom-in');
 const docZoomLevel = document.getElementById('doc-zoom-level');
@@ -111,6 +112,7 @@ let docPanStartX = 0;
 let docPanStartY = 0;
 let docPanScrollLeft = 0;
 let docPanScrollTop = 0;
+let currentDocId = null;
 
 function applyDocZoom(nextZoom = DOC_ZOOM_DEFAULT) {
     docZoom = Math.min(DOC_ZOOM_MAX, Math.max(DOC_ZOOM_MIN, nextZoom));
@@ -132,6 +134,7 @@ document.querySelectorAll('.doc-item').forEach(item => {
         const docId = this.getAttribute('data-doc-id');
         const doc = DOC_DATA[docId];
         if (!doc) return;
+        currentDocId = docId;
 
         docOverlayTitle.textContent = doc.title;
         docOverlayBody.innerHTML = '';
@@ -149,6 +152,64 @@ document.querySelectorAll('.doc-item').forEach(item => {
         document.body.style.overflow = 'hidden';
     });
 });
+
+function buildDocImageUrls(doc) {
+    const urls = [];
+    for (let i = 1; i <= doc.count; i++) {
+        const fileName = `${doc.prefix}${String(i).padStart(2, '0')}.png`;
+        urls.push(new URL(`${doc.folder}/${fileName}`, window.location.href).href);
+    }
+    return urls;
+}
+
+function openDocPdfWindow(doc) {
+    const imageUrls = buildDocImageUrls(doc);
+    const win = window.open('', '_blank', 'noopener,noreferrer');
+    if (!win) {
+        alert('팝업이 차단되어 PDF 창을 열 수 없습니다. 브라우저 팝업 허용 후 다시 시도해 주세요.');
+        return;
+    }
+
+    const escapedTitle = (doc.title || '문서').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const imageHtml = imageUrls
+        .map((src, index) => `<img src="${src}" alt="${escapedTitle} ${index + 1}페이지" />`)
+        .join('');
+
+    win.document.open();
+    win.document.write(`<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>${escapedTitle} - PDF</title>
+  <style>
+    @page { margin: 8mm; }
+    html, body { margin: 0; padding: 0; background: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+    .title { padding: 12px 16px; font-size: 14px; font-weight: 700; border-bottom: 1px solid #ddd; }
+    .pages { padding: 0; }
+    img { width: 100%; max-width: 100%; display: block; margin: 0 0 6px 0; break-inside: avoid; page-break-inside: avoid; }
+    @media print { .title { display: none; } img { margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="title">${escapedTitle} · 인쇄 창</div>
+  <div class="pages">${imageHtml}</div>
+</body>
+</html>`);
+    win.document.close();
+    win.focus();
+
+    // User can choose "Save as PDF" in the print dialog.
+    win.addEventListener('load', () => {
+        win.print();
+    });
+}
+
+if (docDownloadPdfBtn) {
+    docDownloadPdfBtn.addEventListener('click', function() {
+        if (!currentDocId || !DOC_DATA[currentDocId]) return;
+        openDocPdfWindow(DOC_DATA[currentDocId]);
+    });
+}
 
 if (docZoomOutBtn) {
     docZoomOutBtn.addEventListener('click', function() {
@@ -212,6 +273,7 @@ docOverlayClose.addEventListener('click', function() {
     stopDocPanning();
     docOverlay.style.display = 'none';
     document.body.style.overflow = '';
+    currentDocId = null;
 });
 
 docOverlay.addEventListener('click', function(e) {
@@ -219,6 +281,7 @@ docOverlay.addEventListener('click', function(e) {
         stopDocPanning();
         docOverlay.style.display = 'none';
         document.body.style.overflow = '';
+        currentDocId = null;
     }
 });
 
@@ -227,6 +290,7 @@ document.addEventListener('keydown', function(e) {
         stopDocPanning();
         docOverlay.style.display = 'none';
         document.body.style.overflow = '';
+        currentDocId = null;
     }
 });
 
