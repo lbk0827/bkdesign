@@ -1645,3 +1645,218 @@ footer {
         padding: 28px 14px;
     }
 }
+
+/* ===== 자기소개 페이지 ===== */
+
+.intro-hero {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.intro-hero-photo {
+    flex-shrink: 0;
+}
+
+.intro-profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(0, 212, 255, 0.3);
+}
+
+.intro-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.intro-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.intro-title {
+    font-size: 15px;
+    color: #00d4ff;
+    font-weight: 500;
+}
+
+.intro-tagline {
+    font-size: 14px;
+    color: #8899aa;
+    margin-top: 4px;
+    line-height: 1.6;
+}
+
+/* 핵심 역량 카드 */
+.intro-strengths {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.intro-strength-card {
+    flex: 1;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    transition: border-color 0.2s;
+}
+
+.intro-strength-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.intro-strength-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.intro-strength-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.intro-strength-desc {
+    font-size: 13px;
+    color: #8899aa;
+    line-height: 1.7;
+}
+
+/* 자기소개 본문 */
+.intro-body {
+    margin-bottom: 48px;
+}
+
+.intro-paragraph {
+    margin-bottom: 32px;
+}
+
+.intro-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 10px;
+}
+
+.intro-paragraph p {
+    font-size: 14px;
+    color: #c6d3e5;
+    line-height: 1.8;
+}
+
+/* 커리어 하이라이트 숫자 */
+.intro-highlights {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.intro-highlight-item {
+    flex: 1;
+    text-align: center;
+}
+
+.intro-highlight-number {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #00d4ff;
+    margin-bottom: 6px;
+}
+
+.intro-highlight-label {
+    font-size: 12px;
+    color: #8899aa;
+}
+
+/* CTA 버튼 */
+.intro-cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.intro-cta-btn {
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    background: #00d4ff;
+    color: #0a0a0f;
+}
+
+.intro-cta-btn:hover {
+    background: #00b8e6;
+}
+
+.intro-cta-btn-outline {
+    background: transparent;
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.intro-cta-btn-outline:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+/* 자기소개 모바일 대응 */
+@media (max-width: 768px) {
+    .intro-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+        gap: 20px;
+    }
+
+    .intro-profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .intro-hero-text {
+        align-items: center;
+    }
+
+    .intro-strengths {
+        flex-direction: column;
+    }
+
+    .intro-highlights {
+        flex-wrap: wrap;
+        padding: 24px 16px;
+    }
+
+    .intro-highlight-item {
+        min-width: 40%;
+        margin-bottom: 12px;
+    }
+
+    .intro-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .intro-cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
