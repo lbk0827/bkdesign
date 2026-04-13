@@ -1731,7 +1731,8 @@ footer {
 }
 
 .intro-contact-icon {
-    font-size: 14px;
+    font-size: 22px;
+    line-height: 1;
 }
 
 /* 자기소개 모바일 대응 */
