@@ -91,8 +91,13 @@ const PROJECT_DETAILS = {
         role: '시스템 기획, 인게임 기획, 콘텐츠 기획, BM/상품 기획, 지표 분석',
         period: '2026. 03. ~ 현재',
         links: [],
+        galleryLayout: 'row',
         gallery: [
-            { src: 'IMG_Projects/DartAway.jpg', alt: 'Dart Away 프로젝트 대표 스크린샷' }
+            { src: 'IMG_Projects/Dart_1.png', alt: 'Dart Away 스크린샷 1' },
+            { src: 'IMG_Projects/Dart_2.png', alt: 'Dart Away 스크린샷 2' },
+            { src: 'IMG_Projects/Dart_3.png', alt: 'Dart Away 스크린샷 3' },
+            { src: 'IMG_Projects/Dart_4.png', alt: 'Dart Away 스크린샷 4' },
+            { src: 'IMG_Projects/Dart_5.png', alt: 'Dart Away 스크린샷 5' }
         ],
         responsibilities: [
             '작성 예정'
