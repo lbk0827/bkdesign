@@ -86,7 +86,7 @@ document.addEventListener('dragstart', function(e) {
 const PROJECT_DETAILS = {
     'dart-away': {
         title: 'Dart Away : Balloon Pop Puzzle',
-        summary: '작성 예정',
+        summary: 'Dart Away는 다트를 올바른 순서로 선택하여 풍선을 터뜨리는 로직 기반 퍼즐 게임입니다. 프로그래머 없이 기획자·디자이너·이펙터 셋이서 기획부터 출시까지 4주 만에 완성한, 사내 최초의 A.I. 바이브 코딩 프로젝트입니다. 개발과 A.I. R&D를 병행하며 선봉대 역할을 수행했고, 기획자이면서 동시에 코더(Coder) 역할을 겸하여 기존 개발자의 역할을 대체하며 AI 기반 개발 워크플로우의 가능성을 체험한 프로젝트입니다.',
         team: '기획/개발 협업',
         role: '시스템 기획, 인게임 기획, 콘텐츠 기획, BM/상품 기획, 지표 분석',
         period: '2026. 03. ~ 현재',
