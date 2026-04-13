@@ -1664,11 +1664,11 @@ footer {
 }
 
 .intro-profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 12px;
     object-fit: cover;
-    border: 3px solid #00d4ff;
+    border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
 }
 
@@ -1829,8 +1829,8 @@ footer {
     }
 
     .intro-profile-img {
-        width: 120px;
-        height: 120px;
+        width: 160px;
+        height: 160px;
     }
 
     .intro-hero-text {
