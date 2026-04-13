@@ -112,9 +112,13 @@ const PROJECT_DETAILS = {
         role: '시스템 기획, 인게임 기획, 콘텐츠 기획, BM/상품 기획, 지표 분석',
         period: '2024. 09. ~ 현재',
         links: [],
+        galleryLayout: 'row',
         gallery: [
-            { src: 'IMG_Projects/ColorSlideJam.jpg', alt: 'Color Slide Jam 게임 화면' },
-            { src: 'IMG_Projects/WoodRushPuzzle.jpg', alt: 'Wood Rush Puzzle 게임 화면' }
+            { src: 'IMG_Projects/CSJ_1.png', alt: 'Color Slide Jam 스크린샷 1' },
+            { src: 'IMG_Projects/CSJ_2.png', alt: 'Color Slide Jam 스크린샷 2' },
+            { src: 'IMG_Projects/CSJ_3.png', alt: 'Color Slide Jam 스크린샷 3' },
+            { src: 'IMG_Projects/CSJ_4.png', alt: 'Color Slide Jam 스크린샷 4' },
+            { src: 'IMG_Projects/CSJ_5.png', alt: 'Color Slide Jam 스크린샷 5' }
         ],
         responsibilities: [
             { tag: '인게임 기획', desc: '플로우, 조작, 성공/실패 로직, 스테이지 진행 구조, 기믹 등의 인게임 기획 진행. 특히 유저가 플레이하면서 가장 먼저 체감하는 핵심 경험인 조작감 기획과, 새로운 플레이 경험과 도전적인 난이도를 제공하는 기믹에 집중.' },
