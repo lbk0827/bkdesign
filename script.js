@@ -75,6 +75,62 @@ function renderCareerDurations() {
 renderCareerDurations();
 setInterval(renderCareerDurations, 60 * 1000);
 
+// ===== 기획 문서 오버레이 시스템 =====
+const DOC_DATA = {
+    'new-user-mission': {
+        title: '신규 사용자 미션',
+        folder: 'GameDesignDocs/신규사용자미션',
+        prefix: 'mission_',
+        count: 35
+    }
+};
+
+const docOverlay = document.getElementById('doc-overlay');
+const docOverlayTitle = document.getElementById('doc-overlay-title');
+const docOverlayBody = document.getElementById('doc-overlay-body');
+const docOverlayClose = document.getElementById('doc-overlay-close');
+
+document.querySelectorAll('.doc-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const docId = this.getAttribute('data-doc-id');
+        const doc = DOC_DATA[docId];
+        if (!doc) return;
+
+        docOverlayTitle.textContent = doc.title;
+        docOverlayBody.innerHTML = '';
+
+        for (let i = 1; i <= doc.count; i++) {
+            const img = document.createElement('img');
+            img.src = `${doc.folder}/${doc.prefix}${String(i).padStart(2, '0')}.png`;
+            img.alt = `${doc.title} - ${i}페이지`;
+            img.loading = 'lazy';
+            docOverlayBody.appendChild(img);
+        }
+
+        docOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+docOverlayClose.addEventListener('click', function() {
+    docOverlay.style.display = 'none';
+    document.body.style.overflow = '';
+});
+
+docOverlay.addEventListener('click', function(e) {
+    if (e.target === docOverlay) {
+        docOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && docOverlay.style.display === 'flex') {
+        docOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
 // ===== 이미지 드래그 방지 =====
 document.addEventListener('dragstart', function(e) {
     if (e.target.tagName === 'IMG') {

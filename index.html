@@ -462,13 +462,30 @@
         <!-- Documents 페이지 -->
         <section id="documents" class="page">
             <h2>기획 문서</h2>
-            <p>아래에서 기획서를 확인하실 수 있습니다.</p>
-            <ul>
-                <li>시스템 기획서 (PDF)</li>
-                <li>콘텐츠 기획서 (PDF)</li>
-                <li>UI/UX 기획서 (이미지)</li>
-            </ul>
+            <p class="proj-detail-hint">💡 문서를 클릭하면 전체 기획서를 확인할 수 있습니다.</p>
+
+            <!-- 콘텐츠 / 시스템 기획서 -->
+            <h3 class="doc-section-title">콘텐츠 / 시스템 기획서</h3>
+            <div class="doc-list">
+                <div class="doc-item" data-doc-id="new-user-mission" role="button" tabindex="0">
+                    <span class="doc-icon">📄</span>
+                    <div class="doc-info">
+                        <span class="doc-name">신규 사용자 미션</span>
+                        <span class="doc-meta">35페이지 · 콘텐츠 기획</span>
+                    </div>
+                    <span class="doc-arrow">›</span>
+                </div>
+            </div>
         </section>
+
+        <!-- 기획 문서 오버레이 -->
+        <div id="doc-overlay" class="doc-overlay" style="display:none;">
+            <div class="doc-overlay-header">
+                <span id="doc-overlay-title" class="doc-overlay-title"></span>
+                <button id="doc-overlay-close" class="doc-overlay-close">✕</button>
+            </div>
+            <div id="doc-overlay-body" class="doc-overlay-body"></div>
+        </div>
 
         <!-- Personal Projects 페이지 -->
         <section id="personal-projects" class="page">
