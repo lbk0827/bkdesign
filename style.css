@@ -18,9 +18,22 @@ body {
 
 /* ===== 헤더 ===== */
 header {
-    text-align: center;
-    padding: 14px 20px;
+    padding: 12px 20px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
 }
 
 header h1 {
@@ -29,6 +42,10 @@ header h1 {
     color: #ffffff;
     letter-spacing: 0.5px;
     line-height: 1;
+}
+
+.header-accent {
+    color: #00d4ff;
 }
 
 /* ===== 프로필 이미지 (이력서용) ===== */
