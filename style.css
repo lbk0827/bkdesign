@@ -1648,19 +1648,16 @@ footer {
 
 /* ===== 자기소개 페이지 ===== */
 
-.intro-hero {
+/* 자기소개 미니멀 레이아웃 */
+.intro-minimal {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 32px;
-    margin-bottom: 48px;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.intro-hero-photo {
-    flex-shrink: 0;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+    padding: 60px 20px;
+    gap: 8px;
 }
 
 .intro-profile-img {
@@ -1670,121 +1667,29 @@ footer {
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
-}
-
-.intro-hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    margin-bottom: 16px;
 }
 
 .intro-name {
     font-size: 28px;
     font-weight: 700;
     color: #ffffff;
+    margin: 0;
 }
 
 .intro-title {
     font-size: 15px;
     color: #00d4ff;
     font-weight: 500;
+    margin: 0;
 }
 
 .intro-tagline {
     font-size: 14px;
     color: #8899aa;
-    margin-top: 4px;
+    margin-top: 8px;
     line-height: 1.6;
-}
-
-/* 핵심 역량 카드 */
-.intro-strengths {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 48px;
-}
-
-.intro-strength-card {
-    flex: 1;
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    transition: border-color 0.2s;
-}
-
-.intro-strength-card:hover {
-    border-color: rgba(0, 212, 255, 0.2);
-}
-
-.intro-strength-icon {
-    font-size: 24px;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.intro-strength-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.intro-strength-desc {
-    font-size: 13px;
-    color: #8899aa;
-    line-height: 1.7;
-}
-
-/* 자기소개 본문 */
-.intro-body {
-    margin-bottom: 48px;
-}
-
-.intro-paragraph {
-    margin-bottom: 32px;
-}
-
-.intro-section-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #00d4ff;
-    margin-bottom: 10px;
-}
-
-.intro-paragraph p {
-    font-size: 14px;
-    color: #c6d3e5;
-    line-height: 1.8;
-}
-
-/* 커리어 하이라이트 숫자 */
-.intro-highlights {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 48px;
-    padding: 32px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.intro-highlight-item {
-    flex: 1;
-    text-align: center;
-}
-
-.intro-highlight-number {
-    display: block;
-    font-size: 28px;
-    font-weight: 700;
-    color: #00d4ff;
-    margin-bottom: 6px;
-}
-
-.intro-highlight-label {
-    font-size: 12px;
-    color: #8899aa;
+    max-width: 520px;
 }
 
 /* CTA 버튼 */
@@ -1792,6 +1697,7 @@ footer {
     display: flex;
     gap: 12px;
     justify-content: center;
+    margin-top: 28px;
 }
 
 .intro-cta-btn {
@@ -1821,34 +1727,14 @@ footer {
 
 /* 자기소개 모바일 대응 */
 @media (max-width: 768px) {
-    .intro-hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 28px 20px;
-        gap: 20px;
+    .intro-minimal {
+        min-height: 50vh;
+        padding: 40px 16px;
     }
 
     .intro-profile-img {
         width: 160px;
         height: 160px;
-    }
-
-    .intro-hero-text {
-        align-items: center;
-    }
-
-    .intro-strengths {
-        flex-direction: column;
-    }
-
-    .intro-highlights {
-        flex-wrap: wrap;
-        padding: 24px 16px;
-    }
-
-    .intro-highlight-item {
-        min-width: 40%;
-        margin-bottom: 12px;
     }
 
     .intro-cta {
