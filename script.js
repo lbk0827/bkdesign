@@ -97,6 +97,20 @@ const DOC_DATA = {
         prefix: 'ingame_',
         count: 7,
         defaultZoom: 100
+    },
+    'ingame-control': {
+        title: 'Color Slide Jam - 블록 조작 / 분쇄',
+        folder: 'GameDesignDocs/CSJ-InGame_Control',
+        prefix: 'control_',
+        count: 9,
+        defaultZoom: 100
+    },
+    'pinata-party': {
+        title: 'Color Slide Jam - 피냐타 파티 + 리소스 변경(에셋 번들) 시스템',
+        folder: 'GameDesignDocs/CSJ-PinataParty',
+        prefix: 'pinata_',
+        count: 45,
+        defaultZoom: 80
     }
 };
 
