@@ -78,18 +78,25 @@ setInterval(renderCareerDurations, 60 * 1000);
 // ===== 기획 문서 오버레이 시스템 =====
 const DOC_DATA = {
     'new-user-mission': {
-        title: '신규 사용자 미션',
+        title: 'Color Slide Jam - 신규 사용자 미션',
         folder: 'GameDesignDocs/CSJ-NewUserMission',
         prefix: 'mission_',
         count: 35,
         defaultZoom: 100
     },
     'daily-challenge': {
-        title: '데일리 챌린지',
+        title: 'Color Slide Jam - 데일리 챌린지',
         folder: 'GameDesignDocs/CSJ-DailyChallenge',
         prefix: 'daily_',
         count: 50,
         defaultZoom: 80
+    },
+    'ingame-flow': {
+        title: 'Color Slide Jam - 인게임 플로우',
+        folder: 'GameDesignDocs/CSJ-InGame_InGameFlow',
+        prefix: 'ingame_',
+        count: 7,
+        defaultZoom: 100
     }
 };
 
@@ -164,19 +171,29 @@ function buildDocImageUrls(doc) {
 
 function openDocPdfWindow(doc) {
     const imageUrls = buildDocImageUrls(doc);
-    const win = window.open('', '_blank', 'noopener,noreferrer');
-    if (!win) {
-        alert('팝업이 차단되어 PDF 창을 열 수 없습니다. 브라우저 팝업 허용 후 다시 시도해 주세요.');
-        return;
-    }
-
     const escapedTitle = (doc.title || '문서').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const imageHtml = imageUrls
         .map((src, index) => `<img src="${src}" alt="${escapedTitle} ${index + 1}페이지" />`)
         .join('');
 
-    win.document.open();
-    win.document.write(`<!doctype html>
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'fixed';
+    printFrame.style.right = '-10000px';
+    printFrame.style.bottom = '-10000px';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.opacity = '0';
+    printFrame.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(printFrame);
+
+    const frameDoc = printFrame.contentDocument || printFrame.contentWindow?.document;
+    if (!frameDoc) {
+        printFrame.remove();
+        return;
+    }
+
+    frameDoc.open();
+    frameDoc.write(`<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -195,13 +212,31 @@ function openDocPdfWindow(doc) {
   <div class="pages">${imageHtml}</div>
 </body>
 </html>`);
-    win.document.close();
-    win.focus();
+    frameDoc.close();
 
-    // User can choose "Save as PDF" in the print dialog.
-    win.addEventListener('load', () => {
-        win.print();
-    });
+    const frameWindow = printFrame.contentWindow;
+    if (!frameWindow) {
+        printFrame.remove();
+        return;
+    }
+
+    const cleanup = () => {
+        setTimeout(() => {
+            if (printFrame.parentNode) {
+                printFrame.parentNode.removeChild(printFrame);
+            }
+        }, 300);
+    };
+
+    frameWindow.addEventListener('afterprint', cleanup, { once: true });
+
+    // Print after the frame document settles.
+    setTimeout(() => {
+        frameWindow.focus();
+        frameWindow.print();
+        // Some browsers do not fire afterprint reliably.
+        setTimeout(cleanup, 5000);
+    }, 150);
 }
 
 if (docDownloadPdfBtn) {
