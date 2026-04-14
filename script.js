@@ -110,7 +110,7 @@ const DOC_DATA = {
         folder: 'GameDesignDocs/CSJ-PinataParty',
         prefix: 'pinata_',
         count: 45,
-        defaultZoom: 80
+        defaultZoom: 100
     }
 };
 
