@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK Portfolio 제출용</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        body {
+            font-family: "Apple SD Gothic Neo", sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            margin: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(0, 212, 255, 0.1), transparent 45%),
+                radial-gradient(circle at 80% 85%, rgba(0, 170, 220, 0.08), transparent 48%),
+                #0a0a0f;
+        }
+
+        .header {
+            padding: 14px 22px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .header-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid rgba(0, 212, 255, 0.35);
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+        }
+
+        .header-accent {
+            color: #00d4ff;
+        }
+
+        .intro-wrap {
+            min-height: calc(297mm - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 30px 46px;
+        }
+
+        .profile {
+            width: 190px;
+            height: 190px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid rgba(138, 160, 186, 0.42);
+            margin-bottom: 18px;
+        }
+
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #00d4ff;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .tagline {
+            max-width: 620px;
+            font-size: 14px;
+            line-height: 1.72;
+            color: #a8b4c1;
+            margin-bottom: 24px;
+        }
+
+        .contacts {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .contact-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: #a8b4c1;
+            text-decoration: none;
+        }
+
+        .contact-icon {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .cta-wrap {
+            border: 1px solid rgba(0, 212, 255, 0.28);
+            background: rgba(0, 212, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px 18px;
+            max-width: 620px;
+            width: 100%;
+        }
+
+        .cta-text {
+            font-size: 13px;
+            color: #c4d2e0;
+            margin-bottom: 12px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #001019;
+            font-weight: 700;
+            font-size: 14px;
+            background: #00d4ff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid #00d4ff;
+        }
+
+        .url-text {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #7f95ab;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <img src="IMG_Profile/Profile.png" alt="BK 로고" class="header-logo">
+            <div class="header-title"><span class="header-accent">BK's</span> Game Portfolio</div>
+        </div>
+
+        <main class="intro-wrap">
+            <img src="IMG_Profile/MyPic_pdf.jpg" alt="이병권 프로필 사진" class="profile">
+            <h1 class="name">이병권</h1>
+            <p class="title">게임 기획자 · 시스템 기획</p>
+            <p class="tagline">
+                약 5년간 시스템·콘텐츠·BM 기획을 중심으로 캐주얼 장르의 글로벌 게임 서비스에 참여해왔으며,
+                데이터 테이블 기반의 효율적인 기획·운영 구조 설계를 지향하는 게임 기획자입니다.
+            </p>
+
+            <div class="contacts">
+                <a href="mailto:lbk_0827@naver.com" class="contact-chip"><span class="contact-icon">✉</span>lbk_0827@naver.com</a>
+                <a href="tel:010-7361-0073" class="contact-chip"><span class="contact-icon">✆</span>010-7361-0073</a>
+            </div>
+
+            <section class="cta-wrap">
+                <p class="cta-text">아래 버튼을 클릭하면 포트폴리오 웹사이트로 바로 이동합니다.</p>
+                <a class="cta-btn" href="https://lbk0827.github.io/bkdesign/">포트폴리오 사이트 바로가기</a>
+                <p class="url-text">https://lbk0827.github.io/bkdesign/</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
