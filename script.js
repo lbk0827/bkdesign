@@ -78,35 +78,35 @@ setInterval(renderCareerDurations, 60 * 1000);
 // ===== 기획 문서 오버레이 시스템 =====
 const DOC_DATA = {
     'new-user-mission': {
-        title: 'Color Slide Jam - 신규 사용자 미션',
+        title: '캐주얼 게임 - 신규 사용자 미션',
         folder: 'GameDesignDocs/CSJ-NewUserMission',
         prefix: 'mission_',
         count: 35,
         defaultZoom: 100
     },
     'daily-challenge': {
-        title: 'Color Slide Jam - 데일리 챌린지',
+        title: '캐주얼 게임 - 데일리 챌린지',
         folder: 'GameDesignDocs/CSJ-DailyChallenge',
         prefix: 'daily_',
         count: 50,
         defaultZoom: 80
     },
     'ingame-flow': {
-        title: 'Color Slide Jam - 인게임 플로우',
+        title: '캐주얼 게임 - 인게임 플로우',
         folder: 'GameDesignDocs/CSJ-InGame_InGameFlow',
         prefix: 'ingame_',
         count: 7,
         defaultZoom: 100
     },
     'ingame-control': {
-        title: 'Color Slide Jam - 블록 조작 / 분쇄',
+        title: '캐주얼 게임 - 블록 조작 / 분쇄',
         folder: 'GameDesignDocs/CSJ-InGame_Control',
         prefix: 'control_',
         count: 9,
         defaultZoom: 100
     },
     'pinata-party': {
-        title: 'Color Slide Jam - 피냐타 파티 + 리소스 변경(에셋 번들) 시스템',
+        title: '캐주얼 게임 - 피냐타 파티 + 리소스 변경(에셋 번들) 시스템',
         folder: 'GameDesignDocs/CSJ-PinataParty',
         prefix: 'pinata_',
         count: 45,
