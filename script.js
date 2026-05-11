@@ -352,6 +352,36 @@ document.addEventListener('dragstart', function(e) {
 
 // ===== 참여 프로젝트 상세 오버레이 =====
 const PROJECT_DETAILS = {
+    'stud-pop': {
+        title: 'Stud Pop: Match & Unbuild',
+        summary: 'Stud Pop은 블록으로 만들어진 3D 구조물에서 상단에 활성화된 상자와 동일한 색상의 블록을 매칭하여 구조물을 해체하는 퍼즐 게임입니다. Dart Away에 이어 기획자·디자이너·이펙터 셋이서 진행한 두 번째 A.I. 바이브 코딩 프로젝트이며, 처음으로 3D 게임을 기획·개발한 프로젝트입니다. 이 과정에서 Unity 3D 환경에 대한 이해와 A.I.를 활용한 게임 개발 방식을 더 깊게 익힐 수 있었습니다.',
+        team: '기획/개발 협업',
+        role: '인게임 기획/개발, 부스터 시스템 기획/개발, 레벨 에디터 / 스테이지 기획/개발, UI/UX 기획/개발, 출시 준비',
+        period: '2026. 03. ~ 2026. 04.',
+        links: [],
+        galleryLayout: 'row',
+        gallery: [
+            { src: 'IMG_Projects/studplay_gif_1.gif', alt: 'Stud Pop 플레이 GIF' },
+            { src: 'IMG_Projects/stud_2.webp', alt: 'Stud Pop 스크린샷 2' },
+            { src: 'IMG_Projects/stud_3.webp', alt: 'Stud Pop 스크린샷 3' },
+            { src: 'IMG_Projects/stud_4.webp', alt: 'Stud Pop 스크린샷 4' },
+            { src: 'IMG_Projects/stud_5.webp', alt: 'Stud Pop 스크린샷 5' }
+        ],
+        responsibilities: [
+            { tag: '인게임 핵심 시스템 기획/개발', desc: '블록 탭/컬러 매칭 코어 로직, 기믹 시스템, 카메라 조작(줌/패닝/회전), 블록 투명화 기능을 기획하고 바이브 코딩으로 직접 구현' },
+            { tag: '부스터 시스템 기획/개발', desc: '부스터 아이템 3종과 엑스트라 상자를 기획하고 구현. 부스터 해금 조건, 구매 팝업, 사용 연출까지 설계' },
+            { tag: '레벨 에디터 / 스테이지 기획/개발', desc: 'FBX/OBJ Import, Solvable 검증, Color Dispersion 등 레벨 에디터를 기획·개발하고, 스테이지 100종을 직접 제작' },
+            { tag: 'UI/UX 기획/개발', desc: '인게임 UI, 스테이지 클리어/실패/게임 오버 팝업, 로비 연출을 기획·구현. 사운드/VFX/햅틱을 적용하여 게임 몰입감 강화' },
+            { tag: '출시 준비', desc: '로컬라이제이션, 튜토리얼 시스템, 광고 SDK 연동, 성능 최적화, AOS/iOS 빌드 세팅 및 스토어 배포 준비' }
+        ],
+        achievements: [
+            '작성 예정'
+        ],
+        coreFeatures: [
+            { title: '작성 예정', description: '작성 예정' }
+        ],
+        retrospective: '작성 예정'
+    },
     'dart-away': {
         title: 'Dart Away : Balloon Pop Puzzle',
         summary: 'Dart Away는 다트를 올바른 순서로 선택하여 풍선을 터뜨리는 로직 기반 퍼즐 게임입니다. 프로그래머 없이 기획자·디자이너·이펙터 셋이서 기획부터 출시까지 4주 만에 완성한, 사내 최초의 A.I. 바이브 코딩 프로젝트입니다. 개발과 A.I. R&D를 병행하며 선봉대 역할을 수행했고, 기획자이면서 동시에 코더(Coder) 역할을 겸하여 기존 개발자의 역할을 대체하며 AI 기반 개발 워크플로우의 가능성을 체험한 프로젝트입니다.',
