@@ -691,6 +691,600 @@ ul li {
     font-size: 11.5px;
 }
 
+/* ===== PERSONAL PROJECTS: Project-A Case Study ===== */
+.personal-case {
+    background: transparent;
+    border: none;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.case-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    gap: 24px;
+    align-items: center;
+    padding: 26px;
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(14, 23, 38, 0.98), rgba(15, 15, 26, 0.98));
+}
+
+.case-eyebrow {
+    display: block;
+    color: #8adfff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.case-hero h3 {
+    color: #ffffff;
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.case-hero p {
+    color: #c8d4e3;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.case-tags span,
+.card-keywords {
+    display: inline-flex;
+    width: fit-content;
+    color: #9fe9ff;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.28);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.case-hero-media {
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0b111c;
+}
+
+.case-hero-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.case-section {
+    margin-top: 26px;
+    padding: 24px;
+    border-radius: 10px;
+    background: #16161f;
+    border: 1px solid #2a2a3a;
+}
+
+.case-section-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.case-step {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    color: #8adfff;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.case-section h3 {
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 5px;
+}
+
+.case-section-head p {
+    color: #aebdce;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.case-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.case-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.case-info-card {
+    padding: 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-info-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.case-info-card p {
+    color: #b9c5d4;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.stance-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.character-sheet {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 0.58fr);
+    gap: 16px;
+    align-items: stretch;
+}
+
+.character-portrait-card {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid rgba(138, 223, 255, 0.32);
+    background: linear-gradient(180deg, rgba(77, 137, 169, 0.22), rgba(22, 22, 31, 0.96));
+}
+
+.character-name {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
+}
+
+.character-portrait-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.character-sheet-main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.character-profile-card,
+.design-note {
+    padding: 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-label {
+    color: #8adfff;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.28);
+}
+
+.profile-line strong {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.35;
+}
+
+.character-profile-card p,
+.design-note p {
+    color: #c4cfdd;
+    font-size: 13.5px;
+    line-height: 1.65;
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.profile-tags span {
+    color: #d7f7ff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.stance-panel.compact {
+    margin-bottom: 0;
+}
+
+.stance-card {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stance-card.moon {
+    background: rgba(34, 119, 171, 0.13);
+    border-color: rgba(106, 211, 255, 0.32);
+}
+
+.stance-card.sun {
+    background: rgba(177, 82, 33, 0.13);
+    border-color: rgba(255, 172, 95, 0.34);
+}
+
+.stance-name {
+    display: block;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.stance-card p {
+    color: #c7d2df;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.design-note-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.design-note strong {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.case-mini-title {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 18px 0 12px;
+}
+
+.card-sheet-block {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-sheet-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.card-sheet-header .case-mini-title {
+    margin: 0;
+}
+
+.card-sheet-header p {
+    color: #9aa8bb;
+    font-size: 12.5px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.tsuki-card-gallery {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.tsuki-card-tile {
+    margin: 0;
+    padding: 0;
+}
+
+.tsuki-card-tile img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4.2;
+    object-fit: cover;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: #0c111c;
+}
+
+.tsuki-card-tile figcaption {
+    margin-top: 7px;
+}
+
+.tsuki-card-tile strong {
+    display: block;
+    color: #ffffff;
+    font-size: 12.5px;
+    line-height: 1.25;
+}
+
+.tsuki-card-tile span {
+    display: block;
+    color: #8adfff;
+    font-size: 10.5px;
+    line-height: 1.35;
+    margin-top: 3px;
+}
+
+.tsuki-card-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.tsuki-card-detail {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.tsuki-card-detail.wide {
+    grid-column: 1 / -1;
+}
+
+.tsuki-card-detail img {
+    width: 92px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #0c111c;
+}
+
+.card-detail-body {
+    min-width: 0;
+}
+
+.card-detail-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    margin-bottom: 8px;
+}
+
+.card-detail-head strong {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.card-detail-head span {
+    color: #8adfff;
+    font-size: 11.5px;
+    line-height: 1.3;
+}
+
+.card-role {
+    color: #c5d0de;
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin-bottom: 9px;
+}
+
+.card-text-block {
+    display: grid;
+    gap: 4px;
+    padding: 9px 10px;
+    margin-bottom: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    background: rgba(8, 14, 24, 0.68);
+}
+
+.card-text-block p {
+    color: #d9e4f0;
+    font-size: 12.5px;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.stance-text {
+    font-weight: 800;
+}
+
+.stance-text.moon {
+    color: #9fe9ff;
+}
+
+.stance-text.sun {
+    color: #ffc180;
+}
+
+.card-design-intent {
+    color: #aebdce;
+    font-size: 12px;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.card-design-intent strong {
+    color: #ffffff;
+    font-weight: 800;
+    margin-right: 5px;
+}
+
+.card-effect-list {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+}
+
+.card-effect-list div {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+}
+
+.card-effect-list dt {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.25;
+    text-align: center;
+    border-radius: 999px;
+    padding: 3px 0;
+}
+
+.card-effect-list div:first-child dt {
+    background: rgba(86, 198, 255, 0.16);
+    border: 1px solid rgba(86, 198, 255, 0.28);
+    color: #9fe9ff;
+}
+
+.card-effect-list div:last-child dt {
+    background: rgba(255, 166, 86, 0.16);
+    border: 1px solid rgba(255, 166, 86, 0.28);
+    color: #ffc180;
+}
+
+.card-effect-list dd {
+    color: #aebdce;
+    font-size: 12px;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.tsuki-card-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.tsuki-card-row {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tsuki-card-row img {
+    width: 82px;
+    height: 116px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tsuki-card-row strong {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.tsuki-card-row p {
+    color: #b9c5d4;
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+.monster-case {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    gap: 16px;
+    align-items: stretch;
+}
+
+.monster-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    border-radius: 8px;
+    background: #0c111c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.monster-visual img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+.monster-notes {
+    display: grid;
+    gap: 12px;
+}
+
 /* ===== PROJECTS: 상세 오버레이 ===== */
 .proj-overlay {
     position: fixed;
@@ -2003,6 +2597,85 @@ footer {
 
 /* 기획 문서 모바일 */
 @media (max-width: 768px) {
+    .case-hero,
+    .case-grid-3,
+    .case-grid-4,
+    .character-sheet,
+    .design-note-grid,
+    .stance-panel,
+    .tsuki-card-list,
+    .monster-case {
+        grid-template-columns: 1fr;
+    }
+
+    .case-hero {
+        padding: 20px;
+    }
+
+    .case-hero h3 {
+        font-size: 28px;
+    }
+
+    .case-section {
+        padding: 18px;
+    }
+
+    .case-section-head {
+        flex-direction: column;
+    }
+
+    .character-portrait-card {
+        min-height: 320px;
+    }
+
+    .character-portrait-card img {
+        min-height: 320px;
+        object-position: center 18%;
+    }
+
+    .card-sheet-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-sheet-header p {
+        text-align: left;
+    }
+
+    .tsuki-card-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tsuki-card-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tsuki-card-detail {
+        grid-template-columns: 78px minmax(0, 1fr);
+    }
+
+    .tsuki-card-detail img {
+        width: 78px;
+        height: 110px;
+    }
+
+    .card-effect-list div {
+        grid-template-columns: 42px minmax(0, 1fr);
+    }
+
+    .tsuki-card-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+    }
+
+    .tsuki-card-row img {
+        width: 72px;
+        height: 102px;
+    }
+
+    .monster-visual {
+        min-height: 180px;
+    }
+
     .doc-overlay-controls {
         gap: 6px;
     }
