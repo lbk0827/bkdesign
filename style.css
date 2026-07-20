@@ -1403,12 +1403,13 @@ ul li {
 
 .motion-preview-card.feature img {
     aspect-ratio: 16 / 10;
-    object-fit: contain;
-    padding: 10px;
+    object-fit: cover;
     border-bottom: 1px solid rgba(138, 223, 255, 0.12);
 }
 
 .motion-preview-card.recording img {
+    object-fit: contain;
+    padding: 10px;
     background: linear-gradient(180deg, rgba(13, 18, 29, 0.96), rgba(10, 13, 22, 0.96));
 }
 
