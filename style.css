@@ -1151,6 +1151,11 @@ ul li {
     grid-column: 1 / -1;
 }
 
+.tsuki-card-detail > img,
+.tsuki-card-detail > .card-cost-badge {
+    grid-column: 1;
+}
+
 .tsuki-card-detail img {
     width: 92px;
     height: 130px;
@@ -1160,7 +1165,26 @@ ul li {
     background: #0c111c;
 }
 
+.card-cost-badge {
+    display: inline-flex;
+    width: 92px;
+    min-height: 25px;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    margin-top: -5px;
+    color: #ffd89a;
+    font-size: 11.5px;
+    font-weight: 800;
+    line-height: 1;
+    border-radius: 6px;
+    background: rgba(255, 168, 72, 0.1);
+    border: 1px solid rgba(255, 168, 72, 0.28);
+}
+
 .card-detail-body {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     min-width: 0;
 }
 
@@ -1342,6 +1366,219 @@ ul li {
 .monster-notes {
     display: grid;
     gap: 12px;
+}
+
+.motion-preview-block,
+.monster-roster-block,
+.encounter-design-block,
+.data-design-block {
+    margin-top: 22px;
+}
+
+.motion-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.motion-preview-card {
+    grid-column: span 2;
+    overflow: hidden;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(138, 223, 255, 0.18);
+}
+
+.motion-preview-card.feature {
+    grid-column: span 3;
+}
+
+.motion-preview-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: #0c111c;
+}
+
+.motion-preview-card.feature img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    padding: 10px;
+    border-bottom: 1px solid rgba(138, 223, 255, 0.12);
+}
+
+.motion-preview-card.recording img {
+    background: linear-gradient(180deg, rgba(13, 18, 29, 0.96), rgba(10, 13, 22, 0.96));
+}
+
+.motion-preview-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px;
+}
+
+.motion-preview-card figcaption strong {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.motion-preview-card figcaption span {
+    color: #b9c5d4;
+    font-size: 12.5px;
+    line-height: 1.6;
+}
+
+.monster-roster-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.monster-role-card {
+    display: grid;
+    grid-template-columns: 122px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    padding: 12px;
+    margin: 0;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.monster-role-card.boss {
+    grid-column: span 2;
+    grid-template-columns: 180px minmax(0, 1fr);
+    border-color: rgba(178, 116, 255, 0.28);
+    background: linear-gradient(135deg, rgba(178, 116, 255, 0.12), rgba(255, 255, 255, 0.035));
+}
+
+.monster-role-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(138, 223, 255, 0.2);
+    background: #0c111c;
+}
+
+.monster-role-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-bottom: 2px;
+}
+
+.monster-role-card span {
+    display: inline-flex;
+    width: fit-content;
+    color: #9fe9ff;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    margin-bottom: 8px;
+}
+
+.monster-role-card p {
+    color: #b9c5d4;
+    font-size: 12.8px;
+    line-height: 1.65;
+}
+
+.encounter-flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.encounter-step {
+    position: relative;
+    padding: 15px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.encounter-step::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: -8px;
+    width: 14px;
+    height: 2px;
+    background: rgba(138, 223, 255, 0.36);
+}
+
+.encounter-step:last-child::after {
+    content: none;
+}
+
+.encounter-step span {
+    display: block;
+    color: #8adfff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 5px;
+}
+
+.encounter-step strong {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+.encounter-step p,
+.data-design-note {
+    color: #b9c5d4;
+    font-size: 12.5px;
+    line-height: 1.6;
+}
+
+.data-pipeline {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.data-pipeline div {
+    padding: 14px;
+    border-radius: 9px;
+    border: 1px solid rgba(75, 222, 158, 0.2);
+    background: linear-gradient(180deg, rgba(75, 222, 158, 0.08), rgba(255, 255, 255, 0.035));
+}
+
+.data-pipeline strong {
+    display: block;
+    color: #ffffff;
+    font-size: 12.5px;
+    margin-bottom: 6px;
+}
+
+.data-pipeline p {
+    color: #b9c5d4;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.data-design-note {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: #d6f8e8;
+    background: rgba(75, 222, 158, 0.08);
+    border: 1px solid rgba(75, 222, 158, 0.18);
 }
 
 /* ===== PROJECTS: 상세 오버레이 ===== */
@@ -2246,6 +2483,15 @@ footer {
         height: 160px;
     }
 
+    .monster-role-card,
+    .monster-role-card.boss {
+        grid-template-columns: 1fr;
+    }
+
+    .monster-role-card img {
+        max-height: 180px;
+    }
+
     .proj-info {
         padding: 14px;
     }
@@ -2663,7 +2909,13 @@ footer {
     .design-note-grid,
     .stance-panel,
     .tsuki-card-list,
-    .monster-case {
+    .monster-case,
+    .motion-preview-grid,
+    .motion-preview-card.feature,
+    .monster-roster-grid,
+    .monster-role-card.boss,
+    .encounter-flow,
+    .data-pipeline {
         grid-template-columns: 1fr;
     }
 
@@ -2718,6 +2970,12 @@ footer {
         height: 110px;
     }
 
+    .card-cost-badge {
+        width: 78px;
+        min-height: 23px;
+        font-size: 11px;
+    }
+
     .card-effect-list div {
         grid-template-columns: 42px minmax(0, 1fr);
     }
@@ -2733,6 +2991,25 @@ footer {
 
     .monster-visual {
         min-height: 180px;
+    }
+
+    .motion-preview-card,
+    .motion-preview-card.feature {
+        grid-column: auto;
+    }
+
+    .motion-preview-card.feature img {
+        aspect-ratio: 16 / 10;
+    }
+
+    .monster-role-card,
+    .monster-role-card.boss {
+        grid-template-columns: 110px minmax(0, 1fr);
+        grid-column: auto;
+    }
+
+    .encounter-step::after {
+        content: none;
     }
 
     .doc-overlay-controls {

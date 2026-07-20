@@ -243,7 +243,7 @@
         <!-- Personal Projects 페이지 -->
         <section id="personal-projects" class="page">
             <h2>개인 프로젝트 - Project-A</h2>
-            <p class="proj-detail-hint">💡 캐릭터 기획, 몬스터 기획, 데이터 작업, 전투 시스템 설계 내용을 정리한 개인 프로젝트입니다.</p>
+            <p class="proj-detail-hint">💡 수집형 턴제 RPG의 캐릭터 설계, 몬스터 설계, 데이터 작업, 전투 시스템, 레벨 디자인을 직접 설계·구현한 개인 프로젝트입니다.</p>
 
             <article class="personal-case">
                 <section class="case-hero">
@@ -357,6 +357,7 @@
                         <div class="tsuki-card-detail-grid">
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_crescent_slash.png" alt="초승 베기 카드">
+                                <span class="card-cost-badge">비용 {1}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>초승 베기</strong>
@@ -372,6 +373,7 @@
                             </div>
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_flow_guard.png" alt="흐름 막기 카드">
+                                <span class="card-cost-badge">비용 {1}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>흐름 막기</strong>
@@ -387,6 +389,7 @@
                             </div>
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_stance_shift.png" alt="자세 변경 카드">
+                                <span class="card-cost-badge">비용 {0}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>자세 변경</strong>
@@ -402,6 +405,7 @@
                             </div>
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_afterimage_thrust.png" alt="달 가르기 카드">
+                                <span class="card-cost-badge">비용 {1}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>달 가르기</strong>
@@ -417,6 +421,7 @@
                             </div>
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_breath_reset.png" alt="숨 고르기 카드">
+                                <span class="card-cost-badge">비용 {0}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>숨 고르기</strong>
@@ -432,6 +437,7 @@
                             </div>
                             <div class="tsuki-card-detail">
                                 <img src="IMG_Projects/ProjectA/tsuki_rupture_cleave.png" alt="파열참 카드">
+                                <span class="card-cost-badge">비용 {2}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>파열참</strong>
@@ -447,6 +453,7 @@
                             </div>
                             <div class="tsuki-card-detail wide">
                                 <img src="IMG_Projects/ProjectA/tsuki_halfmoon_combo.png" alt="반월 연격 카드">
+                                <span class="card-cost-badge">비용 {2}</span>
                                 <div class="card-detail-body">
                                     <div class="card-detail-head">
                                         <strong>반월 연격</strong>
@@ -462,14 +469,58 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="motion-preview-block">
+                        <div class="card-sheet-header">
+                            <h4 class="case-mini-title">츠키 액션 프리뷰</h4>
+                            <p>카드 효과가 실제 전투 연출과 연결되는지 확인하기 위해 기본 모션과 핵심 공격 연출을 WebP로 제작했습니다.</p>
+                        </div>
+                        <div class="motion-preview-grid">
+                            <figure class="motion-preview-card">
+                                <img src="IMG_Projects/ProjectA/tsuki_idle.webp" alt="츠키 Idle 모션">
+                                <figcaption>
+                                    <strong>Idle</strong>
+                                    <span>전투 대기 상태. 플레이어가 카드를 읽고 다음 행동을 고르는 시간을 방해하지 않는 낮은 움직임으로 구성했습니다.</span>
+                                </figcaption>
+                            </figure>
+                            <figure class="motion-preview-card">
+                                <img src="IMG_Projects/ProjectA/tsuki_attack.webp" alt="츠키 Attack 모션">
+                                <figcaption>
+                                    <strong>Attack</strong>
+                                    <span>기본 공격 카드의 즉시성을 보여주는 짧은 베기 모션입니다. 초보자도 공격 결과를 빠르게 이해하도록 타이밍을 짧게 잡았습니다.</span>
+                                </figcaption>
+                            </figure>
+                            <figure class="motion-preview-card">
+                                <img src="IMG_Projects/ProjectA/tsuki_dead.webp" alt="츠키 Dead 모션">
+                                <figcaption>
+                                    <strong>Dead</strong>
+                                    <span>전투 실패 피드백용 모션입니다. 전투 판독성을 위해 사망 상태가 명확히 구분되도록 별도 프레임을 분리했습니다.</span>
+                                </figcaption>
+                            </figure>
+                            <figure class="motion-preview-card feature">
+                                <img src="IMG_Projects/ProjectA/tsuki_five_slash_moon_vfx.webp" alt="츠키 Five Slash와 Moon Slash VFX 합성 연출">
+                                <figcaption>
+                                    <strong>Moon Slash</strong>
+                                    <span>RP 스킬의 폭발 턴을 보여주는 합성 연출입니다. 다단히트 카드와 광역 VFX를 겹쳐 숙련자가 준비한 payoff 순간을 시각적으로 강조했습니다.</span>
+                                </figcaption>
+                            </figure>
+                            <figure class="motion-preview-card feature recording">
+                                <img src="IMG_Projects/ProjectA/tsuki_sonic_boom_attack.webp" alt="츠키 Sonic Boom 연출">
+                                <figcaption>
+                                    <strong>Sonic Boom</strong>
+                                    <span>실제 전투 녹화본입니다. 이동 후 공격하는 카드의 거리감과 타격 타이밍이 전투 리듬 안에서 읽히도록 확인했습니다.</span>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="case-section">
                     <div class="case-section-head">
                         <span class="case-step">03</span>
                         <div>
-                            <h3>몬스터 기획 및 구현</h3>
-                            <p>몬스터는 단순 피격 대상이 아니라, 플레이어가 자세와 카드를 선택하게 만드는 전투 퍼즐의 반대편 축으로 설계하고 있습니다.</p>
+                            <h3>몬스터 설계와 레벨 디자인</h3>
+                            <p>몬스터는 단순 피격 대상이 아니라, 플레이어가 카드 사용량, 방어 타이밍, 자세 전환, 폭딜 타이밍을 판단하게 만드는 전투 퍼즐의 반대편 축으로 설계했습니다.</p>
                         </div>
                     </div>
 
@@ -491,6 +542,121 @@
                                 <p>데미지 팝업 분산, 사망 후 체력 게이지 제거, 투명 몬스터 잔존 제거 등 전투 판독성을 해치는 요소를 정리했습니다.</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="monster-roster-block">
+                        <h4 class="case-mini-title">몬스터별 역할과 플레이어에게 묻는 질문</h4>
+                        <div class="monster-roster-grid">
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/mire_imp_portrait.webp" alt="마이어 임프 포트레이트">
+                                <div>
+                                    <strong>마이어 임프</strong>
+                                    <span>온보딩 / 예고 읽기</span>
+                                    <p>공격과 방어 예고를 섞어 보여주며, 플레이어가 적 행동 카운트를 읽고 기본 대응을 학습하게 만드는 초반 몬스터입니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/bog_stalker_portrait.webp" alt="늪 추적자 포트레이트">
+                                <div>
+                                    <strong>늪 추적자</strong>
+                                    <span>템포 압박 / 카드 사용량 체크</span>
+                                    <p>짧은 행동 카운트와 공격 강화 예고로, 카드를 더 써서 빠르게 정리할지 방어를 남길지 판단하게 합니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/bone_crawler_portrait.webp" alt="뼈 크롤러 포트레이트">
+                                <div>
+                                    <strong>뼈 크롤러</strong>
+                                    <span>선공 위협 / 방어 우선순위</span>
+                                    <p>강한 첫 공격 예고를 통해 플레이어가 공격 욕심을 줄이고 위험 턴에 방어 우선순위를 잡는지 확인합니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/gravebound_crawler_portrait.webp" alt="무덤 크롤러 포트레이트">
+                                <div>
+                                    <strong>무덤 크롤러</strong>
+                                    <span>장기전 / 방어 돌파</span>
+                                    <p>방어와 내구를 앞세워 전투를 늘립니다. 플레이어가 언제 무시하고, 언제 실드를 깨야 하는지 고민하게 합니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/frost_revenant_portrait.webp" alt="프로스트 레버넌트 포트레이트">
+                                <div>
+                                    <strong>프로스트 레버넌트</strong>
+                                    <span>엘리트 / 폭딜 타이밍</span>
+                                    <p>버프, 공격, 방어 주기를 반복하는 솔로 체크 몬스터입니다. 광역 카드 가치보다 타이밍 설계를 보게 합니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card">
+                                <img src="IMG_Projects/ProjectA/crown_acolyte_portrait.webp" alt="왕관 시종 포트레이트">
+                                <div>
+                                    <strong>왕관 시종</strong>
+                                    <span>전조 압박 / 강공격 예측</span>
+                                    <p>단죄 선포와 강공격을 연결해, 지금 막지 않으면 다음 행동이 더 위험해진다는 긴장감을 만듭니다.</p>
+                                </div>
+                            </article>
+                            <article class="monster-role-card boss">
+                                <img src="IMG_Projects/ProjectA/abyssal_crown_guardian_portrait.webp" alt="심연 왕관 수호자 포트레이트">
+                                <div>
+                                    <strong>심연 왕관 수호자</strong>
+                                    <span>보스 / 주기 패턴 종합 시험</span>
+                                    <p>큰 공격 전조, 방어 턴, 강화 턴을 나누어 플레이어가 월영 방어와 참월 폭딜 타이밍을 분리해 운영하도록 설계했습니다.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="encounter-design-block">
+                        <h4 class="case-mini-title">인카운터 곡선 설계</h4>
+                        <div class="encounter-flow">
+                            <div class="encounter-step">
+                                <span>Battle 1</span>
+                                <strong>늪 추적자 2체</strong>
+                                <p>짧은 카운트 압박을 통해 첫 전투부터 카드 사용량과 방어 선택을 학습시킵니다.</p>
+                            </div>
+                            <div class="encounter-step">
+                                <span>Battle 2</span>
+                                <strong>무덤 크롤러 2체</strong>
+                                <p>방어와 높은 총 HP로 장기전을 만들고, 광역/단일 공격 선택의 의미를 키웁니다.</p>
+                            </div>
+                            <div class="encounter-step">
+                                <span>Elite</span>
+                                <strong>프로스트 레버넌트 1체</strong>
+                                <p>다수전 광역 가치에서 벗어나, 버프-공격-방어 주기 사이의 폭딜 타이밍을 시험합니다.</p>
+                            </div>
+                            <div class="encounter-step">
+                                <span>Boss</span>
+                                <strong>심연 왕관 수호자 1체</strong>
+                                <p>큰 패턴 전조와 반복 강공격 속에서 방어 턴과 공격 턴을 나눠 운영하는지 종합적으로 확인합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-design-block">
+                        <h4 class="case-mini-title">몬스터 데이터 작업 구조</h4>
+                        <div class="data-pipeline">
+                            <div>
+                                <strong>MonsterTable</strong>
+                                <p>몬스터 ID, 표시명, 씬 경로, 기본 패턴을 정의합니다.</p>
+                            </div>
+                            <div>
+                                <strong>MonsterStatsTable</strong>
+                                <p>HP, 공격, 방어 기준값을 분리해 밸런싱 가능하게 관리합니다.</p>
+                            </div>
+                            <div>
+                                <strong>MonsterActionTable</strong>
+                                <p>공격/방어/버프/기술 행동의 효과 타입과 수치를 정의합니다.</p>
+                            </div>
+                            <div>
+                                <strong>MonsterPatternTable</strong>
+                                <p>행동 순서, 행동 카운트, 다음 단계, 조건 분기를 데이터로 연결합니다.</p>
+                            </div>
+                            <div>
+                                <strong>EncounterTable</strong>
+                                <p>전투 노드별 등장 몬스터, 시작 행동, 배치, 배율을 조합합니다.</p>
+                            </div>
+                        </div>
+                        <p class="data-design-note">같은 몬스터라도 인카운터별로 시작 행동과 카운트를 다르게 줄 수 있게 하여, 몬스터 개별 설계와 레벨 디자인을 분리했습니다.</p>
                     </div>
                 </section>
             </article>
