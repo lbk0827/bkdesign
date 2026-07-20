@@ -735,6 +735,19 @@ ul li {
     line-height: 1.75;
 }
 
+.case-hero .case-credit {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 12px;
+    padding: 5px 11px;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
 .case-tags {
     display: flex;
     flex-wrap: wrap;
@@ -826,10 +839,56 @@ ul li {
 }
 
 .case-info-card {
+    position: relative;
+    overflow: hidden;
     padding: 16px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.035);
     border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-info-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.case-card-combat {
+    background: linear-gradient(180deg, rgba(255, 76, 108, 0.12), rgba(255, 255, 255, 0.035));
+    border-color: rgba(255, 96, 126, 0.26);
+}
+
+.case-card-combat::before {
+    background: #ff607e;
+}
+
+.case-card-character {
+    background: linear-gradient(180deg, rgba(99, 185, 255, 0.12), rgba(255, 255, 255, 0.035));
+    border-color: rgba(99, 185, 255, 0.28);
+}
+
+.case-card-character::before {
+    background: #63b9ff;
+}
+
+.case-card-monster {
+    background: linear-gradient(180deg, rgba(178, 116, 255, 0.13), rgba(255, 255, 255, 0.035));
+    border-color: rgba(178, 116, 255, 0.3);
+}
+
+.case-card-monster::before {
+    background: #b274ff;
+}
+
+.case-card-data {
+    background: linear-gradient(180deg, rgba(75, 222, 158, 0.12), rgba(255, 255, 255, 0.035));
+    border-color: rgba(75, 222, 158, 0.28);
+}
+
+.case-card-data::before {
+    background: #4bde9e;
 }
 
 .case-info-card strong {
