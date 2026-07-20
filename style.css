@@ -1408,8 +1408,6 @@ ul li {
 }
 
 .motion-preview-card.recording img {
-    object-fit: contain;
-    padding: 10px;
     background: linear-gradient(180deg, rgba(13, 18, 29, 0.96), rgba(10, 13, 22, 0.96));
 }
 
