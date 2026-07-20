@@ -1390,7 +1390,7 @@ ul li {
 }
 
 .motion-preview-card.feature {
-    grid-column: span 3;
+    grid-column: span 2;
 }
 
 .motion-preview-card img {
@@ -1402,7 +1402,7 @@ ul li {
 }
 
 .motion-preview-card.feature img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     object-fit: contain;
     padding: 10px;
     border-bottom: 1px solid rgba(138, 223, 255, 0.12);
