@@ -735,6 +735,37 @@ ul li {
     line-height: 1.75;
 }
 
+.case-copy-label {
+    display: block;
+    width: fit-content;
+    margin: 14px 0 4px;
+    color: #8adfff;
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.case-hero h3 + .case-copy-label {
+    margin-top: 4px;
+}
+
+.case-copy-label + p {
+    font-size: 13px;
+}
+
+.case-credit-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.case-credit-list .case-credit {
+    margin-top: 0;
+}
+
 .case-hero .case-credit {
     display: inline-flex;
     width: fit-content;
@@ -746,6 +777,18 @@ ul li {
     font-weight: 800;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.case-hero .case-credit-plan {
+    color: #fff0d8;
+    background: rgba(255, 178, 107, 0.13);
+    border-color: rgba(255, 178, 107, 0.36);
+}
+
+.case-hero .case-credit-dev {
+    color: #f7edff;
+    background: rgba(178, 116, 255, 0.12);
+    border-color: rgba(178, 116, 255, 0.32);
 }
 
 .case-tags {
