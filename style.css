@@ -1497,7 +1497,7 @@ ul li {
 
 .monster-role-card {
     display: grid;
-    grid-template-columns: 122px minmax(0, 1fr);
+    grid-template-columns: 156px minmax(0, 1fr);
     gap: 14px;
     align-items: center;
     padding: 12px;
@@ -1509,18 +1509,22 @@ ul li {
 
 .monster-role-card.boss {
     grid-column: span 2;
-    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-columns: 220px minmax(0, 1fr);
     border-color: rgba(178, 116, 255, 0.28);
     background: linear-gradient(135deg, rgba(178, 116, 255, 0.12), rgba(255, 255, 255, 0.035));
 }
 
 .monster-role-card img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: 156px;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid rgba(138, 223, 255, 0.2);
-    background: #0c111c;
+    background: radial-gradient(circle at center, rgba(138, 223, 255, 0.08), #0c111c 68%);
+}
+
+.monster-role-card.boss img {
+    height: 172px;
 }
 
 .monster-role-card strong {
@@ -3062,8 +3066,14 @@ footer {
 
     .monster-role-card,
     .monster-role-card.boss {
-        grid-template-columns: 110px minmax(0, 1fr);
+        grid-template-columns: 128px minmax(0, 1fr);
         grid-column: auto;
+    }
+
+    .monster-role-card img,
+    .monster-role-card.boss img {
+        height: 140px;
+        object-fit: contain;
     }
 
     .encounter-step::after {
