@@ -1499,7 +1499,7 @@ ul li {
     display: grid;
     grid-template-columns: 172px minmax(0, 1fr);
     gap: 14px;
-    align-items: center;
+    align-items: stretch;
     padding: 12px;
     margin: 0;
     border-radius: 9px;
@@ -1512,6 +1512,22 @@ ul li {
     grid-template-columns: 220px minmax(0, 1fr);
     border-color: rgba(178, 116, 255, 0.28);
     background: linear-gradient(135deg, rgba(178, 116, 255, 0.12), rgba(255, 255, 255, 0.035));
+}
+
+.monster-portrait-panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    min-width: 0;
+}
+
+.monster-title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    text-align: center;
 }
 
 .monster-role-card img {
@@ -1532,57 +1548,96 @@ ul li {
 }
 
 .monster-role-card strong {
-    display: block;
+    display: inline-block;
     color: #ffffff;
     font-size: 15px;
     line-height: 1.35;
-    margin-bottom: 2px;
+    margin-bottom: 0;
+    word-break: keep-all;
 }
 
-.monster-role-card span {
+.monster-grade {
     display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    color: #9fe9ff;
+    font-size: 10.5px;
+    font-weight: 800;
+    line-height: 1;
+    padding: 4px 6px;
+    border: 1px solid rgba(97, 207, 255, 0.42);
+    border-radius: 6px;
+    background: rgba(22, 161, 220, 0.12);
+}
+
+.monster-grade.elite {
+    color: #ffd890;
+    border-color: rgba(255, 198, 101, 0.42);
+    background: rgba(255, 198, 101, 0.12);
+}
+
+.monster-grade.boss {
+    color: #d9b5ff;
+    border-color: rgba(178, 116, 255, 0.45);
+    background: rgba(178, 116, 255, 0.14);
+}
+
+.monster-card-body {
+    min-width: 0;
+    align-self: center;
+}
+
+.monster-tag {
+    display: inline-flex;
+    justify-self: center;
     width: fit-content;
+    max-width: 100%;
     color: #9fe9ff;
     font-size: 11.5px;
     font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
     padding: 3px 8px;
     border-radius: 999px;
     background: rgba(0, 212, 255, 0.08);
     border: 1px solid rgba(0, 212, 255, 0.22);
-    margin-bottom: 8px;
 }
 
-.monster-role-card p {
-    color: #b9c5d4;
-    font-size: 12.8px;
-    line-height: 1.65;
-}
-
-.monster-design-list {
+.monster-skill-list {
     display: grid;
-    gap: 7px;
-    margin: 10px 0 0;
-}
-
-.monster-design-list div {
-    display: grid;
-    grid-template-columns: 68px minmax(0, 1fr);
     gap: 8px;
+    margin: 0;
+}
+
+.monster-skill-list div {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 10px;
     align-items: start;
 }
 
-.monster-design-list dt {
+.monster-skill-list dt {
     color: #8adfff;
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 800;
     line-height: 1.5;
+    word-break: keep-all;
 }
 
-.monster-design-list dd {
+.monster-skill-list dd {
     color: #c8d3df;
     font-size: 11.8px;
     line-height: 1.55;
     margin: 0;
+}
+
+.monster-intent {
+    margin: 10px 0 0;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #aebccb;
+    font-size: 11.8px;
+    line-height: 1.6;
 }
 
 .encounter-flow {
@@ -3102,7 +3157,7 @@ footer {
 
     .monster-role-card,
     .monster-role-card.boss {
-        grid-template-columns: 128px minmax(0, 1fr);
+        grid-template-columns: 1fr;
         grid-column: auto;
     }
 

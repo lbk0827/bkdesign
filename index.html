@@ -559,87 +559,129 @@
                         <h4 class="case-mini-title">몬스터 리스트</h4>
                         <div class="monster-roster-grid">
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/mire_imp_portrait.webp?v=fullbody3" alt="마이어 임프 포트레이트">
-                                <div>
-                                    <strong>마이어 임프</strong>
-                                    <span>온보딩 / 예고 읽기</span>
-                                    <p>HP 500 / ATK 14 / DEF 18. 휘두르기 → 웅크리기 → 마구 휘두르기로 공격과 방어 예고를 번갈아 보여주는 학습용 몬스터입니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 50% 이하에서 낄낄대기로 다음 행동 카운트를 1 줄여 템포 압박을 추가합니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>4체 인카운터에서 일부는 공격 시작, 일부는 방어 시작으로 배치해 예고 읽기를 훈련합니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>마이어 임프</strong>
+                                        <span class="monster-grade">일반</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/mire_imp_portrait.webp?v=fullbody3" alt="마이어 임프 포트레이트">
+                                    <span class="monster-tag">온보딩 / 예고 읽기</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>휘두르기</dt><dd>마이어 임프의 기본 공격입니다.</dd></div>
+                                        <div><dt>웅크리기</dt><dd>마이어 임프가 자신에게 방어도를 부여합니다.</dd></div>
+                                        <div><dt>낄낄대기</dt><dd>마이어 임프의 다음 행동 카운트를 1 줄입니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 공격과 방어 예고를 번갈아 보여주며 전투 UI와 행동 카운트 읽기를 학습시키는 몬스터입니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/bog_stalker_portrait.webp?v=fullbody2" alt="늪 추적자 포트레이트">
-                                <div>
-                                    <strong>늪 추적자</strong>
-                                    <span>템포 압박 / 카드 사용량 체크</span>
-                                    <p>HP 650 / ATK 16 / DEF 14. 늪독 바르기 후 2카운트 찌르기와 130% 잠복 기습으로 빠른 대응을 요구합니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 40% 이하에서 진흙 엄폐로 전환해 방어 후 다시 기습 루프로 이어집니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>2체 배치에서 한 마리는 버프 예고, 한 마리는 즉시 공격 예고로 시작해 카드 사용량을 압박합니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>늪 추적자</strong>
+                                        <span class="monster-grade">일반</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/bog_stalker_portrait.webp?v=fullbody2" alt="늪 추적자 포트레이트">
+                                    <span class="monster-tag">템포 압박 / 카드 사용량 체크</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>늪독 바르기</dt><dd>늪 추적자가 자신의 다음 공격 피해를 강화합니다.</dd></div>
+                                        <div><dt>찌르기</dt><dd>늪 추적자의 짧은 카운트 기본 공격입니다.</dd></div>
+                                        <div><dt>잠복 기습</dt><dd>늪 추적자의 강화 공격입니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 짧은 행동 카운트와 강화 공격으로 손패 사용량과 방어 카드 보존 판단을 압박합니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/bone_crawler_portrait.webp?v=fullbody" alt="뼈 크롤러 포트레이트">
-                                <div>
-                                    <strong>뼈 크롤러</strong>
-                                    <span>선공 위협 / 방어 우선순위</span>
-                                    <p>HP 800 / ATK 18 / DEF 20. 150% 해골 강타를 먼저 예고하고, 이후 뼈 재조립으로 빈틈을 주는 위험 몬스터입니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 60% 이하에서 금 간 뼈 버프를 우선해 다음 공격 위협을 다시 끌어올립니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>강공격 턴에는 월영 방어를, 빈틈 턴에는 참월 공격을 선택하게 하는 방어 우선순위 테스트입니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>뼈 크롤러</strong>
+                                        <span class="monster-grade">일반</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/bone_crawler_portrait.webp?v=fullbody" alt="뼈 크롤러 포트레이트">
+                                    <span class="monster-tag">선공 위협 / 방어 우선순위</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>해골 강타</dt><dd>뼈 크롤러의 강한 선공 공격입니다.</dd></div>
+                                        <div><dt>뼈 재조립</dt><dd>뼈 크롤러가 자신에게 방어도를 부여합니다.</dd></div>
+                                        <div><dt>금 간 뼈</dt><dd>뼈 크롤러가 자신의 다음 공격 피해를 강화합니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 강공격 이후 방어 행동으로 빈틈을 만들며, 방어 우선순위와 공격 전환 타이밍을 확인합니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/gravebound_crawler_portrait.webp?v=fullbody2" alt="무덤 크롤러 포트레이트">
-                                <div>
-                                    <strong>무덤 크롤러</strong>
-                                    <span>장기전 / 방어 돌파</span>
-                                    <p>HP 950 / ATK 20 / DEF 36. 150% 방어 행동과 140% 강공격을 섞어 전투를 길게 끌고 갑니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 35% 이하에서 망자의 강골을 우선해 후반 내구와 마무리 타이밍을 흔듭니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>2체 인카운터에서 한 마리는 방어 시작, 한 마리는 공격 시작으로 배치해 광역/단일 선택을 비교하게 합니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>무덤 크롤러</strong>
+                                        <span class="monster-grade">일반</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/gravebound_crawler_portrait.webp?v=fullbody2" alt="무덤 크롤러 포트레이트">
+                                    <span class="monster-tag">장기전 / 방어 돌파</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>흙 갑옷</dt><dd>무덤 크롤러가 자신에게 높은 방어도를 부여합니다.</dd></div>
+                                        <div><dt>무덤 물어뜯기</dt><dd>무덤 크롤러의 기본 공격입니다.</dd></div>
+                                        <div><dt>망자의 강골</dt><dd>무덤 크롤러가 자신을 강화합니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 높은 방어와 강화 행동으로 전투를 길게 끌어, 방어 돌파와 마무리 타이밍을 시험합니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/frost_revenant_portrait.webp?v=fullbody2" alt="프로스트 레버넌트 포트레이트">
-                                <div>
-                                    <strong>프로스트 레버넌트</strong>
-                                    <span>엘리트 / 폭딜 타이밍</span>
-                                    <p>HP 1200 / ATK 24 / DEF 40. 사기 → 130% 얼음 칼날 → 150% 얼음 갑옷 → 170% 서리 절단으로 주기를 읽게 합니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 50% 이하에서 빠른 얼음 갑옷으로 전환하고 행동 카운트를 3으로 줄여 압박합니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>다수전 이후 단일 엘리트로 배치해 광역 카드보다 폭딜 타이밍과 방어 턴 구분을 시험합니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>프로스트 레버넌트</strong>
+                                        <span class="monster-grade elite">엘리트</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/frost_revenant_portrait.webp?v=fullbody2" alt="프로스트 레버넌트 포트레이트">
+                                    <span class="monster-tag">엘리트 / 폭딜 타이밍</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>사기</dt><dd>프로스트 레버넌트가 자신을 강화합니다.</dd></div>
+                                        <div><dt>얼음 칼날</dt><dd>프로스트 레버넌트의 강화 공격입니다.</dd></div>
+                                        <div><dt>얼음 갑옷</dt><dd>프로스트 레버넌트가 자신에게 높은 방어도를 부여합니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 강화, 공격, 방어가 반복되는 주기를 읽고 폭딜 타이밍을 잡도록 설계한 엘리트 몬스터입니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card">
-                                <img src="IMG_Projects/ProjectA/crown_acolyte_portrait.webp?v=fullbody" alt="왕관 시종 포트레이트">
-                                <div>
-                                    <strong>왕관 시종</strong>
-                                    <span>전조 압박 / 강공격 예측</span>
-                                    <p>HP 1400 / ATK 28 / DEF 32. 단죄 선포 뒤 130% 지팡이 공격, 180% 심판의 일격으로 위험 턴을 예고합니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 30% 이하에서 깊은 신앙으로 강화해 후반 마무리 실패 리스크를 키웁니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>보스 전 단계에서 강공격 전조를 읽고 방어/공격 턴을 나눠 쓰는 판단을 예습시킵니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>왕관 시종</strong>
+                                        <span class="monster-grade elite">엘리트</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/crown_acolyte_portrait.webp?v=fullbody" alt="왕관 시종 포트레이트">
+                                    <span class="monster-tag">전조 압박 / 강공격 예측</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>단죄 선포</dt><dd>왕관 시종의 전조 스킬입니다.</dd></div>
+                                        <div><dt>심판의 일격</dt><dd>왕관 시종의 강한 공격입니다.</dd></div>
+                                        <div><dt>깊은 신앙</dt><dd>왕관 시종이 자신을 강화합니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 전조 이후 강공격으로 이어지는 구조를 통해 위험 턴 예측과 방어 자원 관리를 요구합니다.</p>
                                 </div>
                             </article>
                             <article class="monster-role-card boss">
-                                <img src="IMG_Projects/ProjectA/abyssal_crown_guardian_portrait.webp?v=fullbody" alt="심연 왕관 수호자 포트레이트">
-                                <div>
-                                    <strong>심연 왕관 수호자</strong>
-                                    <span>보스 / 주기 패턴 종합 시험</span>
-                                    <p>HP 2500 / ATK 30 / DEF 48. 심연 선고, 150% 왕관 분쇄, 160% 방벽, 200% 심연의 칙령을 긴 주기로 운영하는 보스입니다.</p>
-                                    <dl class="monster-design-list">
-                                        <div><dt>패턴 분기</dt><dd>HP 70% 이하에서 왕관의 권능, HP 40% 이하에서 심연 선고 루프로 복귀해 페이즈감을 만듭니다.</dd></div>
-                                        <div><dt>레벨 용도</dt><dd>월영으로 버티는 턴과 참월로 몰아치는 턴을 분리해 전체 전투 이해도를 종합적으로 확인합니다.</dd></div>
+                                <div class="monster-portrait-panel">
+                                    <div class="monster-title-row">
+                                        <strong>심연 왕관 수호자</strong>
+                                        <span class="monster-grade boss">보스</span>
+                                    </div>
+                                    <img src="IMG_Projects/ProjectA/abyssal_crown_guardian_portrait.webp?v=fullbody" alt="심연 왕관 수호자 포트레이트">
+                                    <span class="monster-tag">보스 / 주기 패턴 종합 시험</span>
+                                </div>
+                                <div class="monster-card-body">
+                                    <dl class="monster-skill-list">
+                                        <div><dt>심연 선고</dt><dd>심연 왕관 수호자의 전조 스킬입니다.</dd></div>
+                                        <div><dt>왕관 분쇄</dt><dd>심연 왕관 수호자의 강한 공격입니다.</dd></div>
+                                        <div><dt>심연의 칙령</dt><dd>심연 왕관 수호자의 가장 강한 공격입니다.</dd></div>
                                     </dl>
+                                    <p class="monster-intent">기획 의도: 긴 주기 패턴과 HP 조건 분기로 페이즈감을 만들고, 전투 운영 이해도를 종합적으로 확인합니다.</p>
                                 </div>
                             </article>
                         </div>
