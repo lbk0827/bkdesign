@@ -720,31 +720,147 @@
 
                     <div class="data-design-block">
                         <h4 class="case-mini-title">몬스터 데이터 작업 구조</h4>
-                        <div class="data-pipeline">
-                            <div>
+                        <div class="data-relation-map" aria-label="몬스터 데이터 테이블 관계도">
+                            <div class="relation-node primary">
                                 <strong>monster_ai_monsters</strong>
-                                <p><b>monster_id</b>, display_name, stats_id, default_pattern_id, scene_path를 입력합니다. 예: bog_stalker에 bog_stalker_basic 패턴과 전용 씬을 연결.</p>
+                                <span>몬스터 본체</span>
                             </div>
-                            <div>
-                                <strong>monster_ai_stats</strong>
-                                <p><b>max_hp</b>, attack, defense, designer_note로 기본 체급을 조정합니다. 예: frost_revenant는 HP 1200, 방어 40으로 엘리트 내구를 확보.</p>
+                            <div class="relation-branches">
+                                <div class="relation-node">
+                                    <strong>monster_ai_stats</strong>
+                                    <span>체급 참조</span>
+                                </div>
+                                <div class="relation-node">
+                                    <strong>monster_ai_patterns</strong>
+                                    <span>기본 패턴 참조</span>
+                                </div>
                             </div>
-                            <div>
-                                <strong>monster_ai_actions</strong>
-                                <p><b>action_type</b>, power_type, power_value, icon_label을 입력합니다. 예: guardian_edict는 attack_percent 200, ATK 아이콘으로 강공격을 예고.</p>
+                            <div class="relation-branches">
+                                <div class="relation-node">
+                                    <strong>monster_ai_actions</strong>
+                                    <span>패턴 단계별 행동</span>
+                                </div>
+                                <div class="relation-node">
+                                    <strong>monster_ai_rules</strong>
+                                    <span>HP 조건 분기</span>
+                                </div>
                             </div>
-                            <div>
-                                <strong>monster_ai_patterns</strong>
-                                <p><b>step_id</b>, action_id, action_count, next_step_id로 행동 루프를 구성합니다. 예: mire_imp는 공격 후 방어, 이후 강공격으로 복귀.</p>
-                            </div>
-                            <div>
+                            <div class="relation-node endpoint">
                                 <strong>monster_ai_encounters</strong>
-                                <p><b>encounter_id</b>, slot_id, start_step_id, position_x/y, 배율을 조합합니다. 예: 늪 추적자 2체는 한쪽은 버프, 한쪽은 공격 예고로 시작.</p>
+                                <span>전투 배치와 시작 단계</span>
                             </div>
-                            <div>
-                                <strong>monster_ai_rules</strong>
-                                <p><b>trigger_type</b>, trigger_value, set_step_id, priority로 조건 분기를 넣습니다. 예: 보스는 HP 70%, 40% 구간에서 다른 패턴 단계로 진입.</p>
-                            </div>
+                        </div>
+
+                        <div class="data-table-docs">
+                            <section class="data-table-card">
+                                <h5>8-1. monster_ai_monsters</h5>
+                                <p>몬스터의 표시 정보, 씬, 기본 스탯/패턴 연결을 관리하는 기준 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>monster_id</td><td>key,int,origin</td><td>몬스터를 구분하는 유니크 키 값. 예: mire_imp, frost_revenant</td></tr>
+                                            <tr><td>display_name</td><td>string</td><td>전투 UI와 포트폴리오에 노출되는 몬스터 이름.</td></tr>
+                                            <tr><td>stats_id</td><td>key,string</td><td>monster_ai_stats의 stats_id를 참조해 체급 데이터를 연결.</td></tr>
+                                            <tr><td>default_pattern_id</td><td>key,string</td><td>monster_ai_patterns의 pattern_id를 참조해 기본 행동 루프를 연결.</td></tr>
+                                            <tr><td>scene_path</td><td>string</td><td>Godot에서 로드할 몬스터 씬 경로. 예: res://scenes/monster/monster_mire_imp.tscn</td></tr>
+                                            <tr><td>designer_note</td><td>string</td><td>몬스터의 기획 역할과 운용 의도를 기록.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>8-2. monster_ai_stats</h5>
+                                <p>몬스터의 기본 체력, 공격력, 방어력을 관리하는 밸런싱 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>stats_id</td><td>key,int,origin</td><td>스탯 묶음을 구분하는 유니크 키 값. monster_ai_monsters.stats_id에서 참조.</td></tr>
+                                            <tr><td>max_hp</td><td>int</td><td>몬스터의 최대 체력. 예: 심연 왕관 수호자 2500</td></tr>
+                                            <tr><td>attack</td><td>int</td><td>공격 행동의 기준 공격력. attack_percent 계열 행동의 산식 기준값.</td></tr>
+                                            <tr><td>defense</td><td>int</td><td>방어 행동의 기준 방어력. defense_percent 계열 행동의 산식 기준값.</td></tr>
+                                            <tr><td>designer_note</td><td>string</td><td>스탯 배분 의도. 예: 엘리트 내구 확보, 온보딩용 낮은 방어 등.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>8-3. monster_ai_actions</h5>
+                                <p>몬스터가 사용할 수 있는 공격, 방어, 버프, 특수 행동을 정의하는 액션 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>action_id</td><td>key,int,origin</td><td>행동을 구분하는 유니크 키 값. monster_ai_patterns.action_id에서 참조.</td></tr>
+                                            <tr><td>display_name</td><td>string</td><td>전투 예고 UI에 표시되는 기술명. 예: 해골 강타, 심연 선고</td></tr>
+                                            <tr><td>action_type</td><td>enum</td><td>행동 분류. attack, defense, buff, skill 중 하나를 입력.</td></tr>
+                                            <tr><td>target_type</td><td>enum</td><td>대상 분류. player 또는 self를 입력.</td></tr>
+                                            <tr><td>power_type</td><td>enum</td><td>수치 산식 타입. attack_percent, defense_percent, flat, count_delta 등.</td></tr>
+                                            <tr><td>power_value</td><td>int</td><td>행동 수치. 예: judgement는 attack_percent 180, mire_imp_giggle은 count_delta -1</td></tr>
+                                            <tr><td>icon_label</td><td>string</td><td>전투 예고 아이콘 라벨. 예: ATK, DEF, BUF, SKL</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>8-4. monster_ai_patterns</h5>
+                                <p>행동 순서, 행동 카운트, 다음 단계 이동을 관리하는 패턴 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>pattern_step_id</td><td>key,int,origin</td><td>패턴 단계 행을 구분하는 유니크 키 값.</td></tr>
+                                            <tr><td>pattern_id</td><td>key,string</td><td>동일 몬스터의 패턴 묶음 키. monster_ai_monsters.default_pattern_id에서 참조.</td></tr>
+                                            <tr><td>step_id</td><td>key,string</td><td>패턴 안에서 현재 단계를 구분하는 키. 예: start, after_swing, after_armor</td></tr>
+                                            <tr><td>action_id</td><td>key,string</td><td>monster_ai_actions.action_id를 참조해 해당 단계에서 사용할 행동을 연결.</td></tr>
+                                            <tr><td>action_count</td><td>int</td><td>행동 발동까지 남은 카운트. 짧을수록 대응 시간이 줄어듦.</td></tr>
+                                            <tr><td>next_step_id</td><td>key,string</td><td>행동 처리 후 이동할 다음 step_id.</td></tr>
+                                            <tr><td>note</td><td>string</td><td>패턴 단계의 기획 메모. 예: 공격 후 방어를 보여줌, 강공격 전 빈틈 등.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>8-5. monster_ai_rules</h5>
+                                <p>HP 조건 등으로 패턴 단계를 바꾸는 분기 규칙 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>rule_id</td><td>key,int,origin</td><td>규칙을 구분하는 유니크 키 값.</td></tr>
+                                            <tr><td>pattern_id</td><td>key,string</td><td>분기를 적용할 패턴 묶음 키. monster_ai_patterns.pattern_id와 연결.</td></tr>
+                                            <tr><td>trigger_type</td><td>enum</td><td>분기 조건 타입. 현재는 hp_below_ratio를 사용.</td></tr>
+                                            <tr><td>trigger_value</td><td>float</td><td>조건 수치. 예: 0.5는 HP 50% 이하를 의미.</td></tr>
+                                            <tr><td>set_step_id</td><td>key,string</td><td>조건 만족 시 이동할 pattern step. 예: giggle, after_ice_blade</td></tr>
+                                            <tr><td>priority</td><td>int</td><td>여러 규칙이 동시에 성립할 때 적용 우선순위.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>8-6. monster_ai_encounters</h5>
+                                <p>전투 노드에 등장할 몬스터, 시작 패턴 단계, 위치와 배율을 배치하는 인카운터 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>encounter_id</td><td>key,int,origin</td><td>전투 구성을 구분하는 유니크 키 값. 예: enc_mire_imp_4</td></tr>
+                                            <tr><td>slot_id</td><td>int</td><td>같은 인카운터 안에서 몬스터 배치 순서를 구분.</td></tr>
+                                            <tr><td>monster_id</td><td>key,string</td><td>monster_ai_monsters.monster_id를 참조해 등장 몬스터를 지정.</td></tr>
+                                            <tr><td>start_step_id</td><td>key,string</td><td>전투 시작 시 사용할 패턴 단계. 같은 몬스터도 시작 행동을 다르게 배치 가능.</td></tr>
+                                            <tr><td>position_x / y</td><td>int</td><td>전투 화면 내 몬스터 배치 좌표.</td></tr>
+                                            <tr><td>hp_multiplier</td><td>float</td><td>해당 인카운터에서 체력 배율을 조정.</td></tr>
+                                            <tr><td>attack_multiplier</td><td>float</td><td>해당 인카운터에서 공격 배율을 조정.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
                         </div>
                         <p class="data-design-note">몬스터 본체, 스탯, 행동, 패턴, 조건 분기, 인카운터 배치를 분리해 같은 몬스터라도 시작 행동과 카운트를 다르게 줄 수 있게 했습니다. 덕분에 몬스터 성격은 유지하면서 전투 노드별 레벨 디자인과 밸런싱을 별도로 조정할 수 있습니다.</p>
                     </div>

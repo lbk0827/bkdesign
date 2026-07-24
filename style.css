@@ -1725,6 +1725,141 @@ ul li {
     font-weight: 800;
 }
 
+.data-relation-map {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr 1.35fr 1fr;
+    gap: 18px;
+    align-items: center;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 9px;
+    border: 1px solid rgba(138, 223, 255, 0.18);
+    background: rgba(10, 16, 26, 0.76);
+}
+
+.relation-branches {
+    display: grid;
+    gap: 10px;
+}
+
+.relation-node {
+    position: relative;
+    min-height: 62px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(138, 223, 255, 0.22);
+    background: linear-gradient(180deg, rgba(138, 223, 255, 0.09), rgba(255, 255, 255, 0.035));
+}
+
+.relation-node::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    width: 18px;
+    height: 1px;
+    background: rgba(138, 223, 255, 0.38);
+}
+
+.relation-branches:last-of-type .relation-node::after,
+.relation-node.endpoint::after {
+    content: none;
+}
+
+.relation-node.primary {
+    border-color: rgba(97, 207, 255, 0.42);
+    background: linear-gradient(180deg, rgba(97, 207, 255, 0.16), rgba(255, 255, 255, 0.04));
+}
+
+.relation-node.endpoint {
+    border-color: rgba(75, 222, 158, 0.34);
+    background: linear-gradient(180deg, rgba(75, 222, 158, 0.14), rgba(255, 255, 255, 0.04));
+}
+
+.relation-node strong {
+    display: block;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.relation-node span {
+    display: block;
+    color: #aebccb;
+    font-size: 11.5px;
+    line-height: 1.45;
+    margin-top: 4px;
+}
+
+.data-table-docs {
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.data-table-card h5 {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0 0 8px;
+}
+
+.data-table-card > p {
+    color: #b9c5d4;
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin: 0 0 10px;
+}
+
+.data-table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spec-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.spec-table th {
+    color: #27313d;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    padding: 9px 10px;
+    background: #e8ebf0;
+    border: 1px solid rgba(16, 23, 34, 0.1);
+}
+
+.spec-table td {
+    color: #c8d3df;
+    font-size: 12px;
+    line-height: 1.55;
+    padding: 9px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    vertical-align: top;
+}
+
+.spec-table td:first-child {
+    width: 160px;
+    color: #17202b;
+    font-weight: 800;
+    background: #d9c4ef;
+}
+
+.spec-table td:nth-child(2) {
+    width: 150px;
+    color: #27313d;
+    font-weight: 700;
+    background: #eee2f5;
+}
+
+.spec-table td:nth-child(3) {
+    background: rgba(255, 255, 255, 0.025);
+}
+
 .data-design-note {
     margin-top: 12px;
     padding: 12px 14px;
@@ -3068,8 +3203,13 @@ footer {
     .monster-roster-grid,
     .monster-role-card.boss,
     .encounter-flow,
-    .data-pipeline {
+    .data-pipeline,
+    .data-relation-map {
         grid-template-columns: 1fr;
+    }
+
+    .relation-node::after {
+        content: none;
     }
 
     .case-hero {
