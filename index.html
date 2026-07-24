@@ -296,6 +296,157 @@
                             <p>카드 설명과 실제 효과가 같은 데이터를 바라보도록 카드, 효과, 조건, 자세 정보를 분리했습니다.</p>
                         </div>
                     </div>
+
+                    <div class="data-design-block character-data-block">
+                        <h4 class="case-mini-title">캐릭터 데이터 작업 구조</h4>
+                        <div class="data-relation-map" aria-label="캐릭터 데이터 테이블 관계도">
+                            <div class="relation-node primary">
+                                <strong>CharacterCards</strong>
+                                <span>카드 본체</span>
+                            </div>
+                            <div class="relation-branches">
+                                <div class="relation-node">
+                                    <strong>CardEffectRows</strong>
+                                    <span>카드 효과 행</span>
+                                </div>
+                                <div class="relation-node">
+                                    <strong>CardEffects</strong>
+                                    <span>키워드 설명</span>
+                                </div>
+                            </div>
+                            <div class="relation-branches">
+                                <div class="relation-node">
+                                    <strong>CharacterRPSettings</strong>
+                                    <span>RP 획득 규칙</span>
+                                </div>
+                                <div class="relation-node">
+                                    <strong>CharacterRPSkills</strong>
+                                    <span>필살기 데이터</span>
+                                </div>
+                            </div>
+                            <div class="relation-node endpoint">
+                                <strong>PlayerGrowth</strong>
+                                <span>레벨별 성장값</span>
+                            </div>
+                        </div>
+
+                        <div class="data-table-docs">
+                            <section class="data-table-card">
+                                <h5>7-1. CharacterCards</h5>
+                                <p>캐릭터 카드의 기본 정보, 비용, 카드 타입, 출력 텍스트를 관리하는 기준 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>CardKey</td><td>key,int,origin</td><td>캐릭터와 카드를 함께 구분하는 유니크 키 값. 예: tsuki/stance_shift</td></tr>
+                                            <tr><td>Character</td><td>key,string</td><td>카드를 사용할 캐릭터 키. 예: tsuki</td></tr>
+                                            <tr><td>ID</td><td>key,string</td><td>캐릭터 안에서 카드를 구분하는 내부 ID. 예: crescent_slash, halfmoon_combo</td></tr>
+                                            <tr><td>DisplayName</td><td>string</td><td>전투 UI와 카드 이미지에 노출되는 카드 이름.</td></tr>
+                                            <tr><td>Cost</td><td>int</td><td>카드 사용에 필요한 행동 포인트. 예: 자세 변경은 0, 반월 연격은 2</td></tr>
+                                            <tr><td>CardType</td><td>enum</td><td>카드 분류. attack 또는 skill을 입력.</td></tr>
+                                            <tr><td>MotionAnimation</td><td>string</td><td>카드 사용 시 재생할 캐릭터 애니메이션. 예: Attack, Idle</td></tr>
+                                            <tr><td>TextTemplate</td><td>string</td><td>카드 설명 템플릿. CardEffectRows의 TextArgIndex와 연결해 수치를 치환.</td></tr>
+                                            <tr><td>Keywords</td><td>string[]</td><td>카드에 붙는 키워드 목록. 예: 보존, 회수 2, 월영, 참월</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>7-2. CardEffectRows</h5>
+                                <p>카드 한 장 안에 들어가는 개별 효과, 발동 조건, 자세별 분기를 관리하는 효과 행 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>ID</td><td>key,int,origin</td><td>효과 행을 구분하는 유니크 키 값. 예: tsuki_stance_shift_sun_buff</td></tr>
+                                            <tr><td>CardKey</td><td>key,string</td><td>CharacterCards.CardKey를 참조해 효과가 붙을 카드를 지정.</td></tr>
+                                            <tr><td>Trigger</td><td>enum</td><td>효과 발동 시점. on_play, on_stance 등을 입력.</td></tr>
+                                            <tr><td>Stance</td><td>enum/null</td><td>자세 조건. 공통 효과는 null, 자세별 효과는 월영 또는 참월을 입력.</td></tr>
+                                            <tr><td>EffectType</td><td>enum</td><td>효과 종류. damage, shield, draw, buff, stance_change, add_card_to_hand 등.</td></tr>
+                                            <tr><td>Target</td><td>enum/null</td><td>효과 대상. enemy, all_enemies, self 등을 입력.</td></tr>
+                                            <tr><td>Percent / Amount</td><td>int/null</td><td>피해, 실드, 드로우, 행동 포인트 등 효과 수치.</td></tr>
+                                            <tr><td>Condition</td><td>string/null</td><td>조건부 효과 설명. 예: 이번 턴 자세 변경 여부 확인.</td></tr>
+                                            <tr><td>TextArgIndex</td><td>int</td><td>CharacterCards.TextTemplate의 {n} 위치에 들어갈 수치 인덱스.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>7-3. CardEffects</h5>
+                                <p>카드 키워드의 의미와 카테고리를 관리하는 키워드 설명 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Keyword</td><td>key,int,origin</td><td>키워드 이름. CharacterCards.Keywords에서 참조. 예: 보존, 회수</td></tr>
+                                            <tr><td>Category</td><td>enum/string</td><td>키워드 분류. 카드사용, 이로운 등으로 구분.</td></tr>
+                                            <tr><td>Description</td><td>string</td><td>키워드의 실제 규칙 설명. 예: 보존은 턴 종료 시 버려지지 않음.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>7-4. CharacterRPSettings</h5>
+                                <p>캐릭터별 RP 최대치와 획득 규칙을 관리하는 필살기 자원 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Character</td><td>key,int,origin</td><td>RP 규칙을 적용할 캐릭터 키. 예: tsuki</td></tr>
+                                            <tr><td>MaxRP</td><td>float</td><td>보유 가능한 최대 RP. 츠키는 7.</td></tr>
+                                            <tr><td>StartingRP</td><td>float</td><td>전투 시작 시 보유 RP. 츠키는 3.</td></tr>
+                                            <tr><td>RPPerEnemyKill</td><td>float</td><td>적 처치 시 획득하는 RP.</td></tr>
+                                            <tr><td>RPPerActionPoint</td><td>float</td><td>행동 포인트 사용량에 따라 획득하는 RP.</td></tr>
+                                            <tr><td>RPPerEndTurn</td><td>float</td><td>턴 종료 시 획득하는 RP.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>7-5. CharacterRPSkills</h5>
+                                <p>RP를 소비해 사용하는 캐릭터 필살기와 연출 정보를 관리하는 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>ID</td><td>key,int,origin</td><td>필살기 ID. 예: moon_slash</td></tr>
+                                            <tr><td>Character</td><td>key,string</td><td>필살기를 사용할 캐릭터 키. 예: tsuki</td></tr>
+                                            <tr><td>DisplayName</td><td>string</td><td>전투 UI에 표시되는 필살기 이름. 예: 달빛 베기</td></tr>
+                                            <tr><td>RPCost</td><td>float</td><td>필살기 사용에 필요한 RP 비용.</td></tr>
+                                            <tr><td>DamagePercent</td><td>float</td><td>타격 1회당 피해 배율.</td></tr>
+                                            <tr><td>HitCount</td><td>int</td><td>필살기 타격 횟수. Moon Slash는 5회 타격.</td></tr>
+                                            <tr><td>Target</td><td>enum</td><td>공격 대상. 예: all_enemies</td></tr>
+                                            <tr><td>MotionAnimation / VFXID</td><td>string</td><td>필살기 모션과 VFX 리소스 연결 키.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section class="data-table-card">
+                                <h5>7-6. PlayerGrowth</h5>
+                                <p>레벨별 캐릭터 기본 전투 스탯을 관리하는 성장 테이블.</p>
+                                <div class="data-table-wrap">
+                                    <table class="spec-table">
+                                        <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Character</td><td>key,int,origin</td><td>성장값을 적용할 캐릭터 키. 예: tsuki</td></tr>
+                                            <tr><td>Level</td><td>int</td><td>성장 데이터가 적용되는 캐릭터 레벨. 예: 1, 10, 20, 60</td></tr>
+                                            <tr><td>AttackPower</td><td>int</td><td>공격 카드와 피해 산식의 기준 공격력.</td></tr>
+                                            <tr><td>DefensePower</td><td>int</td><td>실드와 방어 산식의 기준 방어력.</td></tr>
+                                            <tr><td>MaxHP</td><td>int</td><td>캐릭터 최대 체력.</td></tr>
+                                            <tr><td>CritRate</td><td>float</td><td>치명타 확률. 예: 0.03</td></tr>
+                                            <tr><td>CritDamage</td><td>float</td><td>치명타 피해 배율. 예: 1.25</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                        <p class="data-design-note">카드 본체와 효과 행을 분리해 카드 설명, 실제 효과, 자세 조건을 같은 데이터 흐름에서 관리했습니다. RP와 성장 테이블은 캐릭터별 전투 리듬과 장기 밸런싱을 별도로 조정할 수 있도록 분리했습니다.</p>
+                    </div>
                 </section>
 
                 <section class="case-section">
@@ -722,141 +873,141 @@
                         <h4 class="case-mini-title">몬스터 데이터 작업 구조</h4>
                         <div class="data-relation-map" aria-label="몬스터 데이터 테이블 관계도">
                             <div class="relation-node primary">
-                                <strong>monster_ai_monsters</strong>
+                                <strong>MonsterAIMonsters</strong>
                                 <span>몬스터 본체</span>
                             </div>
                             <div class="relation-branches">
                                 <div class="relation-node">
-                                    <strong>monster_ai_stats</strong>
+                                    <strong>MonsterAIStats</strong>
                                     <span>체급 참조</span>
                                 </div>
                                 <div class="relation-node">
-                                    <strong>monster_ai_patterns</strong>
+                                    <strong>MonsterAIPatterns</strong>
                                     <span>기본 패턴 참조</span>
                                 </div>
                             </div>
                             <div class="relation-branches">
                                 <div class="relation-node">
-                                    <strong>monster_ai_actions</strong>
+                                    <strong>MonsterAIActions</strong>
                                     <span>패턴 단계별 행동</span>
                                 </div>
                                 <div class="relation-node">
-                                    <strong>monster_ai_rules</strong>
+                                    <strong>MonsterAIRules</strong>
                                     <span>HP 조건 분기</span>
                                 </div>
                             </div>
                             <div class="relation-node endpoint">
-                                <strong>monster_ai_encounters</strong>
+                                <strong>MonsterAIEncounters</strong>
                                 <span>전투 배치와 시작 단계</span>
                             </div>
                         </div>
 
                         <div class="data-table-docs">
                             <section class="data-table-card">
-                                <h5>8-1. monster_ai_monsters</h5>
+                                <h5>8-1. MonsterAIMonsters</h5>
                                 <p>몬스터의 표시 정보, 씬, 기본 스탯/패턴 연결을 관리하는 기준 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>monster_id</td><td>key,int,origin</td><td>몬스터를 구분하는 유니크 키 값. 예: mire_imp, frost_revenant</td></tr>
-                                            <tr><td>display_name</td><td>string</td><td>전투 UI와 포트폴리오에 노출되는 몬스터 이름.</td></tr>
-                                            <tr><td>stats_id</td><td>key,string</td><td>monster_ai_stats의 stats_id를 참조해 체급 데이터를 연결.</td></tr>
-                                            <tr><td>default_pattern_id</td><td>key,string</td><td>monster_ai_patterns의 pattern_id를 참조해 기본 행동 루프를 연결.</td></tr>
-                                            <tr><td>scene_path</td><td>string</td><td>Godot에서 로드할 몬스터 씬 경로. 예: res://scenes/monster/monster_mire_imp.tscn</td></tr>
-                                            <tr><td>designer_note</td><td>string</td><td>몬스터의 기획 역할과 운용 의도를 기록.</td></tr>
+                                            <tr><td>MonsterID</td><td>key,int,origin</td><td>몬스터를 구분하는 유니크 키 값. 예: mire_imp, frost_revenant</td></tr>
+                                            <tr><td>DisplayName</td><td>string</td><td>전투 UI와 포트폴리오에 노출되는 몬스터 이름.</td></tr>
+                                            <tr><td>StatsID</td><td>key,string</td><td>MonsterAIStats.StatsID를 참조해 체급 데이터를 연결.</td></tr>
+                                            <tr><td>DefaultPatternID</td><td>key,string</td><td>MonsterAIPatterns.PatternID를 참조해 기본 행동 루프를 연결.</td></tr>
+                                            <tr><td>ScenePath</td><td>string</td><td>Godot에서 로드할 몬스터 씬 경로. 예: res://scenes/monster/monster_mire_imp.tscn</td></tr>
+                                            <tr><td>DesignerNote</td><td>string</td><td>몬스터의 기획 역할과 운용 의도를 기록.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </section>
 
                             <section class="data-table-card">
-                                <h5>8-2. monster_ai_stats</h5>
+                                <h5>8-2. MonsterAIStats</h5>
                                 <p>몬스터의 기본 체력, 공격력, 방어력을 관리하는 밸런싱 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>stats_id</td><td>key,int,origin</td><td>스탯 묶음을 구분하는 유니크 키 값. monster_ai_monsters.stats_id에서 참조.</td></tr>
-                                            <tr><td>max_hp</td><td>int</td><td>몬스터의 최대 체력. 예: 심연 왕관 수호자 2500</td></tr>
-                                            <tr><td>attack</td><td>int</td><td>공격 행동의 기준 공격력. attack_percent 계열 행동의 산식 기준값.</td></tr>
-                                            <tr><td>defense</td><td>int</td><td>방어 행동의 기준 방어력. defense_percent 계열 행동의 산식 기준값.</td></tr>
-                                            <tr><td>designer_note</td><td>string</td><td>스탯 배분 의도. 예: 엘리트 내구 확보, 온보딩용 낮은 방어 등.</td></tr>
+                                            <tr><td>StatsID</td><td>key,int,origin</td><td>스탯 묶음을 구분하는 유니크 키 값. MonsterAIMonsters.StatsID에서 참조.</td></tr>
+                                            <tr><td>MaxHP</td><td>int</td><td>몬스터의 최대 체력. 예: 심연 왕관 수호자 2500</td></tr>
+                                            <tr><td>Attack</td><td>int</td><td>공격 행동의 기준 공격력. AttackPercent 계열 행동의 산식 기준값.</td></tr>
+                                            <tr><td>Defense</td><td>int</td><td>방어 행동의 기준 방어력. DefensePercent 계열 행동의 산식 기준값.</td></tr>
+                                            <tr><td>DesignerNote</td><td>string</td><td>스탯 배분 의도. 예: 엘리트 내구 확보, 온보딩용 낮은 방어 등.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </section>
 
                             <section class="data-table-card">
-                                <h5>8-3. monster_ai_actions</h5>
+                                <h5>8-3. MonsterAIActions</h5>
                                 <p>몬스터가 사용할 수 있는 공격, 방어, 버프, 특수 행동을 정의하는 액션 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>action_id</td><td>key,int,origin</td><td>행동을 구분하는 유니크 키 값. monster_ai_patterns.action_id에서 참조.</td></tr>
-                                            <tr><td>display_name</td><td>string</td><td>전투 예고 UI에 표시되는 기술명. 예: 해골 강타, 심연 선고</td></tr>
-                                            <tr><td>action_type</td><td>enum</td><td>행동 분류. attack, defense, buff, skill 중 하나를 입력.</td></tr>
-                                            <tr><td>target_type</td><td>enum</td><td>대상 분류. player 또는 self를 입력.</td></tr>
-                                            <tr><td>power_type</td><td>enum</td><td>수치 산식 타입. attack_percent, defense_percent, flat, count_delta 등.</td></tr>
-                                            <tr><td>power_value</td><td>int</td><td>행동 수치. 예: judgement는 attack_percent 180, mire_imp_giggle은 count_delta -1</td></tr>
-                                            <tr><td>icon_label</td><td>string</td><td>전투 예고 아이콘 라벨. 예: ATK, DEF, BUF, SKL</td></tr>
+                                            <tr><td>ActionID</td><td>key,int,origin</td><td>행동을 구분하는 유니크 키 값. MonsterAIPatterns.ActionID에서 참조.</td></tr>
+                                            <tr><td>DisplayName</td><td>string</td><td>전투 예고 UI에 표시되는 기술명. 예: 해골 강타, 심연 선고</td></tr>
+                                            <tr><td>ActionType</td><td>enum</td><td>행동 분류. attack, defense, buff, skill 중 하나를 입력.</td></tr>
+                                            <tr><td>TargetType</td><td>enum</td><td>대상 분류. player 또는 self를 입력.</td></tr>
+                                            <tr><td>PowerType</td><td>enum</td><td>수치 산식 타입. attack_percent, defense_percent, flat, count_delta 등.</td></tr>
+                                            <tr><td>PowerValue</td><td>int</td><td>행동 수치. 예: judgement는 attack_percent 180, mire_imp_giggle은 count_delta -1</td></tr>
+                                            <tr><td>IconLabel</td><td>string</td><td>전투 예고 아이콘 라벨. 예: ATK, DEF, BUF, SKL</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </section>
 
                             <section class="data-table-card">
-                                <h5>8-4. monster_ai_patterns</h5>
+                                <h5>8-4. MonsterAIPatterns</h5>
                                 <p>행동 순서, 행동 카운트, 다음 단계 이동을 관리하는 패턴 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>pattern_step_id</td><td>key,int,origin</td><td>패턴 단계 행을 구분하는 유니크 키 값.</td></tr>
-                                            <tr><td>pattern_id</td><td>key,string</td><td>동일 몬스터의 패턴 묶음 키. monster_ai_monsters.default_pattern_id에서 참조.</td></tr>
-                                            <tr><td>step_id</td><td>key,string</td><td>패턴 안에서 현재 단계를 구분하는 키. 예: start, after_swing, after_armor</td></tr>
-                                            <tr><td>action_id</td><td>key,string</td><td>monster_ai_actions.action_id를 참조해 해당 단계에서 사용할 행동을 연결.</td></tr>
-                                            <tr><td>action_count</td><td>int</td><td>행동 발동까지 남은 카운트. 짧을수록 대응 시간이 줄어듦.</td></tr>
-                                            <tr><td>next_step_id</td><td>key,string</td><td>행동 처리 후 이동할 다음 step_id.</td></tr>
-                                            <tr><td>note</td><td>string</td><td>패턴 단계의 기획 메모. 예: 공격 후 방어를 보여줌, 강공격 전 빈틈 등.</td></tr>
+                                            <tr><td>PatternStepID</td><td>key,int,origin</td><td>패턴 단계 행을 구분하는 유니크 키 값.</td></tr>
+                                            <tr><td>PatternID</td><td>key,string</td><td>동일 몬스터의 패턴 묶음 키. MonsterAIMonsters.DefaultPatternID에서 참조.</td></tr>
+                                            <tr><td>StepID</td><td>key,string</td><td>패턴 안에서 현재 단계를 구분하는 키. 예: start, after_swing, after_armor</td></tr>
+                                            <tr><td>ActionID</td><td>key,string</td><td>MonsterAIActions.ActionID를 참조해 해당 단계에서 사용할 행동을 연결.</td></tr>
+                                            <tr><td>ActionCount</td><td>int</td><td>행동 발동까지 남은 카운트. 짧을수록 대응 시간이 줄어듦.</td></tr>
+                                            <tr><td>NextStepID</td><td>key,string</td><td>행동 처리 후 이동할 다음 StepID.</td></tr>
+                                            <tr><td>Note</td><td>string</td><td>패턴 단계의 기획 메모. 예: 공격 후 방어를 보여줌, 강공격 전 빈틈 등.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </section>
 
                             <section class="data-table-card">
-                                <h5>8-5. monster_ai_rules</h5>
+                                <h5>8-5. MonsterAIRules</h5>
                                 <p>HP 조건 등으로 패턴 단계를 바꾸는 분기 규칙 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>rule_id</td><td>key,int,origin</td><td>규칙을 구분하는 유니크 키 값.</td></tr>
-                                            <tr><td>pattern_id</td><td>key,string</td><td>분기를 적용할 패턴 묶음 키. monster_ai_patterns.pattern_id와 연결.</td></tr>
-                                            <tr><td>trigger_type</td><td>enum</td><td>분기 조건 타입. 현재는 hp_below_ratio를 사용.</td></tr>
-                                            <tr><td>trigger_value</td><td>float</td><td>조건 수치. 예: 0.5는 HP 50% 이하를 의미.</td></tr>
-                                            <tr><td>set_step_id</td><td>key,string</td><td>조건 만족 시 이동할 pattern step. 예: giggle, after_ice_blade</td></tr>
-                                            <tr><td>priority</td><td>int</td><td>여러 규칙이 동시에 성립할 때 적용 우선순위.</td></tr>
+                                            <tr><td>RuleID</td><td>key,int,origin</td><td>규칙을 구분하는 유니크 키 값.</td></tr>
+                                            <tr><td>PatternID</td><td>key,string</td><td>분기를 적용할 패턴 묶음 키. MonsterAIPatterns.PatternID와 연결.</td></tr>
+                                            <tr><td>TriggerType</td><td>enum</td><td>분기 조건 타입. 현재는 hp_below_ratio를 사용.</td></tr>
+                                            <tr><td>TriggerValue</td><td>float</td><td>조건 수치. 예: 0.5는 HP 50% 이하를 의미.</td></tr>
+                                            <tr><td>SetStepID</td><td>key,string</td><td>조건 만족 시 이동할 PatternStep. 예: giggle, after_ice_blade</td></tr>
+                                            <tr><td>Priority</td><td>int</td><td>여러 규칙이 동시에 성립할 때 적용 우선순위.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </section>
 
                             <section class="data-table-card">
-                                <h5>8-6. monster_ai_encounters</h5>
+                                <h5>8-6. MonsterAIEncounters</h5>
                                 <p>전투 노드에 등장할 몬스터, 시작 패턴 단계, 위치와 배율을 배치하는 인카운터 테이블.</p>
                                 <div class="data-table-wrap">
                                     <table class="spec-table">
                                         <thead><tr><th>컬럼</th><th>데이터</th><th>내용</th></tr></thead>
                                         <tbody>
-                                            <tr><td>encounter_id</td><td>key,int,origin</td><td>전투 구성을 구분하는 유니크 키 값. 예: enc_mire_imp_4</td></tr>
-                                            <tr><td>slot_id</td><td>int</td><td>같은 인카운터 안에서 몬스터 배치 순서를 구분.</td></tr>
-                                            <tr><td>monster_id</td><td>key,string</td><td>monster_ai_monsters.monster_id를 참조해 등장 몬스터를 지정.</td></tr>
-                                            <tr><td>start_step_id</td><td>key,string</td><td>전투 시작 시 사용할 패턴 단계. 같은 몬스터도 시작 행동을 다르게 배치 가능.</td></tr>
-                                            <tr><td>position_x / y</td><td>int</td><td>전투 화면 내 몬스터 배치 좌표.</td></tr>
-                                            <tr><td>hp_multiplier</td><td>float</td><td>해당 인카운터에서 체력 배율을 조정.</td></tr>
-                                            <tr><td>attack_multiplier</td><td>float</td><td>해당 인카운터에서 공격 배율을 조정.</td></tr>
+                                            <tr><td>EncounterID</td><td>key,int,origin</td><td>전투 구성을 구분하는 유니크 키 값. 예: enc_mire_imp_4</td></tr>
+                                            <tr><td>SlotID</td><td>int</td><td>같은 인카운터 안에서 몬스터 배치 순서를 구분.</td></tr>
+                                            <tr><td>MonsterID</td><td>key,string</td><td>MonsterAIMonsters.MonsterID를 참조해 등장 몬스터를 지정.</td></tr>
+                                            <tr><td>StartStepID</td><td>key,string</td><td>전투 시작 시 사용할 패턴 단계. 같은 몬스터도 시작 행동을 다르게 배치 가능.</td></tr>
+                                            <tr><td>PositionX / Y</td><td>int</td><td>전투 화면 내 몬스터 배치 좌표.</td></tr>
+                                            <tr><td>HPMultiplier</td><td>float</td><td>해당 인카운터에서 체력 배율을 조정.</td></tr>
+                                            <tr><td>AttackMultiplier</td><td>float</td><td>해당 인카운터에서 공격 배율을 조정.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
