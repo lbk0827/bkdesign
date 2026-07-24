@@ -3212,6 +3212,94 @@ footer {
         content: none;
     }
 
+    .data-table-wrap {
+        overflow-x: visible;
+        border: none;
+        border-radius: 0;
+    }
+
+    .spec-table,
+    .spec-table thead,
+    .spec-table tbody,
+    .spec-table tr,
+    .spec-table th,
+    .spec-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .spec-table {
+        background: transparent;
+    }
+
+    .spec-table thead {
+        display: none;
+    }
+
+    .spec-table tr {
+        margin-bottom: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .spec-table td {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: 12px;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+
+    .spec-table td:last-child {
+        border-bottom: none;
+    }
+
+    .spec-table td::before {
+        color: #8adfff;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.55;
+    }
+
+    .spec-table td:first-child,
+    .spec-table td:nth-child(2),
+    .spec-table td:nth-child(3) {
+        width: 100%;
+        color: #c8d3df;
+        background: rgba(255, 255, 255, 0.025);
+    }
+
+    .spec-table td:first-child {
+        color: #ffffff;
+        font-weight: 800;
+        background: rgba(138, 223, 255, 0.08);
+    }
+
+    .spec-table td:nth-child(2) {
+        color: #d9c4ef;
+        font-weight: 700;
+    }
+
+    .spec-table td:nth-child(1)::before {
+        content: "컬럼";
+    }
+
+    .spec-table td:nth-child(2)::before {
+        content: "데이터";
+    }
+
+    .spec-table td:nth-child(3)::before {
+        content: "내용";
+    }
+
     .case-hero {
         padding: 20px;
     }
