@@ -355,6 +355,35 @@ document.addEventListener('dragstart', function(e) {
 
 // ===== 참여 프로젝트 상세 오버레이 =====
 const PROJECT_DETAILS = {
+    'match-hexa-deck': {
+        title: 'Match Hexa Deck',
+        summary: 'Match Hexa Deck은 헥사 보드 기반의 캐주얼 퍼즐 프로젝트입니다. 기획자·디자이너·이펙터가 협업하며 바이브 코딩으로 인게임 코어 로직, 레벨 제작 구조, UI/UX 흐름을 빠르게 구현한 프로젝트입니다.',
+        team: '기획/개발 협업',
+        role: '인게임 기획/개발, 레벨 에디터 / 스테이지 기획/개발, UI/UX 기획/개발, 출시 준비',
+        period: '2026. 04. ~ 2026. 05.',
+        links: [],
+        galleryLayout: 'row',
+        gallery: [
+            { src: 'IMG_Projects/Match Hexa Deck_1.webp', alt: 'Match Hexa Deck 스크린샷 1' },
+            { src: 'IMG_Projects/Match Hexa Deck_2.webp', alt: 'Match Hexa Deck 스크린샷 2' },
+            { src: 'IMG_Projects/Match Hexa Deck_3.webp', alt: 'Match Hexa Deck 스크린샷 3' },
+            { src: 'IMG_Projects/Match Hexa Deck_4.webp', alt: 'Match Hexa Deck 스크린샷 4' },
+            { src: 'IMG_Projects/Match Hexa Deck_5.webp', alt: 'Match Hexa Deck 스크린샷 5' }
+        ],
+        responsibilities: [
+            { tag: '인게임 핵심 시스템 기획/개발', desc: '헥사 보드 기반 퍼즐의 조작, 매칭, 클리어/실패 조건을 기획하고 바이브 코딩으로 직접 구현' },
+            { tag: '레벨 에디터 / 스테이지 기획/개발', desc: '스테이지 제작 효율을 높이기 위한 에디터와 레벨 구성 규칙을 설계하고, 난이도 흐름에 맞춘 스테이지를 제작' },
+            { tag: 'UI/UX 기획/개발', desc: '인게임 UI, 팝업, 클리어/실패 흐름, 사운드/VFX/햅틱을 적용해 퍼즐 플레이 피드백을 강화' },
+            { tag: '출시 준비', desc: '빌드 세팅, 로컬라이제이션, 성능 최적화 등 출시 준비 작업을 진행' }
+        ],
+        achievements: [
+            '작성 예정'
+        ],
+        coreFeatures: [
+            { title: '작성 예정', description: '작성 예정' }
+        ],
+        retrospective: '작성 예정'
+    },
     'stud-pop': {
         title: 'Stud Pop: Match & Unbuild',
         summary: 'Stud Pop은 블록으로 만들어진 3D 구조물에서 상단에 활성화된 상자와 동일한 색상의 블록을 매칭하여 구조물을 해체하는 퍼즐 게임입니다. Dart Away에 이어 기획자·디자이너·이펙터 셋이서 진행한 두 번째 A.I. 바이브 코딩 프로젝트이며, 처음으로 3D 게임을 기획·개발한 프로젝트입니다. 이 과정에서 Unity 3D 환경에 대한 이해와 A.I.를 활용한 게임 개발 방식을 더 깊게 익힐 수 있었습니다.',
@@ -390,7 +419,7 @@ const PROJECT_DETAILS = {
         summary: 'Dart Away는 다트를 올바른 순서로 선택하여 풍선을 터뜨리는 로직 기반 퍼즐 게임입니다. 프로그래머 없이 기획자·디자이너·이펙터 셋이서 기획부터 출시까지 4주 만에 완성한, 사내 최초의 A.I. 바이브 코딩 프로젝트입니다. 개발과 A.I. R&D를 병행하며 선봉대 역할을 수행했고, 기획자이면서 동시에 코더(Coder) 역할을 겸하여 기존 개발자의 역할을 대체하며 AI 기반 개발 워크플로우의 가능성을 체험한 프로젝트입니다.',
         team: '기획/개발 협업',
         role: '인게임 기획/개발, 레벨 에디터 / 스테이지 기획/개발, UI/UX 기획/개발, BM/상품 기획/개발, 출시 준비',
-        period: '2026. 02. ~ 현재',
+        period: '2026. 02. ~ 2026. 03.',
         links: [],
         galleryLayout: 'row',
         gallery: [
