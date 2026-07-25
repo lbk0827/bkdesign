@@ -69,6 +69,9 @@ function renderCareerDurations() {
 
     const wgamesRangeEl = document.getElementById('wgamesRange');
     if (wgamesRangeEl) wgamesRangeEl.textContent = `2022. 04. ~ ${fmtYYYYMM(now)}`;
+
+    const projectARangeEndEl = document.getElementById('projectARangeEnd');
+    if (projectARangeEndEl) projectARangeEndEl.textContent = fmtYYYYMM(now);
 }
 
 // 최초 실행 + 1분마다 갱신
