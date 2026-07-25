@@ -311,6 +311,12 @@ ul li {
     border-radius: 20px;
 }
 
+.timeline-role-vibe {
+    color: #D97757;
+    background-color: rgba(217, 119, 87, 0.12);
+    border: 1px solid rgba(217, 119, 87, 0.35);
+}
+
 .timeline-meta {
     display: flex;
     gap: 12px;
