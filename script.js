@@ -80,6 +80,13 @@ setInterval(renderCareerDurations, 60 * 1000);
 
 // ===== 기획 문서 오버레이 시스템 =====
 const DOC_DATA = {
+    'guardian-skill': {
+        title: '빙고 헤이븐 - 가디언 스킬',
+        folder: 'GameDesignDocs/BH-GuardianSkill',
+        prefix: 'guardian_',
+        count: 19,
+        defaultZoom: 100
+    },
     'new-user-mission': {
         title: '캐주얼 게임 - 신규 사용자 미션',
         folder: 'GameDesignDocs/CSJ-NewUserMission',
