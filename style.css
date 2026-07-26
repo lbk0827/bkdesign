@@ -830,6 +830,43 @@ ul li {
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
+.case-hero-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.case-gallery-hint {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin: 0 2px 2px 0;
+    color: rgba(185, 234, 255, 0.78);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.case-hero-gallery figure {
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(3, 9, 18, 0.72);
+}
+
+.case-hero-gallery img {
+    border-radius: 0;
+}
+
+.case-hero-gallery figcaption {
+    padding: 7px 9px;
+    color: #b9eaff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+    background: rgba(3, 9, 18, 0.86);
+}
+
 
 .case-section {
     margin-top: 26px;
@@ -2598,6 +2635,7 @@ footer {
 
 /* 클릭 가능한 이미지에 커서 표시 */
 .hl-card-img,
+.case-hero-gallery img,
 .proj-overlay-gallery-images img,
 .proj-overlay-sub-gallery-img {
     cursor: pointer;
@@ -2605,6 +2643,7 @@ footer {
 }
 
 .hl-card-img:hover,
+.case-hero-gallery img:hover,
 .proj-overlay-gallery-images img:hover,
 .proj-overlay-sub-gallery-img:hover {
     opacity: 0.85;
