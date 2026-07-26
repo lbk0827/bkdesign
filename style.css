@@ -1472,7 +1472,6 @@ ul li {
 
 .motion-preview-block,
 .monster-roster-block,
-.encounter-design-block,
 .data-design-block {
     margin-top: 22px;
 }
@@ -1764,53 +1763,6 @@ ul li {
     min-width: 0;
 }
 
-.encounter-flow {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.encounter-step {
-    position: relative;
-    padding: 15px;
-    border-radius: 9px;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.encounter-step::after {
-    content: "";
-    position: absolute;
-    top: 25px;
-    right: -8px;
-    width: 14px;
-    height: 2px;
-    background: rgba(138, 223, 255, 0.36);
-}
-
-.encounter-step:last-child::after {
-    content: none;
-}
-
-.encounter-step span {
-    display: block;
-    color: #8adfff;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    margin-bottom: 5px;
-}
-
-.encounter-step strong {
-    display: block;
-    color: #ffffff;
-    font-size: 13px;
-    line-height: 1.35;
-    margin-bottom: 6px;
-}
-
-.encounter-step p,
 .data-design-note {
     color: #b9c5d4;
     font-size: 12.5px;
@@ -3328,7 +3280,6 @@ footer {
     .motion-preview-card.feature,
     .monster-roster-grid,
     .monster-role-card.boss,
-    .encounter-flow,
     .data-pipeline,
     .data-relation-map {
         grid-template-columns: 1fr;
@@ -3527,10 +3478,6 @@ footer {
         padding: 10px;
         object-fit: contain;
         object-position: center center;
-    }
-
-    .encounter-step::after {
-        content: none;
     }
 
     .doc-overlay-controls {
