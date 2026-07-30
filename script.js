@@ -848,7 +848,7 @@ function closeLightbox() {
 }
 
 // 업무 성과 페이지 이미지 클릭
-document.querySelectorAll('.hl-card-img, .case-hero-gallery img').forEach(img => {
+document.querySelectorAll('.hl-card-img, .case-hero-gallery img, .gameplay-card img').forEach(img => {
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
 });
 
