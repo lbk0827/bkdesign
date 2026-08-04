@@ -364,9 +364,9 @@ document.addEventListener('dragstart', function(e) {
 const PROJECT_DETAILS = {
     'bash-fiesta': {
         title: 'Bash Fiesta',
-        summary: '작성 예정',
+        summary: 'Bash Fiesta는 대포로 공을 발사해 캔을 넘어뜨리는 3D 물리 퍼즐 캐주얼 게임입니다. 물리 엔진을 처음으로 직접 구현한 프로젝트이자, 바이브 코딩으로 진행할 수 있는 게임 중에서도 난이도가 높은 편이라 성공적으로 마무리했을 때 느낀 성취감이 특히 컸습니다.',
         team: '기획/개발 협업',
-        role: '작성 예정',
+        role: '인게임 기획/개발, 레벨 에디터 / 스테이지 기획/개발, 콘텐츠 기획/개발, BM/상점 기획/개발, 출시 준비',
         period: '2026. 07. ~ 2026. 07.',
         links: [],
         galleryLayout: 'row',
@@ -379,15 +379,23 @@ const PROJECT_DETAILS = {
             { src: 'IMG_Projects/BashFiesta_5.webp', alt: 'Bash Fiesta 스크린샷 5' }
         ],
         responsibilities: [
-            { tag: '작성 예정', desc: '작성 예정' }
+            { tag: '인게임 핵심 시스템 기획/개발', desc: 'Smash Carnival 코어(캔 넘어뜨리기 3D 물리 퍼즐)와 대포·로켓·미사일 등 기믹, 부스터 시스템을 기획하고 바이브 코딩으로 직접 구현' },
+            { tag: 'AI 레벨 에디터 / 스테이지 기획/개발', desc: 'AI 기반 레벨 에디터(대량 생성·블록 일괄 편집·테이블 자동 동기화)를 기획·개발하고, 레벨 밸런스를 담당' },
+            { tag: '콘텐츠 기획/개발', desc: '연승, 컨티뉴, 튜토리얼 등 인게임 콘텐츠 시스템을 기획·구현해 플레이 동기와 리텐션을 강화' },
+            { tag: 'BM/상점 기획/개발', desc: '상점, 페일 오퍼, 부스터 패키지 등 상품과 구매 흐름을 기획·구현' },
+            { tag: '현지화 / 지표 / 출시 준비', desc: '7개국어 현지화, Firebase·AppsFlyer 지표 연동, 빌드 등 출시 준비 작업을 진행' }
         ],
         achievements: [
-            '작성 예정'
+            '출시 후 목표 KPI 달성 — Facebook D1 리텐션 58% / AppLovin D1 리텐션 62% 달성 (목표 D1 리텐션 = 50%)',
+            'AI 레벨 에디터를 직접 구축해 스테이지 500여 종을 제작·검증하며 대량 레벨 생산 체계 마련',
+            '3D 물리 엔진 기반 게임을 처음으로 기획부터 개발·출시까지 전 과정을 완수'
         ],
         coreFeatures: [
-            { title: '작성 예정', description: '작성 예정' }
+            { title: 'Smash Carnival 물리 퍼즐 코어', description: '대포로 공을 발사해 캔을 넘어뜨리는 3D 물리 퍼즐. 대포·로켓·미사일 등 기믹으로 스테이지에 변주를 부여' },
+            { title: 'AI 레벨 에디터', description: '레벨 대량 생성과 블록 일괄 편집·회전·복사, 테이블 자동 동기화를 지원해 스테이지 500여 종을 효율적으로 제작' },
+            { title: '연승·BM 연계 콘텐츠', description: '연승(윈스트릭) 실패가 컨티뉴·부스터·페일 오퍼로 이어지도록 설계해 재미와 매출의 흐름을 연결' }
         ],
-        retrospective: '작성 예정'
+        retrospective: '공용 프레임워크 위에서 인게임 코어부터 BM·출시까지 폭넓게 다루며, AI를 활용한 대량 레벨 제작과 기획-구현 일체형 작업의 효율을 체감한 프로젝트입니다.'
     },
     'match-hexa-deck': {
         title: 'Match Hexa Deck',
