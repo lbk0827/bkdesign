@@ -362,6 +362,33 @@ document.addEventListener('dragstart', function(e) {
 
 // ===== 참여 프로젝트 상세 오버레이 =====
 const PROJECT_DETAILS = {
+    'bash-fiesta': {
+        title: 'Bash Fiesta',
+        summary: '작성 예정',
+        team: '기획/개발 협업',
+        role: '작성 예정',
+        period: '2026. 07. ~ 2026. 07.',
+        links: [],
+        galleryLayout: 'row',
+        gallery: [
+            { src: 'IMG_Projects/BashFiesta_gif.webp', alt: 'Bash Fiesta 플레이 GIF' },
+            { src: 'IMG_Projects/BashFiesta_1.webp', alt: 'Bash Fiesta 스크린샷 1' },
+            { src: 'IMG_Projects/BashFiesta_2.webp', alt: 'Bash Fiesta 스크린샷 2' },
+            { src: 'IMG_Projects/BashFiesta_3.webp', alt: 'Bash Fiesta 스크린샷 3' },
+            { src: 'IMG_Projects/BashFiesta_4.webp', alt: 'Bash Fiesta 스크린샷 4' },
+            { src: 'IMG_Projects/BashFiesta_5.webp', alt: 'Bash Fiesta 스크린샷 5' }
+        ],
+        responsibilities: [
+            { tag: '작성 예정', desc: '작성 예정' }
+        ],
+        achievements: [
+            '작성 예정'
+        ],
+        coreFeatures: [
+            { title: '작성 예정', description: '작성 예정' }
+        ],
+        retrospective: '작성 예정'
+    },
     'match-hexa-deck': {
         title: 'Match Hexa Deck',
         summary: 'Match Hexa Deck은 헥사 보드 기반의 캐주얼 퍼즐 프로젝트입니다. 기획자·디자이너·이펙터가 협업하며 바이브 코딩으로 인게임 코어 로직, 레벨 제작 구조, UI/UX 흐름을 빠르게 구현한 프로젝트입니다.',
