@@ -723,9 +723,9 @@ ul li {
 
 .case-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-    gap: 24px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: stretch;
     padding: 26px;
     border: 1px solid rgba(0, 212, 255, 0.22);
     border-radius: 10px;
@@ -852,8 +852,12 @@ ul li {
 
 .case-gallery-hint {
     grid-column: 1 / -1;
-    justify-self: center;
-    margin: 0 2px 2px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    margin: 0;
+    padding: 0 2px;
     color: rgba(185, 234, 255, 0.78);
     font-size: 12px;
     font-weight: 700;
