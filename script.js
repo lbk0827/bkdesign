@@ -596,7 +596,7 @@ const PROJECT_DETAILS = {
         retrospective: '작성 예정'
     },
     'spinning-in-space': {
-        title: 'Spining In Space',
+        title: 'Spinning In Space',
         summary: '미국 지사 Double Down Interactive(DDI)와 공동 개발한 어드벤처 기반 소셜 카지노 게임으로, 기획자로서 첫 걸음을 뗀 프로젝트입니다. 데이터 테이블 설계부터 튜토리얼, 시스템 기획까지 폭넓은 실무를 경험했으며, 해외 팀과 소통하며 글로벌 환경에서 협업하는 값진 경험을 쌓았습니다.',
         team: '기획/개발 협업',
         role: '데이터 테이블 기획/관리, 튜토리얼 기획, 콘텐츠 / 시스템 기획, 해외 팀 커뮤니케이션',
@@ -604,11 +604,11 @@ const PROJECT_DETAILS = {
         galleryLayout: 'row',
         links: [],
         gallery: [
-            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_00.jpg', alt: 'Spining In Space 추가 스크린샷 0' },
-            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_01.jpg', alt: 'Spining In Space 추가 스크린샷 1' },
-            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_02.jpg', alt: 'Spining In Space 추가 스크린샷 2' },
-            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_03.jpg', alt: 'Spining In Space 추가 스크린샷 3' },
-            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_04.jpg', alt: 'Spining In Space 추가 스크린샷 4' }
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_00.jpg', alt: 'Spinning In Space 추가 스크린샷 0' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_01.jpg', alt: 'Spinning In Space 추가 스크린샷 1' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_02.jpg', alt: 'Spinning In Space 추가 스크린샷 2' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_03.jpg', alt: 'Spinning In Space 추가 스크린샷 3' },
+            { src: 'IMG_Projects/SpinningInSpace_Downloads/SpinningInSpace_Extra_04.jpg', alt: 'Spinning In Space 추가 스크린샷 4' }
         ],
         responsibilities: [
             { tag: '데이터 테이블 설계', desc: '캐릭터 커스터마이징 시스템에 사용되는 의상·액세서리 데이터 테이블을 설계하고, 콘텐츠 업데이트에 맞춰 지속적으로 관리' },

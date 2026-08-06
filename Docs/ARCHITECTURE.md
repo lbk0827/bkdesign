@@ -144,7 +144,7 @@ const WGAMES_START = '2022-04-11';   // 더블유게임즈 입사일
 | `color-slide-jam` | Color Slide Jam / Wood Rush Puzzle | 2024.09~2026.02 | 기믹 32종·스테이지 300종 |
 | `bingo-haven` | Bingo Haven | 2023.03~2024.08 | 비동기식 스킬 시스템 |
 | `ai-wars` | A.I Wars | 2023.05~08 | 전투/레벨 밸런스 |
-| `spinning-in-space` | Spining In Space | 2022.04~12 | 데이터 테이블 트래킹 |
+| `spinning-in-space` | Spinning In Space | 2022.04~12 | 데이터 테이블 트래킹 |
 
 **조이시티 (1종)**
 | `3on3-freestyle` | 3on3 FreeStyle | 2020.10~2022.04 | SONY PS 스토어 협업 (사업 PM) |
