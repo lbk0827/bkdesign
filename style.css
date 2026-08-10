@@ -1684,11 +1684,18 @@ ul li {
     background: #ffffff;
 }
 
-.gameplay-card figcaption span.doc-highlight-source {
+.gameplay-card figcaption .doc-highlight-source {
     display: inline-block;
     margin-top: 4px;
     color: #6fa8c9;
     font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gameplay-card figcaption .doc-highlight-source:hover {
+    color: #8adfff;
+    text-decoration: underline;
 }
 
 .monster-roster-grid {

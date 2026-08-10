@@ -233,6 +233,24 @@ document.querySelectorAll('.doc-item').forEach(item => {
     });
 });
 
+// 개인 프로젝트 '기획 하이라이트' 출처 링크 -> 기획 문서 탭으로 이동 후 해당 문서 오픈
+document.querySelectorAll('.doc-highlight-source[data-doc-id]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const docId = this.getAttribute('data-doc-id');
+
+        const documentsNavLink = document.querySelector('.nav-link[data-page="documents"]');
+        if (documentsNavLink) {
+            documentsNavLink.click();
+        }
+
+        const docItem = document.querySelector(`.doc-item[data-doc-id="${docId}"]`);
+        if (docItem) {
+            docItem.click();
+        }
+    });
+});
+
 function buildDocImageUrls(doc) {
     const urls = [];
     for (let i = 1; i <= doc.count; i++) {
