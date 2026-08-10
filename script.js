@@ -121,6 +121,55 @@ const DOC_DATA = {
         prefix: 'pinata_',
         count: 45,
         defaultZoom: 100
+    },
+    'pd-damage-formula': {
+        title: 'Project D - 스테이터스 · 데미지 공식 개선',
+        folder: 'GameDesignDocs/PD-DamageFormula',
+        prefix: 'dmg_',
+        count: 9,
+        defaultZoom: 100
+    },
+    'pd-castle-upgrade': {
+        title: 'Project D - 성 강화',
+        folder: 'GameDesignDocs/PD-CastleUpgrade',
+        prefix: 'castle_',
+        count: 29,
+        defaultZoom: 100
+    },
+    'pd-mercenary': {
+        title: 'Project D - 용병 소환',
+        folder: 'GameDesignDocs/PD-Mercenary',
+        prefix: 'merc_',
+        count: 9,
+        defaultZoom: 100
+    },
+    'pd-skill-evolution': {
+        title: 'Project D - 스킬 승급 시스템',
+        folder: 'GameDesignDocs/PD-SkillEvolution',
+        prefix: 'evo_',
+        count: 11,
+        defaultZoom: 100
+    },
+    'pd-main-ui': {
+        title: 'Project D - 인게임 메인 UI 개선',
+        folder: 'GameDesignDocs/PD-MainUI',
+        prefix: 'mainui_',
+        count: 13,
+        defaultZoom: 100
+    },
+    'pd-card-ui': {
+        title: 'Project D - 카드 UI 개선',
+        folder: 'GameDesignDocs/PD-CardUI',
+        prefix: 'cardui_',
+        count: 16,
+        defaultZoom: 100
+    },
+    'pd-stage-ui': {
+        title: 'Project D - 인게임 스테이지 UI 개선',
+        folder: 'GameDesignDocs/PD-StageUI',
+        prefix: 'stageui_',
+        count: 7,
+        defaultZoom: 100
     }
 };
 
