@@ -915,5 +915,27 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ===== 개인 프로젝트 탭 전환 =====
+const caseTabs = document.querySelectorAll('.case-tab');
+const casePanels = document.querySelectorAll('.case-panel');
+
+caseTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetId = `case-${tab.dataset.case}`;
+
+        caseTabs.forEach(t => {
+            const isActive = t === tab;
+            t.classList.toggle('is-active', isActive);
+            t.setAttribute('aria-selected', String(isActive));
+        });
+
+        casePanels.forEach(panel => {
+            panel.classList.toggle('is-active', panel.id === targetId);
+        });
+
+        window.scrollTo(0, 0);
+    });
+});
+
 // ===== 푸터 연도 자동 갱신 =====
 document.getElementById('year').textContent = new Date().getFullYear();

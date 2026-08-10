@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BK - Game Designer</title>
-    <link rel="stylesheet" href="style.css?v=20260805-1">
+    <link rel="stylesheet" href="style.css?v=20260811-4">
 </head>
 <body>
 
@@ -250,14 +250,25 @@
 
         <!-- Personal Projects 페이지 -->
         <section id="personal-projects" class="page">
-            <h2>개인 프로젝트 - Project-A</h2>
-            <p class="proj-detail-hint">💡 캐릭터, 몬스터, 데이터, 전투 시스템을 직접 설계하고 구현하며 정리한 개인 프로젝트입니다.</p>
+            <h2>개인 프로젝트</h2>
+            <p class="proj-detail-hint">💡 직접 기획하고, 혼자 또는 팀으로 만든 개인 프로젝트입니다. 탭을 눌러 전환할 수 있습니다.</p>
 
-            <article class="personal-case">
+            <div class="case-tabs" role="tablist" aria-label="개인 프로젝트 선택">
+                <button type="button" class="case-tab is-active" data-case="project-a" role="tab" aria-selected="true" aria-controls="case-project-a">
+                    <strong>Project A</strong>
+                    <span>덱 빌딩 로그라이크</span>
+                </button>
+                <button type="button" class="case-tab" data-case="project-d" role="tab" aria-selected="false" aria-controls="case-project-d">
+                    <strong>Project D</strong>
+                    <span>로그라이트 디펜스</span>
+                </button>
+            </div>
+
+            <article class="personal-case case-panel is-active" id="case-project-a" role="tabpanel">
                 <section class="case-hero">
                     <div class="case-hero-copy">
                         <span class="case-eyebrow">개인 사이드 프로젝트</span>
-                        <h3>Project-A</h3>
+                        <h3>Project A</h3>
                         <span class="case-copy-label">프로젝트 소개</span>
                         <p>AI를 활용해 Godot 엔진으로 직접 기획·개발하고 있는 덱 빌딩 로그라이크 프로젝트입니다.</p>
                         <span class="case-copy-label">프로젝트 시작 계기</span>
@@ -277,19 +288,19 @@
                     <div class="case-hero-media case-hero-gallery">
                         <p class="case-gallery-hint">이미지를 클릭하면 확대해서 볼 수 있습니다.</p>
                         <figure>
-                            <img src="IMG_Projects/Projecta_0.png" alt="Project-A Godot 엔진 작업 화면">
+                            <img src="IMG_Projects/Projecta_0.png" alt="Project A Godot 엔진 작업 화면">
                             <figcaption>Godot 엔진 작업</figcaption>
                         </figure>
                         <figure>
-                            <img src="IMG_Projects/projecta_1.png" alt="Project-A 프로젝트 타이틀 화면">
+                            <img src="IMG_Projects/projecta_1.png" alt="Project A 프로젝트 타이틀 화면">
                             <figcaption>프로젝트 타이틀</figcaption>
                         </figure>
                         <figure>
-                            <img src="IMG_Projects/projecta_2.png" alt="Project-A 인게임씬 1">
+                            <img src="IMG_Projects/projecta_2.png" alt="Project A 인게임씬 1">
                             <figcaption>인게임씬 1</figcaption>
                         </figure>
                         <figure>
-                            <img src="IMG_Projects/projecta_3.png" alt="Project-A 인게임씬 2">
+                            <img src="IMG_Projects/projecta_3.png" alt="Project A 인게임씬 2">
                             <figcaption>인게임씬 2</figcaption>
                         </figure>
                     </div>
@@ -305,14 +316,14 @@
                     </div>
                     <div class="gameplay-grid">
                         <figure class="gameplay-card">
-                            <img src="IMG_Projects/GamePlay1.webp?v=2" alt="Project-A 전투 플레이 - 공격 카드로 몬스터에게 피해를 주는 장면">
+                            <img src="IMG_Projects/GamePlay1.webp?v=2" alt="Project A 전투 플레이 - 공격 카드로 몬스터에게 피해를 주는 장면">
                             <figcaption>
                                 <strong>전투 플레이</strong>
                                 <span>공격 카드를 사용해 몬스터에게 피해를 주는 일반 전투 흐름입니다.</span>
                             </figcaption>
                         </figure>
                         <figure class="gameplay-card">
-                            <img src="IMG_Projects/GamePlay2.webp?v=2" alt="Project-A 필살기 사용 - 츠키의 RP(분노) 스킬 발동 장면">
+                            <img src="IMG_Projects/GamePlay2.webp?v=2" alt="Project A 필살기 사용 - 츠키의 RP(분노) 스킬 발동 장면">
                             <figcaption>
                                 <strong>필살기 사용</strong>
                                 <span>RP(분노)를 소비해 발동하는 츠키의 필살기 연출입니다.</span>
@@ -1101,6 +1112,82 @@
                         </div>
                     </div>
                 </section>
+            </article>
+
+            <article class="personal-case case-panel" id="case-project-d" role="tabpanel">
+                <section class="case-hero">
+                    <div class="case-hero-copy">
+                        <span class="case-eyebrow">개인 사이드 프로젝트</span>
+                        <h3>Project D</h3>
+                        <span class="case-copy-label">프로젝트 소개</span>
+                        <p>마왕군 캐릭터로 파티를 구성해, 마왕성으로 몰려오는 용사들을 막아내는 로그라이트 디펜스 게임입니다. 저는 기획을 담당했고, 개발자·연출가와 셋이 팀을 이뤄 즐겁게 진행한 사이드 프로젝트입니다.</p>
+                        <span class="case-copy-label">진행 상태</span>
+                        <p>Unity로 제작했으며, 프로토타입 플레이가 가능한 수준까지 구현한 뒤 개발을 중단한 프로젝트입니다.</p>
+                        <div class="case-credit-list">
+                            <p class="case-credit case-credit-plan">기획 : 이병권</p>
+                            <p class="case-credit case-credit-dev">개발 · 아트 · 연출 : 팀 협업</p>
+                        </div>
+                        <div class="case-tags">
+                            <span>캐주얼</span>
+                            <span>로그라이트</span>
+                            <span>웨이브</span>
+                            <span>디펜스</span>
+                            <span>파티</span>
+                        </div>
+                        <p class="case-period-note">2024. 12. ~ 2025. 03.</p>
+                    </div>
+                    <div class="case-hero-media case-hero-gallery case-hero-gallery-portrait">
+                        <p class="case-gallery-hint">이미지를 클릭하면 확대해서 볼 수 있습니다.</p>
+                        <figure>
+                            <img src="IMG_Projects/ProjectD/D_1.png" alt="Project D 웨이브 대기 화면">
+                            <figcaption>웨이브 대기 / 캐릭터 이동</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="IMG_Projects/ProjectD/D_2.png" alt="Project D 웨이브 시작 연출">
+                            <figcaption>웨이브 시작</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="IMG_Projects/ProjectD/D_3.png" alt="Project D 스킬 3택 선택 화면">
+                            <figcaption>스킬 선택 화면</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="IMG_Projects/ProjectD/D_4.png" alt="Project D 스킬 발동 전투 장면">
+                            <figcaption>스킬 발동 1</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="IMG_Projects/ProjectD/D_5.png" alt="Project D 광역 스킬과 용병 방어 장면">
+                            <figcaption>스킬 발동 2</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="case-section">
+                    <div class="case-section-head">
+                        <span class="case-step">01</span>
+                        <div>
+                            <h3>진행 작업</h3>
+                        </div>
+                    </div>
+                    <div class="case-grid case-grid-4">
+                        <div class="case-info-card case-card-combat">
+                            <strong>🏰 디펜스 전투 설계</strong>
+                            <p>웨이브 단위로 몰려오는 용사들을 막아내는 방어 전투의 흐름을 구성했습니다.</p>
+                        </div>
+                        <div class="case-info-card case-card-character">
+                            <strong>🎴 스킬 드래프트</strong>
+                            <p>전투 중 제시되는 3종의 스킬 중 하나를 선택하게 하여, 매 판 다른 빌드가 만들어지도록 설계했습니다.</p>
+                        </div>
+                        <div class="case-info-card case-card-monster">
+                            <strong>⚔️ 파티 · 용병 편성</strong>
+                            <p>마왕군 캐릭터로 파티를 구성하고 용병을 배치해 방어선을 만드는 구조를 기획했습니다.</p>
+                        </div>
+                        <div class="case-info-card case-card-data">
+                            <strong>📈 성장 · 난이도 곡선</strong>
+                            <p>성 강화와 웨이브별 난이도를 조절하며 성장과 압박이 번갈아 오도록 구성했습니다.</p>
+                        </div>
+                    </div>
+                </section>
+
             </article>
         </section>
 
@@ -1981,7 +2068,7 @@
     </div>
 
     <!-- JavaScript 파일 연결 -->
-    <script src="script.js?v=20260731-1"></script>
+    <script src="script.js?v=20260811-4"></script>
 
 </body>
 </html>

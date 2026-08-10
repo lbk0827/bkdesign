@@ -721,6 +721,74 @@ ul li {
     margin: 0;
 }
 
+/* 개인 프로젝트 탭 스위처 */
+.case-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.case-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 180px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid #2a2a3a;
+    background-color: #14141d;
+    color: #b9c5d4;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.case-tab strong {
+    color: #e8eef6;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.case-tab span {
+    font-size: 12px;
+    color: #8894a5;
+}
+
+.case-tab:hover {
+    border-color: rgba(0, 212, 255, 0.35);
+    background-color: #171724;
+}
+
+.case-tab.is-active {
+    border-color: rgba(0, 212, 255, 0.55);
+    background-color: rgba(0, 212, 255, 0.08);
+}
+
+.case-tab.is-active strong {
+    color: #ffffff;
+}
+
+.case-tab.is-active span {
+    color: #8adfff;
+}
+
+.case-panel {
+    display: none;
+}
+
+.case-panel.is-active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.case-period-note {
+    margin-top: 14px;
+    color: #8894a5 !important;
+    font-size: 13px !important;
+}
+
 .case-hero {
     display: grid;
     grid-template-columns: 1fr;
@@ -850,6 +918,17 @@ ul li {
     gap: 10px;
 }
 
+/* 세로 스크린샷 갤러리 — 한 행에 모두 배치 */
+.case-hero-gallery-portrait {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.case-hero-gallery-portrait img {
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    background: #0b111c;
+}
+
 .case-gallery-hint {
     grid-column: 1 / -1;
     display: flex;
@@ -882,6 +961,7 @@ ul li {
     font-size: 12px;
     font-weight: 700;
     line-height: 1.35;
+    text-align: center;
     background: rgba(3, 9, 18, 0.86);
 }
 
@@ -3348,6 +3428,15 @@ footer {
     .data-pipeline,
     .data-relation-map {
         grid-template-columns: 1fr;
+    }
+
+    .case-hero-gallery-portrait {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .case-tab {
+        min-width: 0;
+        flex: 1;
     }
 
     .relation-node::after {
