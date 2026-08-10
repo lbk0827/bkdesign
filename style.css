@@ -1674,6 +1674,23 @@ ul li {
     line-height: 1.6;
 }
 
+/* 기획서 슬라이드 하이라이트 — 텍스트/표가 잘리지 않도록 contain */
+.gameplay-grid.doc-highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gameplay-card.doc-highlight-card img {
+    object-fit: contain;
+    background: #ffffff;
+}
+
+.gameplay-card figcaption span.doc-highlight-source {
+    display: inline-block;
+    margin-top: 4px;
+    color: #6fa8c9;
+    font-size: 12px;
+}
+
 .monster-roster-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
